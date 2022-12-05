@@ -46,22 +46,50 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 padding: const EdgeInsets.all(10),
                 child: const Text(
                   'Connexion',
-                  style: TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 )),
+            const SizedBox(height: 20),
             TextFormField(
               keyboardType: TextInputType.emailAddress,
+              style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                  borderSide: BorderSide(
+                    width: 0,
+                    style: BorderStyle.none,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(50.0))
+                ),
                 labelText: 'Adresse mail',
+                labelStyle: TextStyle(
+                  height: -0.5,
+                ),
                 hintText: 'Entrez votre adresse mail',
+                filled: true,
+                fillColor: Color.fromRGBO(232, 232, 232, 1),
               ),
             ),
+            const SizedBox(height: 20),
             TextFormField(
               keyboardType: TextInputType.text,
               obscureText:
               !_passwordVisible, //This will obscure text dynamically
+              style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
+                border: const OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 0,
+                      style: BorderStyle.none,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(50.0))
+                ),
                 labelText: 'Mot de passe',
+                labelStyle: const TextStyle(
+                  height: -0.5,
+                ),
                 hintText: 'Entrez votre mot de passe',
+                filled: true,
+                fillColor: const Color.fromRGBO(232, 232, 232, 1),
 
                 // Here is key idea
                 suffixIcon: IconButton(
@@ -84,15 +112,20 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 //forgot password screen
               },
               child: const Text(
-                'Mot de Passe Oublié',
+                'Mot de passe oublié ?',
+                style: TextStyle(fontSize: 10),
               ),
             ),
             Row(children: <Widget>[
-              const SizedBox(
-                width: 10,
-              ), //SizedBox
-
               Checkbox(
+                checkColor: Colors.black,
+                activeColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(4.0),
+                ),
+                side: MaterialStateBorderSide.resolveWith(
+                      (states) => const BorderSide(width: 2, color: Colors.black),
+                ),
                 value: _value,
                 onChanged: (bool? val){
                   setState(() {
@@ -105,13 +138,21 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 style: TextStyle(fontSize: 17.0),
               ),
             ]),
+            const SizedBox(height: 50), //SizedBox
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
-                  child: const Text('Connexion'),
+                  style: ElevatedButton.styleFrom(
+                    shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                    ),
+                  ),
                   onPressed: () {
                   },
+                  child: const Text('Connexion',
+                    style: TextStyle(fontSize: 20),
+                  ),
                 )),
           ],
         ));
