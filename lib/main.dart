@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projet_sm/verification_code.dart';
 
 import 'login.dart';
 
@@ -17,10 +18,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: "StockMag'",
-      home: Login(),
+      home: const Login(),
       routes: {
         '/login': (context) => const Login(),
-    },
+        '/verification_code': (context) => const VerificationCode(),
+      },
+      initialRoute: '/',
     );
   }
 }

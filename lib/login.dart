@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/verification_code.dart';
 
 void main() => runApp(const Login());
 
@@ -63,7 +64,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 labelText: 'Adresse mail',
                 hintText: 'Entrez votre adresse mail',
                 filled: true,
-                fillColor: Color.fromRGBO(232, 232, 232, 1),
+                fillColor: Color.fromRGBO(232, 232, 232, 1.0),
               ),
             ),
             const SizedBox(height: 20),
@@ -106,7 +107,11 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               children: [
                 TextButton(
                   onPressed: () {
-                    //forgot password screen
+                    // Navigator.pushNamed(context, '/verification_code'); //forgot password screen
+                    Navigator.push(context, MaterialPageRoute<void>(
+                        builder: (BuildContext context) {
+                          return const VerificationCode();
+                        }));
                   },
                   child: const Text(
                     'Mot de passe oublié ?',
