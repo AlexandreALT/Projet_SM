@@ -61,9 +61,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   borderRadius: BorderRadius.all(Radius.circular(50.0))
                 ),
                 labelText: 'Adresse mail',
-                labelStyle: TextStyle(
-                  height: -0.5,
-                ),
                 hintText: 'Entrez votre adresse mail',
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1),
@@ -84,9 +81,6 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))
                 ),
                 labelText: 'Mot de passe',
-                labelStyle: const TextStyle(
-                  height: -0.5,
-                ),
                 hintText: 'Entrez votre mot de passe',
                 filled: true,
                 fillColor: const Color.fromRGBO(232, 232, 232, 1),
