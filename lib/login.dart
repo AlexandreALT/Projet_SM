@@ -107,14 +107,19 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                 ),
               ),
             ),
-            TextButton(
-              onPressed: () {
-                //forgot password screen
-              },
-              child: const Text(
-                'Mot de passe oublié ?',
-                style: TextStyle(fontSize: 10),
-              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                TextButton(
+                  onPressed: () {
+                    //forgot password screen
+                  },
+                  child: const Text(
+                    'Mot de passe oublié ?',
+                      style: TextStyle(fontSize: 10),
+                  ),
+                ),
+              ],
             ),
             Row(children: <Widget>[
               Checkbox(
