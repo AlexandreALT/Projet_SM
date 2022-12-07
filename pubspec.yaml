@@ -44,9 +44,15 @@ dev_dependencies:
   flutter_native_splash: ^2.2.16
 
 flutter_native_splash:
-  color: "#FFFFFF"
+  color: "#ffffff"
   background_image : "assets/logo.png"
   image : "assets/logo.png"
+
+  android_12:
+    image: "assets/logo.png"
+    icon_background_color: "#ffffff"
+    image_dark: "assets/logo.png"
+    icon_background_color_dark: "#121212"
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
