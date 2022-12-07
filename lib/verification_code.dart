@@ -5,13 +5,43 @@ class VerificationCode extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return MaterialApp(
+      theme: ThemeData(scaffoldBackgroundColor: Colors.white),
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.white,
+          elevation: 0.0,
+          iconTheme: const IconThemeData(
+            color: Colors.black,
+          ),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back,),
+            onPressed: () => Navigator.of(context).pop(),
+          ),
+        ),
+        body: const MyStatefulWidget(),
+      ),
+    );
+  }
+}
+
+class MyStatefulWidget extends StatefulWidget {
+  const MyStatefulWidget({Key? key}) : super(key: key);
+
+  @override
+  State<MyStatefulWidget> createState() => _MyStatefulWidgetState();
+}
+
+class _MyStatefulWidgetState extends State<MyStatefulWidget> {
+  @override
+  Widget build(BuildContext context) {
     return Padding(
         padding: const EdgeInsets.all(10),
         child: ListView(
           children: <Widget>[
             Column(
               children: <Widget>[
-                const SizedBox(height: 50),
+                //const SizedBox(height: 10),
                 Image.asset('assets/logo.png', height: 200.0, fit: BoxFit.cover),
                 const Text('StockMag\'', style: TextStyle(color: Colors.blue, fontWeight: FontWeight.w500, fontSize: 40),),
                 const SizedBox(height: 20),
@@ -54,7 +84,7 @@ class VerificationCode extends StatelessWidget {
                   ),
                   onPressed: () {
                   },
-                  child: const Text('Connexion',
+                  child: const Text('Vérifier le code',
                     style: TextStyle(fontSize: 20),
                   ),
                 )),
