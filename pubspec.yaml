@@ -44,7 +44,7 @@ dev_dependencies:
   flutter_native_splash: ^2.2.16
 
 flutter_native_splash:
-  #color: "#FFFFFF"
+  color: "#FFFFFF"
   background_image : "assets/logo.png"
   image : "assets/logo.png"
 
