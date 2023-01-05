@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/login.dart';
+import 'package:projet_sm/settings.dart';
 
 class Accueil extends StatelessWidget {
   const Accueil({Key? key}) : super(key: key);
@@ -30,7 +31,12 @@ class Accueil extends StatelessWidget {
           ),
           IconButton(
             icon: Image.asset('assets/parametre.png'),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute<void>(builder: (BuildContext context) {
+                    return const Settings();
+                  }));
+            },
           ),
         ],
       ),
