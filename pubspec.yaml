@@ -45,8 +45,8 @@ dev_dependencies:
 
 flutter_native_splash:
   color: "#ffffff"
-  background_image : "assets/logo.png"
-  image : "assets/logo.png"
+  background_image: "assets/splash800.png"
+  image: "assets/splash800.png"
 
   android_12:
     image: "assets/splash800.png"
@@ -85,6 +85,7 @@ flutter:
     - assets/role.png
     - assets/qr-code.png
     - assets/keyboard.png
+    - assets/info.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
