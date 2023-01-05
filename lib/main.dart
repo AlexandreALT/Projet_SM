@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/verification_code.dart';
 
+import 'accueil.dart';
 import 'login.dart';
 
 Future<void> main() async {
@@ -17,11 +18,12 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "StockMag'",
+      title: 'StockMag\'',
       home: const Login(),
       routes: {
         '/login': (context) => const Login(),
         '/verification_code': (context) => const VerificationCode(),
+        '/accueil': (context) => const Accueil(),
       },
       initialRoute: '/',
     );
