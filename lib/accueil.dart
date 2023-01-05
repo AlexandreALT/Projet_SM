@@ -9,6 +9,8 @@ class Accueil extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.white,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
@@ -22,7 +24,10 @@ class Accueil extends StatelessWidget {
             );
           },
         ),
-        title: const Text("Accueil"),
+        title: const Text(
+          "Accueil",
+          style: TextStyle(color: Colors.black, fontSize: 30),
+        ),
         actions: [
           IconButton(
             icon: Image.asset('assets/role.png'),
@@ -36,13 +41,16 @@ class Accueil extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(30),
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text("Bienvenue, ... !"),
-              Text("Il y a X chantiers en cours."),
-              Text("Il y a X articles en magasin dont X sur chantier.")
-            ]),
+        child: ListView(children: <Widget>[
+          Container(
+              child: Text("Bienvenue, ... !", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+              alignment: Alignment.center),
+          SizedBox(height: 50),
+          Text("Il y a X chantiers en cours.",style: TextStyle(fontSize: 16)),
+          SizedBox(height: 20),
+          Text("Il y a X articles en magasin",style: TextStyle(fontSize: 16)),
+          Text("dont X sur chantier.",style: TextStyle(fontSize: 16)),
+        ]),
       ),
     );
   }
