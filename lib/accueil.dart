@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projet_sm/choice_capture.dart';
 import 'package:projet_sm/login.dart';
 
 class Accueil extends StatelessWidget {
@@ -26,7 +27,10 @@ class Accueil extends StatelessWidget {
         actions: [
           IconButton(
             icon: Image.asset('assets/role.png'),
-            onPressed: () {},
+            onPressed: () {Navigator.push(context,
+                MaterialPageRoute<void>(builder: (BuildContext context) {
+                  return const ChoiceCapture();
+                }));},
           ),
           IconButton(
             icon: Image.asset('assets/parametre.png'),
