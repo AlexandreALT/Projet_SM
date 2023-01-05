@@ -43,15 +43,15 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
               children: <Widget>[
                 const SizedBox(height: 50),
                 Image.asset('assets/info.png',
-                    height: 200.0, fit: BoxFit.cover),
+                    height: 150.0, fit: BoxFit.cover),
+                const SizedBox(height: 40),
                 const Text(
-                  'Voulez-vous vous déconnecter',
+                  'Voulez-vous vous déconnecter ?',
                   style: TextStyle(
-                      color: Colors.blue,
                       fontWeight: FontWeight.w500,
-                      fontSize: 40),
+                      fontSize: 23),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(height: 40),
               ],
             ), //SizedBox
             Container(
@@ -74,11 +74,13 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                     style: TextStyle(fontSize: 20),
                   ),
                 )),
+            const SizedBox(height: 40),
             Container(
                 height: 50,
                 padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.red,
                     shape: const RoundedRectangleBorder(
                       borderRadius: BorderRadius.all(Radius.circular(50.0)),
                     ),
