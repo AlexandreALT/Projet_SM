@@ -81,6 +81,12 @@ flutter:
     - assets/deconnexion.png
     - assets/parametre.png
     - assets/role.png
+    - assets/sorties_icon.png
+    - assets/alert_icon.png
+    - assets/arrows_icon.png
+    - assets/chantier_icon.png
+    - assets/data_icon.png
+    - assets/stock_icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
