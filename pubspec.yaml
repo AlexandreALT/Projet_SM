@@ -54,6 +54,8 @@ flutter_native_splash:
     image_dark: "assets/splash800.png"
     icon_background_color_dark: "#121212"
 
+  web: false
+
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
@@ -81,6 +83,9 @@ flutter:
     - assets/deconnexion.png
     - assets/parametre.png
     - assets/role.png
+    - assets/qr-code.png
+    - assets/keyboard.png
+    - assets/info.png
     - assets/sorties_icon.png
     - assets/alert_icon.png
     - assets/arrows_icon.png

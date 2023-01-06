@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:projet_sm/verification_code.dart';
 
 import 'accueil.dart';
+import 'choice_capture.dart';
 import 'login.dart';
 
 Future<void> main() async {
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const Login(),
         '/verification_code': (context) => const VerificationCode(),
         '/accueil': (context) => const Accueil(),
+        '/scan' : (context) => ChoiceCapture()
       },
       initialRoute: '/',
     );
