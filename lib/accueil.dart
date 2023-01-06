@@ -1,8 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projet_sm/alerts.dart';
+import 'package:projet_sm/chantiers.dart';
 import 'package:projet_sm/choice_capture.dart';
 import 'package:projet_sm/login.dart';
 import 'package:projet_sm/settings.dart';
+import 'package:projet_sm/stock.dart';
 
 class Accueil extends StatelessWidget {
   const Accueil({Key? key}) : super(key: key);
@@ -33,18 +35,15 @@ class Accueil extends StatelessWidget {
         actions: [
           IconButton(
             icon: Image.asset('assets/role.png'),
-            onPressed: () {Navigator.push(context,
-                MaterialPageRoute<void>(builder: (BuildContext context) {
-                  return const ChoiceCapture();
-                }));},
+            onPressed: () {},
           ),
           IconButton(
             icon: Image.asset('assets/parametre.png'),
             onPressed: () {
               Navigator.push(context,
                   MaterialPageRoute<void>(builder: (BuildContext context) {
-                    return const Settings();
-                  }));
+                return const Settings();
+              }));
             },
           ),
         ],
@@ -82,8 +81,11 @@ class Accueil extends StatelessWidget {
                       Image.asset('assets/sorties_icon.png',
                           height: 30, fit: BoxFit.cover),
                       SizedBox(height: 10),
-                      Text('Vérifier les \nsorties',
-                          style: TextStyle(fontSize: 10),textAlign: TextAlign.center,)
+                      Text(
+                        'Vérifier les \nsorties',
+                        style: TextStyle(fontSize: 10),
+                        textAlign: TextAlign.center,
+                      )
                     ])),
               ),
               Container(
@@ -96,16 +98,25 @@ class Accueil extends StatelessWidget {
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ))),
-                    onPressed: () {},
+                          borderRadius: BorderRadius.circular(18.0),
+                        ))),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute<void>(
+                          builder: (BuildContext context) {
+                        return const Chantiers();
+                      }));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Column(children: [
                         Image.asset('assets/chantier_icon.png',
                             height: 30, fit: BoxFit.cover),
                         SizedBox(height: 10),
-                        Text('Chantiers', style: TextStyle(fontSize: 10),textAlign: TextAlign.center,)
+                        Text(
+                          'Chantiers',
+                          style: TextStyle(fontSize: 10),
+                          textAlign: TextAlign.center,
+                        )
                       ]),
                     )),
               ),
@@ -119,17 +130,25 @@ class Accueil extends StatelessWidget {
                         shape:
                             MaterialStateProperty.all<RoundedRectangleBorder>(
                                 RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ))),
-                    onPressed: () {},
+                          borderRadius: BorderRadius.circular(18.0),
+                        ))),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute<void>(
+                          builder: (BuildContext context) {
+                        return const Stock();
+                      }));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Column(children: [
                         Image.asset('assets/stock_icon.png',
                             height: 30, fit: BoxFit.cover),
                         SizedBox(height: 10),
-                        Text('Vérifier les \nstocks',
-                            style: TextStyle(fontSize: 10),textAlign: TextAlign.center,)
+                        Text(
+                          'Vérifier les \nstocks',
+                          style: TextStyle(fontSize: 10),
+                          textAlign: TextAlign.center,
+                        )
                       ]),
                     )),
               ),
@@ -148,18 +167,28 @@ class Accueil extends StatelessWidget {
                             EdgeInsets.all(12)),
                         backgroundColor:
                             MaterialStateProperty.all<Color>(Colors.red),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(18.0),
                         ))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute<void>(
+                          builder: (BuildContext context) {
+                        return const Alerts();
+                      }));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Column(children: [
                         Image.asset('assets/alert_icon.png',
                             height: 30, fit: BoxFit.cover),
                         SizedBox(height: 10),
-                        Text('Alertes', style: TextStyle(fontSize: 10),textAlign: TextAlign.center,)
+                        Text(
+                          'Alertes',
+                          style: TextStyle(fontSize: 10),
+                          textAlign: TextAlign.center,
+                        )
                       ]),
                     )),
               ),
@@ -170,10 +199,11 @@ class Accueil extends StatelessWidget {
                     style: ButtonStyle(
                         padding: MaterialStateProperty.all<EdgeInsets>(
                             EdgeInsets.all(12)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ))),
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ))),
                     onPressed: () {},
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
@@ -181,8 +211,11 @@ class Accueil extends StatelessWidget {
                         Image.asset('assets/data_icon.png',
                             height: 30, fit: BoxFit.cover),
                         SizedBox(height: 10),
-                        Text('Exporter les \ndonnées',
-                            style: TextStyle(fontSize: 10),textAlign: TextAlign.center,)
+                        Text(
+                          'Exporter les \ndonnées',
+                          style: TextStyle(fontSize: 10),
+                          textAlign: TextAlign.center,
+                        )
                       ]),
                     )),
               ),
@@ -193,18 +226,28 @@ class Accueil extends StatelessWidget {
                     style: ButtonStyle(
                         padding: MaterialStateProperty.all<EdgeInsets>(
                             EdgeInsets.all(12)),
-                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                            RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
-                    ))),
-                    onPressed: () {},
+                        shape:
+                            MaterialStateProperty.all<RoundedRectangleBorder>(
+                                RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(18.0),
+                        ))),
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute<void>(
+                          builder: (BuildContext context) {
+                        return const ChoiceCapture();
+                      }));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
                       child: Column(children: [
                         Image.asset('assets/arrows_icon.png',
                             height: 30, fit: BoxFit.cover),
                         SizedBox(height: 10),
-                        Text('Entrée / Sorties', style: TextStyle(fontSize: 10),textAlign: TextAlign.center,)
+                        Text(
+                          'Entrée / Sorties',
+                          style: TextStyle(fontSize: 10),
+                          textAlign: TextAlign.center,
+                        )
                       ]),
                     )),
               ),

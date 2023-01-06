@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/verification_code.dart';
 
 import 'logout.dart';
 
@@ -56,12 +55,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute<void>(
-                            builder: (BuildContext context) {
-                              return const VerificationCode();
-                            }));
-                      },
+                      onPressed: () {},
                       child: const Text(
                         'Modifier le profil',
                         style: TextStyle(fontSize: 20),
@@ -90,12 +84,7 @@ class _MyStatefulWidgetState extends State<MyStatefulWidget> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     TextButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute<void>(
-                            builder: (BuildContext context) {
-                              return const VerificationCode();
-                            }));
-                      },
+                      onPressed: () {},
                       child: const Text(
                         'Supprimer mon compte',
                         style: TextStyle(fontSize: 20, color : Colors.red),

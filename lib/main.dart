@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projet_sm/alerts.dart';
+import 'package:projet_sm/stock.dart';
 import 'package:projet_sm/verification_code.dart';
 
 import 'accueil.dart';
@@ -25,7 +27,9 @@ class MyApp extends StatelessWidget {
         '/login': (context) => const Login(),
         '/verification_code': (context) => const VerificationCode(),
         '/accueil': (context) => const Accueil(),
-        '/scan' : (context) => ChoiceCapture()
+        '/scan' : (context) => const ChoiceCapture(),
+        '/alerts' : (context) => const Alerts(),
+        '/stock' : (context) => const Stock(),
       },
       initialRoute: '/',
     );
