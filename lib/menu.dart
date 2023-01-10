@@ -100,7 +100,7 @@ class Menu extends StatelessWidget {
               'Quitter',
               style: TextStyle(color: Colors.red),
             ),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.pushNamed(context, '/leave_app'),},
           ),
         ],
       ),

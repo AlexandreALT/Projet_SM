@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/alerts.dart';
 import 'package:projet_sm/chantiers.dart';
+import 'package:projet_sm/leave_app.dart';
 import 'package:projet_sm/menu.dart';
+import 'package:projet_sm/profile.dart';
 import 'package:projet_sm/settings.dart';
 import 'package:projet_sm/stock.dart';
 import 'package:projet_sm/verification_code.dart';
@@ -37,6 +39,8 @@ class MyApp extends StatelessWidget {
         '/stock': (context) => new Stock(),
         '/verification_code': (context) => new VerificationCode(),
         '/menu': (context) => new Menu(),
+        '/leave_app': (context) => new LeaveApp(),
+        '/profile': (context) => new Profile(),
       },
     );
   }
