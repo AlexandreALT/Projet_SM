@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/accueil.dart';
-import 'package:projet_sm/verification_code.dart';
 
 class Login extends StatelessWidget {
   Login({Key? key}) : super(key: key);

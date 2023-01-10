@@ -120,6 +120,37 @@ class Settings extends StatelessWidget {
               ),
             ],
           ),
+          SizedBox(height: 400),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Container(
+                child: TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: const Text(
+                    'Retour',
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  ),
+                  style: TextButton.styleFrom(
+                    fixedSize: const Size(300, 50),
+                    backgroundColor: Colors.white,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey.withOpacity(0.5),
+                      spreadRadius: 2,
+                      blurRadius: 5,
+                      offset: Offset(0, 3), // changes position of shadow
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
         ]),
       ),
     );

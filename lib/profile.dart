@@ -31,7 +31,9 @@ class Profile extends StatelessWidget {
               Icons.edit,
               color: Colors.black,
             ),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/edit_profile');
+            },
           ),
         ],
       ),

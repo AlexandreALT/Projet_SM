@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/alerts.dart';
 import 'package:projet_sm/chantiers.dart';
+import 'package:projet_sm/edit_profile.dart';
 import 'package:projet_sm/leave_app.dart';
 import 'package:projet_sm/menu.dart';
 import 'package:projet_sm/profile.dart';
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
         '/menu': (context) => new Menu(),
         '/leave_app': (context) => new LeaveApp(),
         '/profile': (context) => new Profile(),
+        '/edit_profile': (context) => new EditProfile(),
       },
     );
   }
