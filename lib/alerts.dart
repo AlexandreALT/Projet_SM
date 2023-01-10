@@ -14,10 +14,7 @@ class Alerts extends StatelessWidget {
             return IconButton(
               icon: Icon(Icons.arrow_back,color: Colors.blue,),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute<void>(builder: (BuildContext context) {
-                      return const Accueil();
-                    }));
+                Navigator.pop(context);
               },
             );
           },

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:projet_sm/alerts.dart';
 import 'package:projet_sm/chantiers.dart';
 import 'package:projet_sm/choice_capture.dart';
-import 'package:projet_sm/login.dart';
+import 'package:projet_sm/logout.dart';
 import 'package:projet_sm/settings.dart';
 import 'package:projet_sm/stock.dart';
 
@@ -15,15 +15,13 @@ class Accueil extends StatelessWidget {
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: Colors.white,
+        leadingWidth: 45,
         leading: Builder(
           builder: (BuildContext context) {
             return IconButton(
               icon: Image.asset('assets/deconnexion.png'),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute<void>(builder: (BuildContext context) {
-                  return const Login();
-                }));
+                Navigator.pushNamed(context, '/logout');
               },
             );
           },
@@ -40,10 +38,7 @@ class Accueil extends StatelessWidget {
           IconButton(
             icon: Image.asset('assets/parametre.png'),
             onPressed: () {
-              Navigator.push(context,
-                  MaterialPageRoute<void>(builder: (BuildContext context) {
-                return const Settings();
-              }));
+              Navigator.pushNamed(context, '/settings');
             },
           ),
         ],
@@ -101,10 +96,7 @@ class Accueil extends StatelessWidget {
                           borderRadius: BorderRadius.circular(18.0),
                         ))),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute<void>(
-                          builder: (BuildContext context) {
-                        return const Chantiers();
-                      }));
+                      Navigator.pushNamed(context, '/chantiers');
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
@@ -133,10 +125,7 @@ class Accueil extends StatelessWidget {
                           borderRadius: BorderRadius.circular(18.0),
                         ))),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute<void>(
-                          builder: (BuildContext context) {
-                        return const Stock();
-                      }));
+                      Navigator.pushNamed(context, '/stock');
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
@@ -173,10 +162,7 @@ class Accueil extends StatelessWidget {
                           borderRadius: BorderRadius.circular(18.0),
                         ))),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute<void>(
-                          builder: (BuildContext context) {
-                        return const Alerts();
-                      }));
+                      Navigator.pushNamed(context, '/alerts');
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
@@ -232,10 +218,7 @@ class Accueil extends StatelessWidget {
                           borderRadius: BorderRadius.circular(18.0),
                         ))),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute<void>(
-                          builder: (BuildContext context) {
-                        return const ChoiceCapture();
-                      }));
+                      Navigator.pushNamed(context, '/choice_capture');
                     },
                     child: Padding(
                       padding: const EdgeInsets.all(5.0),
@@ -244,7 +227,7 @@ class Accueil extends StatelessWidget {
                             height: 30, fit: BoxFit.cover),
                         SizedBox(height: 10),
                         Text(
-                          'Entrée / Sorties',
+                          'Entrée / Sortie',
                           style: TextStyle(fontSize: 10),
                           textAlign: TextAlign.center,
                         )

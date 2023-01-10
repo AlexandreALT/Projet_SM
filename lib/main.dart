@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/alerts.dart';
+import 'package:projet_sm/chantiers.dart';
+import 'package:projet_sm/menu.dart';
+import 'package:projet_sm/settings.dart';
 import 'package:projet_sm/stock.dart';
 import 'package:projet_sm/verification_code.dart';
+import 'package:projet_sm/logout.dart';
 
 import 'accueil.dart';
 import 'choice_capture.dart';
@@ -10,8 +14,7 @@ import 'login.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  SystemChrome.setPreferredOrientations(
-    [DeviceOrientation.portraitUp]);
+  SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
 
@@ -22,16 +25,19 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'StockMag\'',
-      home: const Login(),
-      routes: {
-        '/login': (context) => const Login(),
-        '/verification_code': (context) => const VerificationCode(),
-        '/accueil': (context) => const Accueil(),
-        '/scan' : (context) => const ChoiceCapture(),
-        '/alerts' : (context) => const Alerts(),
-        '/stock' : (context) => const Stock(),
-      },
       initialRoute: '/',
+      routes: <String, WidgetBuilder>{
+        '/': (context) => new Login(),
+        '/accueil': (context) => new Accueil(),
+        '/alerts': (context) => new Alerts(),
+        '/chantiers': (context) => new Chantiers(),
+        '/choice_capture': (context) => new ChoiceCapture(),
+        '/logout': (context) => new Logout(),
+        '/settings': (context) => new Settings(),
+        '/stock': (context) => new Stock(),
+        '/verification_code': (context) => new VerificationCode(),
+        '/menu': (context) => new Menu(),
+      },
     );
   }
 }
