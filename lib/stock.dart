@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/menu.dart';
+import 'package:projet_sm/search_bar.dart';
 
 class Stock extends StatelessWidget {
   const Stock({Key? key}) : super(key: key);
@@ -21,9 +22,20 @@ class Stock extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: const Text("Magasin", style: TextStyle(color: Colors.black, fontSize: 30),),
+        title: const Text(
+          "Magasin",
+          style: TextStyle(color: Colors.black, fontSize: 30),
+        ),
       ),
       drawer: Menu(),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: ListView(
+          children: <Widget>[
+            SearchBar(),
+          ],
+        ),
+      ),
     );
   }
 }

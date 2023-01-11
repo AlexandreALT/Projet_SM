@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/menu.dart';
+import 'package:projet_sm/search_bar.dart';
 
 class Chantiers extends StatelessWidget {
   const Chantiers({Key? key}) : super(key: key);
@@ -24,6 +25,14 @@ class Chantiers extends StatelessWidget {
         title: const Text("Chantiers", style: TextStyle(color: Colors.black, fontSize: 30),),
       ),
       drawer: Menu(),
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: ListView(
+          children: <Widget>[
+            SearchBar(),
+          ],
+        ),
+      ),
     );
   }
 }
