@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:projet_sm/add_product.dart';
 import 'package:projet_sm/alerts.dart';
 import 'package:projet_sm/chantiers.dart';
 import 'package:projet_sm/edit_profile.dart';
@@ -43,6 +44,7 @@ class MyApp extends StatelessWidget {
         '/leave_app': (context) => new LeaveApp(),
         '/profile': (context) => new Profile(),
         '/edit_profile': (context) => new EditProfile(),
+        '/add_product': (context) => new AddProduct(),
       },
     );
   }

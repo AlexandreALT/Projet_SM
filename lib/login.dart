@@ -119,25 +119,27 @@ class Login extends StatelessWidget {
                 ),
               ]),
               const SizedBox(height: 50), //SizedBox
-              Container(
-                  height: 50,
-                  padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                      ),
-                    ),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/accueil');
-                    },
-                    child: const Text(
-                      'Connexion',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  )),
             ],
           )),
+      floatingActionButton: Container(
+          height: 50,
+          width: MediaQuery.of(context).size.width,
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(50.0)),
+              ),
+            ),
+            onPressed: () {
+              Navigator.pushNamed(context, '/accueil');
+            },
+            child: const Text(
+              'Connexion',
+              style: TextStyle(fontSize: 20),
+            ),
+          )),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

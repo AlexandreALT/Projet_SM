@@ -40,7 +40,7 @@ class Settings extends StatelessWidget {
                   },
                   child: const Text(
                     'Mon compte',
-                    style: TextStyle(fontSize: 20,color: Colors.black),
+                    style: TextStyle(fontSize: 20, color: Colors.black),
                   ),
                   style: TextButton.styleFrom(
                     fixedSize: const Size(300, 50),
@@ -51,9 +51,9 @@ class Settings extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 3), // changes position of shadow
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: Offset(0, 2),
                     ),
                   ],
                 ),
@@ -82,9 +82,9 @@ class Settings extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 3), // changes position of shadow
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: Offset(0, 2),
                     ),
                   ],
                 ),
@@ -111,40 +111,9 @@ class Settings extends StatelessWidget {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 3), // changes position of shadow
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 400),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Container(
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text(
-                    'Retour',
-                    style: TextStyle(fontSize: 20, color: Colors.black),
-                  ),
-                  style: TextButton.styleFrom(
-                    fixedSize: const Size(300, 50),
-                    backgroundColor: Colors.white,
-                  ),
-                ),
-                decoration: BoxDecoration(
-                  boxShadow: [
-                    BoxShadow(
-                      color: Colors.grey.withOpacity(0.5),
-                      spreadRadius: 2,
-                      blurRadius: 5,
-                      offset: Offset(0, 3), // changes position of shadow
+                      spreadRadius: 1,
+                      blurRadius: 1,
+                      offset: Offset(0, 2),
                     ),
                   ],
                 ),
@@ -153,6 +122,32 @@ class Settings extends StatelessWidget {
           ),
         ]),
       ),
+      floatingActionButton: Container(
+        child: TextButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: const Text(
+            'Retour',
+            style: TextStyle(fontSize: 20, color: Colors.black),
+          ),
+          style: TextButton.styleFrom(
+            fixedSize: const Size(300, 50),
+            backgroundColor: Colors.white,
+          ),
+        ),
+        decoration: BoxDecoration(
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 1,
+              offset: Offset(0, 2),
+            ),
+          ],
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

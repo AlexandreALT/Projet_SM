@@ -1,10 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/alerts.dart';
-import 'package:projet_sm/chantiers.dart';
-import 'package:projet_sm/choice_capture.dart';
-import 'package:projet_sm/logout.dart';
-import 'package:projet_sm/settings.dart';
-import 'package:projet_sm/stock.dart';
 
 class Accueil extends StatelessWidget {
   const Accueil({Key? key}) : super(key: key);
@@ -55,187 +49,189 @@ class Accueil extends StatelessWidget {
           SizedBox(height: 20),
           Text("Il y a X articles en magasin", style: TextStyle(fontSize: 20)),
           Text("dont X sur chantier.", style: TextStyle(fontSize: 20)),
-          SizedBox(height: 200),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: 105,
-                height: 105,
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.all(12)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ))),
-                    onPressed: () {},
-                    child: Column(children: [
-                      Image.asset('assets/sorties_icon.png',
-                          height: 30, fit: BoxFit.cover),
-                      SizedBox(height: 10),
-                      Text(
-                        'Vérifier les \nsorties',
-                        style: TextStyle(fontSize: 10),
-                        textAlign: TextAlign.center,
-                      )
-                    ])),
+          SizedBox(height: MediaQuery.of(context).size.height/4),
+          Column(children: <Widget>[
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.27,
+                    height: 105,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                EdgeInsets.all(12)),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                        onPressed: () {},
+                        child: Column(children: [
+                          Image.asset('assets/sorties_icon.png',
+                              height: 30, fit: BoxFit.cover),
+                          SizedBox(height: 10),
+                          Text(
+                            'Vérifier les \nsorties',
+                            style: TextStyle(fontSize: 10),
+                            textAlign: TextAlign.center,
+                          )
+                        ])),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.27,
+                    height: 105,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                EdgeInsets.all(12)),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/chantiers');
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Column(children: [
+                            Image.asset('assets/chantier_icon.png',
+                                height: 30, fit: BoxFit.cover),
+                            SizedBox(height: 10),
+                            Text(
+                              'Chantiers',
+                              style: TextStyle(fontSize: 10),
+                              textAlign: TextAlign.center,
+                            )
+                          ]),
+                        )),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.27,
+                    height: 105,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                EdgeInsets.all(12)),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/stock');
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Column(children: [
+                            Image.asset('assets/stock_icon.png',
+                                height: 30, fit: BoxFit.cover),
+                            SizedBox(height: 10),
+                            Text(
+                              'Vérifier les \nstocks',
+                              style: TextStyle(fontSize: 10),
+                              textAlign: TextAlign.center,
+                            )
+                          ]),
+                        )),
+                  ),
+                ],
               ),
-              Container(
-                width: 105,
-                height: 105,
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.all(12)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ))),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/chantiers');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Column(children: [
-                        Image.asset('assets/chantier_icon.png',
-                            height: 30, fit: BoxFit.cover),
-                        SizedBox(height: 10),
-                        Text(
-                          'Chantiers',
-                          style: TextStyle(fontSize: 10),
-                          textAlign: TextAlign.center,
-                        )
-                      ]),
-                    )),
+            ),
+            SizedBox(height: 40),
+            Container(
+              width: MediaQuery.of(context).size.width,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.27,
+                    height: 105,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                EdgeInsets.all(12)),
+                            backgroundColor:
+                                MaterialStateProperty.all<Color>(Colors.red),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/alerts');
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Column(children: [
+                            Image.asset('assets/alert_icon.png',
+                                height: 30, fit: BoxFit.cover),
+                            SizedBox(height: 10),
+                            Text(
+                              'Alertes',
+                              style: TextStyle(fontSize: 10),
+                              textAlign: TextAlign.center,
+                            )
+                          ]),
+                        )),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.27,
+                    height: 105,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                EdgeInsets.all(12)),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                        onPressed: () {},
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Column(children: [
+                            Image.asset('assets/data_icon.png',
+                                height: 30, fit: BoxFit.cover),
+                            SizedBox(height: 10),
+                            Text(
+                              'Exporter les \ndonnées',
+                              style: TextStyle(fontSize: 10),
+                              textAlign: TextAlign.center,
+                            )
+                          ]),
+                        )),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.27,
+                    height: 105,
+                    child: ElevatedButton(
+                        style: ButtonStyle(
+                            padding: MaterialStateProperty.all<EdgeInsets>(
+                                EdgeInsets.all(12)),
+                            shape: MaterialStateProperty.all<
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/choice_capture');
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Column(children: [
+                            Image.asset('assets/arrows_icon.png',
+                                height: 30, fit: BoxFit.cover),
+                            SizedBox(height: 10),
+                            Text(
+                              'Entrée / Sortie',
+                              style: TextStyle(fontSize: 10),
+                              textAlign: TextAlign.center,
+                            )
+                          ]),
+                        )),
+                  ),
+                ],
               ),
-              Container(
-                width: 105,
-                height: 105,
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.all(12)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ))),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/stock');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Column(children: [
-                        Image.asset('assets/stock_icon.png',
-                            height: 30, fit: BoxFit.cover),
-                        SizedBox(height: 10),
-                        Text(
-                          'Vérifier les \nstocks',
-                          style: TextStyle(fontSize: 10),
-                          textAlign: TextAlign.center,
-                        )
-                      ]),
-                    )),
-              ),
-            ],
-          ),
-          SizedBox(height: 40),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(
-                width: 105,
-                height: 105,
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.all(12)),
-                        backgroundColor:
-                            MaterialStateProperty.all<Color>(Colors.red),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ))),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/alerts');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Column(children: [
-                        Image.asset('assets/alert_icon.png',
-                            height: 30, fit: BoxFit.cover),
-                        SizedBox(height: 10),
-                        Text(
-                          'Alertes',
-                          style: TextStyle(fontSize: 10),
-                          textAlign: TextAlign.center,
-                        )
-                      ]),
-                    )),
-              ),
-              Container(
-                width: 105,
-                height: 105,
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.all(12)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ))),
-                    onPressed: () {},
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Column(children: [
-                        Image.asset('assets/data_icon.png',
-                            height: 30, fit: BoxFit.cover),
-                        SizedBox(height: 10),
-                        Text(
-                          'Exporter les \ndonnées',
-                          style: TextStyle(fontSize: 10),
-                          textAlign: TextAlign.center,
-                        )
-                      ]),
-                    )),
-              ),
-              Container(
-                width: 105,
-                height: 105,
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                        padding: MaterialStateProperty.all<EdgeInsets>(
-                            EdgeInsets.all(12)),
-                        shape:
-                            MaterialStateProperty.all<RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(18.0),
-                        ))),
-                    onPressed: () {
-                      Navigator.pushNamed(context, '/choice_capture');
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(5.0),
-                      child: Column(children: [
-                        Image.asset('assets/arrows_icon.png',
-                            height: 30, fit: BoxFit.cover),
-                        SizedBox(height: 10),
-                        Text(
-                          'Entrée / Sortie',
-                          style: TextStyle(fontSize: 10),
-                          textAlign: TextAlign.center,
-                        )
-                      ]),
-                    )),
-              ),
-            ],
-          ),
+            ),
+          ])
         ]),
       ),
     );

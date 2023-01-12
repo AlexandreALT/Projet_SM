@@ -13,11 +13,7 @@ class SearchBar extends StatelessWidget {
           isDense: true,
           contentPadding:
           EdgeInsets.only(bottom: 20, top: 20, left: 10, right: 10),
-          border: OutlineInputBorder(
-              borderSide: BorderSide(
-                width: 1,
-              ),
-              borderRadius: BorderRadius.all(Radius.circular(2.0))),
+          border: InputBorder.none,
           hintText: 'Rechercher',
           hintStyle: TextStyle(color: Colors.grey),
           prefixIcon: Icon(Icons.search,color: Colors.black,size: 25,),
@@ -30,9 +26,9 @@ class SearchBar extends StatelessWidget {
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 2,
-            blurRadius: 5,
-            offset: Offset(0, 3), // changes position of shadow
+            spreadRadius: 1,
+            blurRadius: 1,
+            offset: Offset(0, 2),
           ),
         ],
       ),

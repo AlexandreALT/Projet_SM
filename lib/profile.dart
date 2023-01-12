@@ -53,9 +53,9 @@ class Profile extends StatelessWidget {
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
-                    spreadRadius: 2,
-                    blurRadius: 5,
-                    offset: Offset(0, 3), // changes position of shadow
+                    spreadRadius: 1,
+                    blurRadius: 1,
+                    offset: Offset(0, 2), // changes position of shadow
                   ),
                   BoxShadow(
                     color: Colors.white,
@@ -118,27 +118,28 @@ class Profile extends StatelessWidget {
               ),
               height: 50,
             ),
-            SizedBox(height: 200),
-            Container(
-                height: 50,
-                padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
-                child: ElevatedButton(
-                  style: ElevatedButton.styleFrom(
-                    shape: const RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                    ),
-                  ),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  },
-                  child: const Text(
-                    'Retour',
-                    style: TextStyle(fontSize: 20),
-                  ),
-                )),
           ],
         ),
       ),
+      floatingActionButton: Container(
+          height: 50,
+          width: MediaQuery.of(context).size.width-60,
+          padding: const EdgeInsets.fromLTRB(10, 0, 10, 0),
+          child: ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: const RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(50.0)),
+              ),
+            ),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text(
+              'Retour',
+              style: TextStyle(fontSize: 20),
+            ),
+          )),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
