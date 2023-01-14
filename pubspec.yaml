@@ -95,6 +95,7 @@ flutter:
     - assets/quitter.png
     - assets/arrow_up.png
     - assets/arrow_down.png
+    - assets/check.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/consumable.dart';
-import 'package:projet_sm/menu.dart';
-import 'package:projet_sm/search_bar.dart';
-import 'package:projet_sm/tool_list.dart';
+import 'package:projet_sm/stock/consumable.dart';
+import 'package:projet_sm/tools/menu.dart';
+import 'package:projet_sm/tools/search_bar.dart';
+import 'package:projet_sm/stock/tool_list.dart';
 
 class Stock extends StatelessWidget {
   const Stock({Key? key}) : super(key: key);

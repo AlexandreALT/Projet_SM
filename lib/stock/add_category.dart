@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class AddProduct extends StatelessWidget {
-  const AddProduct({Key? key}) : super(key: key);
+class AddCategory extends StatelessWidget {
+  const AddCategory({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +22,7 @@ class AddProduct extends StatelessWidget {
           },
         ),
         title: const Text(
-          "Ajouter un nouveau produit",
+          "Ajouter une nouvelle catégorie",
           style: TextStyle(color: Colors.blue, fontSize: 20),
         ),
       ),
@@ -30,15 +30,6 @@ class AddProduct extends StatelessWidget {
         padding: const EdgeInsets.all(30),
         child: ListView(
           children: [
-            Center(
-              child: Container(
-                height: MediaQuery.of(context).size.height * 0.15,
-                width: MediaQuery.of(context).size.width * 0.6,
-                color: Color.fromRGBO(232, 232, 232, 1.0),
-                child: Icon(Icons.add_a_photo, color: Colors.black),
-              ),
-            ),
-            SizedBox(height: 20),
             TextFormField(
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
@@ -51,58 +42,10 @@ class AddProduct extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))),
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Nom du nouveau produit',
+                hintText: 'Nom',
               ),
             ),
-            SizedBox(height: 10),
-            TextFormField(
-              keyboardType: TextInputType.text,
-              style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 0,
-                      style: BorderStyle.none,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(50.0))),
-                filled: true,
-                fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Référence',
-              ),
-            ),
-            SizedBox(height: 10),
-            TextFormField(
-              keyboardType: TextInputType.number,
-              style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 0,
-                      style: BorderStyle.none,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(50.0))),
-                filled: true,
-                fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Quantité au magasin',
-              ),
-            ),
-            SizedBox(height: 10),
-            TextFormField(
-              keyboardType: TextInputType.text,
-              style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 0,
-                      style: BorderStyle.none,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(50.0))),
-                filled: true,
-                fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Catégorie',
-              ),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height / 6),
+            SizedBox(height: MediaQuery.of(context).size.height / 1.75),
             Column(
               children: <Widget>[
                 Container(
@@ -113,9 +56,11 @@ class AddProduct extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/new_category');
+                    },
                     child: const Text(
-                      'Ajouter au magasin',
+                      'Créer catégorie',
                       style: TextStyle(fontSize: 20),
                     ),
                   ),

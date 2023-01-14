@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/menu.dart';
+import 'package:projet_sm/tools/menu.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);

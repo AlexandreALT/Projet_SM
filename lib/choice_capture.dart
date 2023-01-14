@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/menu.dart';
+import 'package:projet_sm/tools/menu.dart';
 
 class ChoiceCapture extends StatelessWidget {
   const ChoiceCapture({Key? key}) : super(key: key);
