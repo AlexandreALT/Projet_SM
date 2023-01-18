@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import '../Services/auth.dart';
+
 class LeaveApp extends StatelessWidget {
   const LeaveApp({Key? key}) : super(key: key);
 
@@ -38,8 +40,8 @@ class LeaveApp extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       ),
                     ),
-                    onPressed: () {
-                      SystemNavigator.pop();
+                    onPressed: () async{
+                      await AuthService().signOut();
                     },
                     child: const Text(
                       'Oui',

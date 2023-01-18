@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/models/chantier.dart';
+
+import '../Services/chantierDB.dart';
 
 class AddChantier extends StatelessWidget {
-  const AddChantier({Key? key}) : super(key: key);
+  AddChantier({Key? key}) : super(key: key);
+
+  var namecontroller = TextEditingController();
+  var nameclientcontroller = TextEditingController();
+  var datedebutcontroller = TextEditingController();
+  var adressecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +39,7 @@ class AddChantier extends StatelessWidget {
         child: ListView(
           children: [
             TextFormField(
+              controller: namecontroller,
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
@@ -47,6 +56,7 @@ class AddChantier extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormField(
+              controller: nameclientcontroller,
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
@@ -63,7 +73,8 @@ class AddChantier extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormField(
-              keyboardType: TextInputType.datetime,
+              controller: datedebutcontroller,
+              keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 border: OutlineInputBorder(
@@ -80,6 +91,7 @@ class AddChantier extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormField(
+              controller: adressecontroller,
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
@@ -105,7 +117,9 @@ class AddChantier extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async{
+                      var chantier = new Chantier(name: namecontroller.text, nameClient: nameclientcontroller.text, dateDebut: datedebutcontroller.text, adresse: adressecontroller.text);
+                      await ChantierDB().addChantier(chantier);
                       Navigator.pushNamed(context, '/new_chantier');
                     },
                     child: const Text(
