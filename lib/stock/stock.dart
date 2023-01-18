@@ -1,14 +1,29 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/stock/consumable.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 import 'package:projet_sm/stock/tool_list.dart';
 
-class Stock extends StatelessWidget {
-  const Stock({Key? key}) : super(key: key);
+class Stock extends StatefulWidget {
+  Stock({Key? key}) : super(key: key);
+
+  @override
+  State<Stock> createState() =>_StockState();
+}
+
+class _StockState extends State<Stock> {
+  var _futureProduits = ProductDB().getData();
+  var listProducts = [];
 
   @override
   Widget build(BuildContext context) {
+    _futureProduits.then((produits) {
+      produits.forEach((produit) {
+        if (!listProducts.contains(produit)) listProducts.add(produit);
+      });
+    });
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
@@ -36,41 +51,31 @@ class Stock extends StatelessWidget {
           children: <Widget>[
             SearchBar(),
             SizedBox(height: 15),
-            ToolList(),
-            SizedBox(
-              height: 10,
-            ),
-            Consumable(
-              title: 'Sac Amiante 50L',
-              quantity: 40,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Consumable(
-              title: 'Sac Amiante 100L',
-              quantity: 25,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Consumable(
-              title: 'Sac Amiante 200L',
-              quantity: 15,
-            ),
-            SizedBox(
-              height: 10,
-            ),
-            Consumable(
-              title: 'Sac Plomb 50L',
-              quantity: 30,
+            Column(
+              children: List.generate(listProducts.length, (index) {
+                return Column(
+                  children: [
+                    listProducts[index]['categorie'] == 'Consommable'
+                        ? Consumable(
+                            title: listProducts[index]['name'],
+                            quantity: listProducts[index]['quantite'],
+                          )
+                        : ToolList(
+                            title: listProducts[index]['name'],
+                            quantite: listProducts[index]['quantite'],
+                            reference: listProducts[index]['reference'],
+                          ),
+                    SizedBox(height: 10),
+                  ],
+                );
+              }),
             ),
           ],
         ),
       ),
       floatingActionButton: Container(
           height: 50,
-          width: MediaQuery.of(context).size.width-40,
+          width: MediaQuery.of(context).size.width - 40,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               shape: const RoundedRectangleBorder(

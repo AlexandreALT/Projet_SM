@@ -1,29 +1,36 @@
 import 'package:flutter/material.dart';
 
 class ToolList extends StatelessWidget {
-  const ToolList({Key? key}) : super(key: key);
+  const ToolList(
+      {Key? key,
+      required this.title,
+      required this.quantite,
+      required this.reference})
+      : super(key: key);
+
+  final String title;
+  final int quantite;
+  final String reference;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Padding(
-        padding: const EdgeInsets.only(
-            top: 5, right: 5, bottom: 5, left: 15),
+        padding: const EdgeInsets.only(top: 5, right: 5, bottom: 5, left: 15),
         child: Row(
           children: [
             Text(
-              'Burineur - réf',
-              style:
-              TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+              title,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
+            Text(' - '+reference,style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
             Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  '4',
-                  style: TextStyle(
-                      fontSize: 20, fontWeight: FontWeight.w600),
+                  quantite.toString(),
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
                 IconButton(
                   icon: Icon(Icons.edit),
