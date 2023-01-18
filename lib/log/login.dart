@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/auth.dart';
 
 class Login extends StatelessWidget {
   Login({Key? key}) : super(key: key);
+  var emailController = TextEditingController();
+  var passController = TextEditingController();
 
   var _passwordVisible = false;
   bool? _value = false;
@@ -37,6 +40,7 @@ class Login extends StatelessWidget {
                   )),
               const SizedBox(height: 20),
               TextFormField(
+                controller: emailController,
                 keyboardType: TextInputType.emailAddress,
                 style: const TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
@@ -54,6 +58,7 @@ class Login extends StatelessWidget {
               ),
               const SizedBox(height: 20),
               TextFormField(
+                controller: passController,
                 keyboardType: TextInputType.text,
                 obscureText:
                     !_passwordVisible, //This will obscure text dynamically
@@ -131,8 +136,8 @@ class Login extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(50.0)),
               ),
             ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/accueil');
+            onPressed: () async{
+              await AuthService().signIn(emailController.text, passController.text);
             },
             child: const Text(
               'Connexion',

@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/models/product.dart';
+
+import '../Services/productDB.dart';
 
 class AddProduct extends StatelessWidget {
-  const AddProduct({Key? key}) : super(key: key);
+  AddProduct({Key? key}) : super(key: key);
+
+  var namecontroller = TextEditingController();
+  var refcontroller = TextEditingController();
+  var quantitecontroller = TextEditingController();
+  var categoriecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -45,6 +53,7 @@ class AddProduct extends StatelessWidget {
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: namecontroller,
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
@@ -61,6 +70,7 @@ class AddProduct extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormField(
+              controller: refcontroller,
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
@@ -83,6 +93,7 @@ class AddProduct extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormField(
+              controller: quantitecontroller,
               keyboardType: TextInputType.number,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
@@ -99,6 +110,7 @@ class AddProduct extends StatelessWidget {
             ),
             SizedBox(height: 10),
             TextFormField(
+              controller: categoriecontroller,
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
@@ -130,7 +142,9 @@ class AddProduct extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async{
+                      var product = new Product(name: namecontroller.text, categorie: categoriecontroller.text, quantite: int.parse(quantitecontroller.text), reference: refcontroller.text);
+                      await ProductDB().addProduct(product);
                       Navigator.pushNamed(context, '/new_product');
                     },
                     child: const Text(

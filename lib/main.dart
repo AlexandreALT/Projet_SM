@@ -1,9 +1,11 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/accueil.dart';
 import 'package:projet_sm/chantiers/add_chantier.dart';
 import 'package:projet_sm/chantiers/new_chantier.dart';
 import 'package:projet_sm/choice_capture.dart';
+import 'package:projet_sm/firebase_options.dart';
 import 'package:projet_sm/log/login.dart';
 import 'package:projet_sm/stock/add_category.dart';
 import 'package:projet_sm/stock/add_product.dart';
@@ -23,8 +25,13 @@ import 'package:projet_sm/stock/stock.dart';
 import 'package:projet_sm/log/verification_code.dart';
 import 'package:projet_sm/log/logout.dart';
 
+import 'Services/auth.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
   runApp(const MyApp());
 }
@@ -35,11 +42,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      home: StreamBuilder(
+        stream: AuthService().userChanged,
+        builder: (context, snapshot){
+          return snapshot.data == null ? Login() : Accueil();
+        },
+      ),
       title: 'StockMag\'',
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
         // Log :
-        '/': (context) => new Login(),
         '/leave_app': (context) => new LeaveApp(),
         '/logout': (context) => new Logout(),
         '/verification_code': (context) => new VerificationCode(),

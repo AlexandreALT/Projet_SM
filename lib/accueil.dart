@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'Services/auth.dart';
+
 class Accueil extends StatelessWidget {
   const Accueil({Key? key}) : super(key: key);
 
@@ -14,8 +16,8 @@ class Accueil extends StatelessWidget {
           builder: (BuildContext context) {
             return IconButton(
               icon: Image.asset('assets/deconnexion.png'),
-              onPressed: () {
-                Navigator.pushNamed(context, '/logout');
+              onPressed: () async{
+                await AuthService().signOut();
               },
             );
           },
