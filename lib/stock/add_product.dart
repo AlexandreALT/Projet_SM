@@ -1,7 +1,12 @@
+import 'dart:io';
+
+import 'package:cross_file/src/types/interface.dart';
 import 'package:flutter/material.dart';
 
 class AddProduct extends StatelessWidget {
-  const AddProduct({Key? key}) : super(key: key);
+  const AddProduct({Key? key, required this.image}) : super(key: key);
+
+  final image;
 
   @override
   Widget build(BuildContext context) {
@@ -32,15 +37,16 @@ class AddProduct extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.15,
-                width: MediaQuery.of(context).size.width * 0.6,
+                height: MediaQuery.of(context).size.height * 0.25,
+                width: MediaQuery.of(context).size.width * 0.4,
                 color: Color.fromRGBO(232, 232, 232, 1.0),
-                child: IconButton(
+                child: image == null ?
+                IconButton(
                   icon: Icon(Icons.add_a_photo, color: Colors.black),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/choice_picture');
+                    Navigator.pushReplacementNamed(context, '/choice_picture');
                   },
-                ),
+                ) : Image.file(File(image.path),fit: BoxFit.cover,),
               ),
             ),
             SizedBox(height: 20),
@@ -119,7 +125,7 @@ class AddProduct extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height / 6),
+            SizedBox(height: MediaQuery.of(context).size.height / 12),
             Column(
               children: <Widget>[
                 Container(

@@ -1,3 +1,4 @@
+import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/accueil.dart';
@@ -26,15 +27,23 @@ import 'package:projet_sm/log/logout.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
-  runApp(const MyApp());
+
+  WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras();
+  final firstCamera = cameras.first;
+
+  runApp(MyApp(camera: firstCamera,));
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({Key? key, required this.camera}) : super(key: key);
+
+  final camera;
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'StockMag\'',
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
@@ -55,9 +64,9 @@ class MyApp extends StatelessWidget {
 
         // Stock :
         '/add_category': (context) => new AddCategory(),
-        '/add_product': (context) => new AddProduct(),
+        '/add_product': (context) => new AddProduct(image: null),
         '/add_reference': (context) => new AddReference(),
-        '/choice_picture': (context) => new ChoicePicture(),
+        '/choice_picture': (context) => new ChoicePicture(camera: camera,),
         '/new_category': (context) => new NewCategory(),
         '/new_product': (context) => new NewProduct(),
         '/new_reference': (context) => new NewReference(),

@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projet_sm/take_picture.dart';
 
 class ChoicePicture extends StatelessWidget {
-  const ChoicePicture({Key? key}) : super(key: key);
+  const ChoicePicture({Key? key,required this.camera}) : super(key: key);
+
+  final camera;
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +35,14 @@ class ChoicePicture extends StatelessWidget {
                 children: <Widget>[
                   SizedBox(height: MediaQuery.of(context).size.height / 6),
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.pushReplacement<void, void>(
+                        context,
+                        MaterialPageRoute<void>(
+                          builder: (BuildContext context) => TakePicture(camera: camera),
+                        ),
+                      );
+                    },
                     child: Row(
                       children: [
                         Icon(

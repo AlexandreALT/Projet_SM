@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Login extends StatelessWidget {
+class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
 
+  @override
+  State<Login> createState() =>_LoginState();
+}
+
+class _LoginState extends State<Login> {
   var _passwordVisible = false;
   bool? _value = false;
 
@@ -69,17 +74,17 @@ class Login extends StatelessWidget {
                   hintText: 'Entrez votre mot de passe',
                   filled: true,
                   fillColor: const Color.fromRGBO(232, 232, 232, 1),
-
-                  // Here is key idea
                   suffixIcon: IconButton(
                     icon: Icon(
-                      // Based on passwordVisible state choose the icon
-                      _passwordVisible ? Icons.visibility_off : Icons.visibility,
+                      _passwordVisible
+                          ? Icons.visibility_off
+                          : Icons.visibility,
                       color: Theme.of(context).primaryColorDark,
                     ),
                     onPressed: () {
-                      // Update the state i.e. toogle the state of passwordVisible variable
-                      _passwordVisible = !_passwordVisible;
+                      setState(() {
+                        _passwordVisible = !_passwordVisible;
+                      });
                     },
                   ),
                 ),
@@ -110,7 +115,9 @@ class Login extends StatelessWidget {
                   ),
                   value: _value,
                   onChanged: (bool? val) {
-                    _value = val;
+                    setState(() {
+                      _value = val;
+                    });
                   },
                 ),
                 const Text(
