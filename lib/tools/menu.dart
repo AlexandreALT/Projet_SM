@@ -71,7 +71,7 @@ class Menu extends StatelessWidget {
             leading:
                 Image.asset('assets/role.png', color: Colors.black, height: 25),
             title: Text('Rôles'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.pushNamed(context, '/gestion_roles'),},
           ),
           SizedBox(height: 20),
           Padding(

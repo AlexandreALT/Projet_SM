@@ -29,7 +29,9 @@ class Accueil extends StatelessWidget {
         actions: [
           IconButton(
             icon: Image.asset('assets/role.png'),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pushNamed(context, '/gestion_roles');
+            },
           ),
           IconButton(
             icon: Image.asset('assets/parametre.png'),

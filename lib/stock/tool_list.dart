@@ -27,7 +27,9 @@ class ToolList extends StatelessWidget {
                 ),
                 IconButton(
                   icon: Icon(Icons.edit),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/info_product');
+                  },
                 ),
                 IconButton(
                   icon: Image.asset('assets/arrow_down.png'),

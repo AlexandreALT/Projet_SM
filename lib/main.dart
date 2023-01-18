@@ -8,6 +8,7 @@ import 'package:projet_sm/chantiers/new_chantier.dart';
 import 'package:projet_sm/choice_capture.dart';
 import 'package:projet_sm/firebase_options.dart';
 import 'package:projet_sm/log/login.dart';
+import 'package:projet_sm/roles/gestion_roles.dart';
 import 'package:projet_sm/stock/add_category.dart';
 import 'package:projet_sm/stock/add_product.dart';
 import 'package:projet_sm/stock/add_reference.dart';
@@ -19,6 +20,7 @@ import 'package:projet_sm/stock/choice_picture.dart';
 import 'package:projet_sm/stock/new_category.dart';
 import 'package:projet_sm/stock/new_product.dart';
 import 'package:projet_sm/stock/new_reference.dart';
+import 'package:projet_sm/stock/info_product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/profile/profile.dart';
 import 'package:projet_sm/settings.dart';
@@ -27,6 +29,7 @@ import 'package:projet_sm/log/verification_code.dart';
 import 'package:projet_sm/log/logout.dart';
 
 import 'Services/auth.dart';
+import 'models/product.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -83,6 +86,11 @@ class MyApp extends StatelessWidget {
         '/new_product': (context) => new NewProduct(),
         '/new_reference': (context) => new NewReference(),
         '/stock': (context) => new Stock(),
+        '/info_product': (context) => new InfoProduct(),
+
+
+        // Rôles :
+        '/gestion_roles' :(context) => new GestionRoles(),
 
         // Tools :
         '/menu': (context) => new Menu(),
