@@ -17,7 +17,7 @@ class Accueil extends StatelessWidget {
             return IconButton(
               icon: Image.asset('assets/deconnexion.png'),
               onPressed: () async{
-                await AuthService().signOut();
+                Navigator.pushNamed(context, '/logout');
               },
             );
           },
