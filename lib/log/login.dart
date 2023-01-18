@@ -3,8 +3,6 @@ import 'package:projet_sm/Services/auth.dart';
 
 class Login extends StatefulWidget {
   Login({Key? key}) : super(key: key);
-  var emailController = TextEditingController();
-  var passController = TextEditingController();
 
   @override
   State<Login> createState() =>_LoginState();
@@ -13,6 +11,9 @@ class Login extends StatefulWidget {
 class _LoginState extends State<Login> {
   var _passwordVisible = false;
   bool? _value = false;
+
+  var emailController = TextEditingController();
+  var passController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {

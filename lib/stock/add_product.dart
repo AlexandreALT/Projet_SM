@@ -7,10 +7,9 @@ import 'package:projet_sm/models/product.dart';
 import '../Services/productDB.dart';
 
 class AddProduct extends StatelessWidget {
-  const AddProduct({Key? key, required this.image}) : super(key: key);
+  AddProduct({Key? key, required this.image}) : super(key: key);
 
   final image;
-  AddProduct({Key? key}) : super(key: key);
 
   var namecontroller = TextEditingController();
   var refcontroller = TextEditingController();
