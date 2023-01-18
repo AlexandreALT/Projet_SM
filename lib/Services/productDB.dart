@@ -11,4 +11,13 @@ class ProductDB {
     return  true;
   }
 
+  CollectionReference _collectionReference =
+  FirebaseFirestore.instance.collection('Produits');
+
+  Future<List> getData() async {
+    QuerySnapshot querySnapshot = await _collectionReference.get();
+    final List allData = querySnapshot.docs.map((doc) => doc.data()).toList();
+    return allData;
+  }
+
 }

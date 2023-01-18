@@ -74,7 +74,7 @@ class AddChantier extends StatelessWidget {
             SizedBox(height: 10),
             TextFormField(
               controller: datedebutcontroller,
-              keyboardType: TextInputType.text,
+              keyboardType: TextInputType.datetime,
               style: const TextStyle(color: Colors.black),
               decoration: InputDecoration(
                 border: OutlineInputBorder(

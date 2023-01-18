@@ -1,10 +1,11 @@
 import 'dart:io';
 
-import 'package:cross_file/src/types/interface.dart';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/models/product.dart';
 
 import '../Services/productDB.dart';
+
+// Récupérer image from XFile path : Image.file(File(path))
 
 class AddProduct extends StatelessWidget {
   AddProduct({Key? key, required this.image}) : super(key: key);
@@ -45,16 +46,27 @@ class AddProduct extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                height: MediaQuery.of(context).size.height * 0.25,
-                width: MediaQuery.of(context).size.width * 0.4,
-                color: Color.fromRGBO(232, 232, 232, 1.0),
-                child: image == null ?
-                IconButton(
-                  icon: Icon(Icons.add_a_photo, color: Colors.black),
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, '/choice_picture');
-                  },
-                ) : Image.file(File(image.path),fit: BoxFit.cover,),
+                  height: MediaQuery
+                      .of(context)
+                      .size
+                      .height * 0.25,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width * 0.4,
+                  color: Color.fromRGBO(232, 232, 232, 1.0),
+                  child: image == null
+                      ? IconButton(
+                    icon: Icon(Icons.add_a_photo, color: Colors.black),
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(
+                          context, '/choice_picture');
+                    },
+                  )
+                      : Image.file(
+                    File(image.path),
+                    fit: BoxFit.cover,
+                  ),
               ),
             ),
             SizedBox(height: 20),
@@ -136,19 +148,30 @@ class AddProduct extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height / 12),
+            SizedBox(height: MediaQuery
+                .of(context)
+                .size
+                .height / 12),
             Column(
               children: <Widget>[
                 Container(
-                  width: MediaQuery.of(context).size.width,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       ),
                     ),
-                    onPressed: () async{
-                      var product = new Product(name: namecontroller.text, categorie: categoriecontroller.text, quantite: int.parse(quantitecontroller.text), reference: refcontroller.text);
+                    onPressed: () async {
+                      var product = new Product(
+                          name: namecontroller.text,
+                          categorie: categoriecontroller.text,
+                          quantite: int.parse(quantitecontroller.text),
+                          reference: refcontroller.text,
+                          image: image.path);
                       await ProductDB().addProduct(product);
                       Navigator.pushNamed(context, '/new_product');
                     },
@@ -159,7 +182,10 @@ class AddProduct extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: MediaQuery.of(context).size.width,
+                  width: MediaQuery
+                      .of(context)
+                      .size
+                      .width,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,
