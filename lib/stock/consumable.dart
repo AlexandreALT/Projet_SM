@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 class Consumable extends StatelessWidget {
-  Consumable({Key? key, required this.title, required this.quantity})
+  Consumable({Key? key, required this.title, required this.quantity, required this.reference})
       : super(key: key);
 
   final String title;
+  final String reference;
   final int quantity;
 
   @override
@@ -15,6 +16,10 @@ class Consumable extends StatelessWidget {
             const EdgeInsets.only(top: 17, right: 15, bottom: 17, left: 15),
         child: Row(
           children: [
+            Text(
+              reference+" ",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
             Text(
               title,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
