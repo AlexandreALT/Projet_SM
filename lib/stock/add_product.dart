@@ -71,6 +71,7 @@ class AddProduct extends StatelessWidget {
             ),
             SizedBox(height: 20),
             TextFormField(
+              controller: namecontroller,
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(

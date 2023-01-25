@@ -10,7 +10,7 @@ class Stock extends StatefulWidget {
   Stock({Key? key}) : super(key: key);
 
   @override
-  State<Stock> createState() =>_StockState();
+  State<Stock> createState() => _StockState();
 }
 
 class _StockState extends State<Stock> {
@@ -57,6 +57,7 @@ class _StockState extends State<Stock> {
                   children: [
                     listProducts[index]['categorie'] == 'Consommable'
                         ? Consumable(
+                            reference: listProducts[index]['reference'],
                             title: listProducts[index]['name'],
                             quantity: listProducts[index]['quantite'],
                           )
