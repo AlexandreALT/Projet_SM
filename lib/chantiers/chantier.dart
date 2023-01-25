@@ -26,7 +26,9 @@ class Chantier extends StatelessWidget {
                     color: Colors.black,
                     size: 25,
                   ),
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/chantier_details');
+                  },
                 ),
                 IconButton(
                   icon: Image.asset(
