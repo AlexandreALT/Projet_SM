@@ -87,7 +87,6 @@ class MyApp extends StatelessWidget {
         '/new_product': (context) => new NewProduct(),
         '/new_reference': (context) => new NewReference(),
         '/stock': (context) => new Stock(),
-        '/info_product': (context) => new InfoProduct(),
         '/modif_product': (context) => new ModifProduct(image: null),
 
 
