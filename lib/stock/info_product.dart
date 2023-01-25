@@ -55,6 +55,7 @@ class InfoProduct extends StatelessWidget {
               ),
             ),
             onPressed: () {
+              Navigator.pushNamed(context, '/modif_product');
             },
             child: const Text(
               'Modifier ce produit',
