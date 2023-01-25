@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/models/product.dart';
 
@@ -46,27 +47,21 @@ class AddProduct extends StatelessWidget {
           children: [
             Center(
               child: Container(
-                  height: MediaQuery
-                      .of(context)
-                      .size
-                      .height * 0.25,
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width * 0.4,
-                  color: Color.fromRGBO(232, 232, 232, 1.0),
-                  child: image == null
-                      ? IconButton(
-                    icon: Icon(Icons.add_a_photo, color: Colors.black),
-                    onPressed: () {
-                      Navigator.pushReplacementNamed(
-                          context, '/choice_picture');
-                    },
-                  )
-                      : Image.file(
-                    File(image.path),
-                    fit: BoxFit.cover,
-                  ),
+                height: MediaQuery.of(context).size.height * 0.25,
+                width: MediaQuery.of(context).size.width * 0.4,
+                color: Color.fromRGBO(232, 232, 232, 1.0),
+                child: image == null
+                    ? IconButton(
+                        icon: Icon(Icons.add_a_photo, color: Colors.black),
+                        onPressed: () {
+                          Navigator.pushReplacementNamed(
+                              context, '/choice_picture');
+                        },
+                      )
+                    : Image.file(
+                        File(image.path),
+                        fit: BoxFit.cover,
+                      ),
               ),
             ),
             SizedBox(height: 20),
@@ -149,17 +144,11 @@ class AddProduct extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery
-                .of(context)
-                .size
-                .height / 12),
+            SizedBox(height: MediaQuery.of(context).size.height / 12),
             Column(
               children: <Widget>[
                 Container(
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width,
+                  width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       shape: const RoundedRectangleBorder(
@@ -167,12 +156,23 @@ class AddProduct extends StatelessWidget {
                       ),
                     ),
                     onPressed: () async {
+                      final storageRef = FirebaseStorage.instance.ref().child('Products/test.jpg');
+                      File file = File(image.path);
+                      storageRef.putFile(file);
+
+                      String jour = DateTime.now().day.toString();
+                      String mois = DateTime.now().month.toString();
+                      String annee = DateTime.now().year.toString();
+                      if (mois.length < 2) mois = "0" + mois;
+                      String date = jour + '/' + mois + '/' + annee;
                       var product = new Product(
-                          name: namecontroller.text,
-                          categorie: categoriecontroller.text,
-                          quantite: int.parse(quantitecontroller.text),
-                          reference: refcontroller.text,
-                          image: image.path);
+                        categorie: categoriecontroller.text,
+                        quantite: int.parse(quantitecontroller.text),
+                        reference: refcontroller.text,
+                        image: image.path,
+                        date_ajout: date,
+                        statut: "En entrepôt"
+                      );
                       await ProductDB().addProduct(product);
                       Navigator.pushNamed(context, '/new_product');
                     },
@@ -183,10 +183,7 @@ class AddProduct extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  width: MediaQuery
-                      .of(context)
-                      .size
-                      .width,
+                  width: MediaQuery.of(context).size.width,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.red,

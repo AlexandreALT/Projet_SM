@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/models/reference.dart';
+import 'package:projet_sm/stock/info_product.dart';
 
 class ToolList extends StatelessWidget {
-  const ToolList(
-      {Key? key,
-      required this.title,
-      required this.quantite,
-      required this.reference})
-      : super(key: key);
+  const ToolList({Key? key, required this.reference}) : super(key: key);
 
-  final String title;
-  final int quantite;
-  final String reference;
+  final Reference reference;
 
   @override
   Widget build(BuildContext context) {
@@ -20,22 +15,31 @@ class ToolList extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              title,
+              reference.nom,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
-            Text(' - '+reference,style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),),
+            Text(
+              ' - ' + reference.reference,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+            ),
             Spacer(),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  quantite.toString(),
+                  'quantite',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
                 IconButton(
                   icon: Icon(Icons.edit),
                   onPressed: () {
-                    Navigator.pushNamed(context, '/info_product');
+                    //Navigator.pushReplacement<void, void>(
+                      //context,
+                      //MaterialPageRoute<void>(
+                      //  builder: (BuildContext context) =>
+                      //      InfoProduct(product: product),
+                      //),
+                    //);
                   },
                 ),
                 IconButton(

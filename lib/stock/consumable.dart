@@ -17,11 +17,11 @@ class Consumable extends StatelessWidget {
         child: Row(
           children: [
             Text(
-              reference+" ",
+              title+" ",
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
             Text(
-              title,
+              reference,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
             ),
             Spacer(),

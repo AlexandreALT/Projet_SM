@@ -1,10 +1,14 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:projet_sm/roles/role.dart';
+import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 
 class InfoProduct extends StatelessWidget {
-  const InfoProduct({Key? key}) : super(key: key);
+  const InfoProduct({Key? key, required this.product}) : super(key: key);
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {
@@ -23,31 +27,82 @@ class InfoProduct extends StatelessWidget {
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: const Text("Produit", style: TextStyle(color: Colors.black, fontSize: 30),),
+        title: const Text(
+          "Produit",
+          style: TextStyle(color: Colors.black, fontSize: 30),
+        ),
       ),
       drawer: Menu(),
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: ListView(
           children: <Widget>[
-            const Text(
-              'En entrepôt',
-              textAlign : TextAlign.center,
-              style: TextStyle(fontSize: 23),
+            Text(
+              product.statut,
+              textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 30),
             ),
+            SizedBox(height: 10),
             Container(
-              height: MediaQuery.of(context).size.height-500,
+              height: MediaQuery.of(context).size.height - 500,
               decoration: BoxDecoration(
-                border: Border.all(color:Colors.blue)
+                  border: Border.all(
+                    color: Colors.blue,
+                    width: 2,
+                  ),
+                  borderRadius: BorderRadius.all(Radius.circular(30))),
+              child: Padding(
+                padding: const EdgeInsets.all(10.0),
+                child: Column(
+                  children: [
+                    Text(
+                      'Name' + ' ' + product.reference,
+                      style: TextStyle(fontSize: 25),
+                    ),
+                    Text('N° Série : ', style: TextStyle(fontSize: 20)),
+                    Image.file(
+                      File(product.image),
+                    ),
+                  ],
+                ),
               ),
-              child: Text("Burineur SDS Max MH 5",textAlign : TextAlign.center,),
+            ),
+            SizedBox(height: 15),
+            Row(
+              children: [
+                Text(
+                  'Catégorie : ',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                Text('catégorie', style: TextStyle(fontSize: 20))
+              ],
+            ),
+            SizedBox(height: 15),
+            Row(
+              children: [
+                Text(
+                  'Prix par jour : ',
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                Text('prix', style: TextStyle(fontSize: 20))
+              ],
+            ),
+            SizedBox(height: 15),
+            Row(
+              children: [
+                Text(
+                  "Date d'ajout : ",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                Text('date', style: TextStyle(fontSize: 20))
+              ],
             ),
           ],
         ),
       ),
       floatingActionButton: Container(
           height: 50,
-          width: MediaQuery.of(context).size.width-40,
+          width: MediaQuery.of(context).size.width - 40,
           child: ElevatedButton(
             style: ElevatedButton.styleFrom(
               shape: const RoundedRectangleBorder(
