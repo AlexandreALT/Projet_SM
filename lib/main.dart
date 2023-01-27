@@ -30,7 +30,8 @@ import 'package:projet_sm/log/verification_code.dart';
 import 'package:projet_sm/log/logout.dart';
 
 import 'Services/auth.dart';
-import 'models/product.dart';
+import 'chantiers/chantier_details.dart';
+import 'chantiers/edit_chantier.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -73,6 +74,8 @@ class MyApp extends StatelessWidget {
         '/chantiers': (context) => new Chantiers(),
         '/add_chantier': (context) => new AddChantier(),
         '/new_chantier': (context) => new NewChantier(),
+        '/chantier_details': (context) => new ChantierDetails(),
+        '/edit_chantier': (context) => new EditChantier(),
 
         // Profile :
         '/profile': (context) => new Profile(),
