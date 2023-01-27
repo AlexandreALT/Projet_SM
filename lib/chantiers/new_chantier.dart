@@ -30,8 +30,7 @@ class NewChantier extends StatelessWidget {
                         ),
                       ),
                       onPressed: () {
-                        Navigator.pop(context);
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, '/chantiers');
                       },
                       child: const Text(
                         'Valider',

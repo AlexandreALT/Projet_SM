@@ -5,11 +5,14 @@ import 'package:projet_sm/Services/referenceDB.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/models/reference.dart';
 import 'package:projet_sm/stock/consumable.dart';
+import 'package:projet_sm/stock/consumableListWidget.dart';
+import 'package:projet_sm/stock/referenceListWidget.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 import 'package:projet_sm/stock/tool_list.dart';
 
 class Stock extends StatefulWidget {
+
   Stock({Key? key}) : super(key: key);
 
   @override
@@ -17,39 +20,9 @@ class Stock extends StatefulWidget {
 }
 
 class _StockState extends State<Stock> {
-  var _futureProduits = ProductDB().getData();
-  var _futureReference = ReferenceDB().getData();
-  var listProducts = [];
-  var listReferences = [];
 
   @override
   Widget build(BuildContext context) {
-    _futureReference.then((references) {
-      listReferences = [];
-      references.forEach((reference) {
-        Reference ref = new Reference(
-            alias: reference['alias'],
-            compteur: reference['compteur'],
-            cout: reference['cout'],
-            nom: reference['nom'],
-            reference: reference['reference']);
-        listReferences.add(ref);
-      });
-    });
-    _futureProduits.then((produits) {
-      produits.forEach((produit) {
-        Product product = new Product(
-            categorie: produit['categorie'],
-            nom: produit['name'],
-            quantite: produit['quantite'],
-            reference: produit['reference'],
-            image: produit['image'],
-            date_ajout: produit['date_ajout'],
-            statut: produit['statut']);
-        if (product.categorie == 'Consommable' &&
-            !listReferences.contains(product)) listReferences.add(product);
-      });
-    });
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
@@ -73,39 +46,18 @@ class _StockState extends State<Stock> {
       drawer: Menu(),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: ListView(
-          children: <Widget>[
-            SearchBar(),
-            SizedBox(height: 15),
-            Column(
-              //listProducts.length
-              children: List.generate(listReferences.length, (index) {
-                return Column(
-                  children: [
-                    listReferences[index] is Reference
-                        ? ToolList(reference: listReferences[index])
-                        : Consumable(
-                            reference: listReferences[index].reference,
-                            title: listReferences[index].nom,
-                            quantity: listReferences[index].quantite,
-                          ),
-                    //listProducts[index].categorie == 'Consommable'
-                    //  ? Consumable(
-                    //    reference: listProducts[index].reference,
-                    //  title: '',
-                    //quantity: listProducts[index].quantite,
-                    //)
-                    //: ToolList(
-                    //  product: listProducts[index],
-                    //),
-                    SizedBox(height: 10),
-                  ],
-                );
-              }),
-            ),
-          ],
+        child: Column(
+              children : [
+                SearchBar(),
+                Expanded(
+                    child: ReferenceListWidget()
+                ),
+                Expanded(
+                    child: ConsumableListWidget()
+                ),
+              ]
+            )
         ),
-      ),
       floatingActionButton: Container(
           height: 50,
           width: MediaQuery.of(context).size.width - 40,
