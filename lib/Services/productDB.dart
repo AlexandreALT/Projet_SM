@@ -14,10 +14,14 @@ class ProductDB {
   CollectionReference _collectionReference =
   FirebaseFirestore.instance.collection('Produits');
 
-  Future<List> getData() async {
-    QuerySnapshot querySnapshot = await _collectionReference.get();
-    final List allData = querySnapshot.docs.map((doc) => doc.data()).toList();
-    return allData;
+  Future<List<Product>> getAllConsumable() async {
+    var produits = await FirebaseFirestore.instance.collection('Produits').where("categorie", isEqualTo: "Consommable").get();
+    return produits.docs.map((produit) => Product.fromDocumentSnapshot(produit)).toList();
+  }
+
+  Future<List<Product>> getAllProduct() async {
+    var produits = await FirebaseFirestore.instance.collection('Produits').get();
+    return produits.docs.map((produit) => Product.fromDocumentSnapshot(produit)).toList();
   }
 
 }

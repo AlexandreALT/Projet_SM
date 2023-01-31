@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/chantierDB.dart';
 import 'package:projet_sm/chantiers/chantier.dart';
+import 'package:projet_sm/chantiers/chantierListWidget.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 
-class Chantiers extends StatelessWidget {
-  const Chantiers({Key? key}) : super(key: key);
+class Chantiers extends StatelessWidget{
+  Chantiers({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context){
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
@@ -28,22 +30,13 @@ class Chantiers extends StatelessWidget {
       drawer: Menu(),
       body: Padding(
         padding: const EdgeInsets.all(20),
-        child: ListView(
-          children: <Widget>[
+        child: Column(
+          children:[
             SearchBar(),
-            SizedBox(height: 15),
-            Chantier(name: 'GHICL Lille'),
-            SizedBox(height: 10),
-            Chantier(name: 'Tourmaniantz Calais'),
-            SizedBox(height: 10),
-            Chantier(name: 'Palais Rameau Lille'),
-            SizedBox(height: 10),
-            Chantier(name: 'École E. Curie Calais'),
-            SizedBox(height: 10),
-            Chantier(name: 'École JF Millet Calais'),
-            SizedBox(height: 10),
-            Chantier(name: 'Astradec Arques'),
-          ],
+            Expanded(
+                child: ChantierListWidget()
+            ),
+          ]
         ),
       ),
       floatingActionButton: Container(

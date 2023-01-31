@@ -12,9 +12,8 @@ class ReferenceDB {
   CollectionReference _collectionReference =
   FirebaseFirestore.instance.collection('References');
 
-  Future<List> getData() async {
-    QuerySnapshot querySnapshot = await _collectionReference.get();
-    final List allData = querySnapshot.docs.map((doc) => doc.data()).toList();
-    return allData;
+  Future<List<Reference>> getAllReference() async {
+    var references = await FirebaseFirestore.instance.collection('References').get();
+    return references.docs.map((reference) => Reference.fromDocumentSnapshot(reference)).toList();
   }
 }
