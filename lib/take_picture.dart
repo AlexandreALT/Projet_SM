@@ -46,7 +46,7 @@ class TakePictureState extends State<TakePicture> {
             return SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
-                    child: SizedBox(child: CameraPreview(_controller!)));
+                    child: SizedBox(child: CameraPreview(_controller)));
           } else {
             return const Center(child: CircularProgressIndicator());
           }

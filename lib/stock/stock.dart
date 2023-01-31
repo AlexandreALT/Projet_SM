@@ -1,4 +1,3 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/Services/referenceDB.dart';
@@ -19,7 +18,6 @@ class Stock extends StatefulWidget {
 class _StockState extends State<Stock> {
   var _futureProduits = ProductDB().getData();
   var _futureReference = ReferenceDB().getData();
-  var listProducts = [];
   var listReferences = [];
 
   @override
@@ -89,15 +87,6 @@ class _StockState extends State<Stock> {
                             title: listReferences[index].nom,
                             quantity: listReferences[index].quantite,
                           ),
-                    //listProducts[index].categorie == 'Consommable'
-                    //  ? Consumable(
-                    //    reference: listProducts[index].reference,
-                    //  title: '',
-                    //quantity: listProducts[index].quantite,
-                    //)
-                    //: ToolList(
-                    //  product: listProducts[index],
-                    //),
                     SizedBox(height: 10),
                   ],
                 );

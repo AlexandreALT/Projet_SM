@@ -13,7 +13,6 @@ class AddProduct extends StatelessWidget {
 
   final image;
 
-  var namecontroller = TextEditingController();
   var refcontroller = TextEditingController();
   var quantitecontroller = TextEditingController();
   var categoriecontroller = TextEditingController();
@@ -65,23 +64,6 @@ class AddProduct extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            TextFormField(
-              controller: namecontroller,
-              keyboardType: TextInputType.text,
-              style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 0,
-                      style: BorderStyle.none,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(50.0))),
-                filled: true,
-                fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Nom du nouveau produit',
-              ),
-            ),
-            SizedBox(height: 10),
             TextFormField(
               controller: refcontroller,
               keyboardType: TextInputType.text,
@@ -144,7 +126,7 @@ class AddProduct extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height / 12),
+            SizedBox(height: MediaQuery.of(context).size.height / 6),
             Column(
               children: <Widget>[
                 Container(
