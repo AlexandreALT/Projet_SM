@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:projet_sm/models/reference.dart';
 import 'package:projet_sm/stock/info_product.dart';
 
+import '../models/product.dart';
+
 class ToolList extends StatelessWidget {
   const ToolList({Key? key, required this.reference}) : super(key: key);
 
@@ -33,13 +35,13 @@ class ToolList extends StatelessWidget {
                 IconButton(
                   icon: Icon(Icons.edit),
                   onPressed: () {
-                    //Navigator.pushReplacement<void, void>(
-                      //context,
-                      //MaterialPageRoute<void>(
-                      //  builder: (BuildContext context) =>
-                      //      InfoProduct(product: product),
-                      //),
-                    //);
+                    Navigator.pushReplacement<void, void>(
+                      context,
+                      MaterialPageRoute<void>(
+                        builder: (BuildContext context) =>
+                            InfoProduct(product: new Product(categorie:"frr",date_ajout:"03/03/03",image:"",quantite:4,reference:"b38",statut:"en chantier")),
+                      ),
+                    );
                   },
                 ),
                 IconButton(
