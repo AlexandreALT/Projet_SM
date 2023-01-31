@@ -25,6 +25,7 @@ class Product {
 
   Map<String, dynamic> toMap() {
     return {
+      'name': nom,
       'categorie': categorie,
       'quantite': quantite,
       'reference': reference,
