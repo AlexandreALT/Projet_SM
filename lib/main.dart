@@ -48,7 +48,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required this.camera}) : super(key: key);
+  MyApp({Key? key, required this.camera}) : super(key: key);
 
   final camera;
 
@@ -74,8 +74,6 @@ class MyApp extends StatelessWidget {
         '/chantiers': (context) => new Chantiers(),
         '/add_chantier': (context) => new AddChantier(),
         '/new_chantier': (context) => new NewChantier(),
-        '/chantier_details': (context) => new ChantierDetails(),
-        '/edit_chantier': (context) => new EditChantier(),
 
         // Profile :
         '/profile': (context) => new Profile(),
