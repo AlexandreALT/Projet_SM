@@ -45,7 +45,7 @@ class Accueil extends StatelessWidget {
         padding: const EdgeInsets.all(30),
         child: ListView(children: <Widget>[
           Container(
-              child: Text("Bienvenue, ... !",
+              child: Text("Bienvenue !",
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
               alignment: Alignment.center),
           SizedBox(height: 50),

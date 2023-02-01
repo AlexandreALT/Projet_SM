@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
-import 'package:projet_sm/tools/search_bar.dart';
 
 class InfoProduct extends StatelessWidget {
   const InfoProduct({Key? key, required this.product}) : super(key: key);
@@ -44,7 +43,7 @@ class InfoProduct extends StatelessWidget {
             ),
             SizedBox(height: 10),
             Container(
-              height: MediaQuery.of(context).size.height - 500,
+              //height: MediaQuery.of(context).size.height - 500,
               decoration: BoxDecoration(
                   border: Border.all(
                     color: Colors.blue,
@@ -56,12 +55,12 @@ class InfoProduct extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Name' + ' ' + product.reference,
+                      product.reference,
                       style: TextStyle(fontSize: 25),
                     ),
-                    Text('N° Série : ', style: TextStyle(fontSize: 20)),
+                    Text('N° Série : ' + product.numeroSerie!, style: TextStyle(fontSize: 20)),
                     Image.file(
-                      File(product.image),
+                      File(product.image), height: MediaQuery.of(context).size.height / 4,
                     ),
                   ],
                 ),
@@ -74,7 +73,7 @@ class InfoProduct extends StatelessWidget {
                   'Catégorie : ',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                Text('catégorie', style: TextStyle(fontSize: 20))
+                Text(product.categorie, style: TextStyle(fontSize: 20))
               ],
             ),
             SizedBox(height: 15),
@@ -84,7 +83,7 @@ class InfoProduct extends StatelessWidget {
                   'Prix par jour : ',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                Text('prix', style: TextStyle(fontSize: 20))
+                Text(product.cout.toString(), style: TextStyle(fontSize: 20))
               ],
             ),
             SizedBox(height: 15),
@@ -94,7 +93,7 @@ class InfoProduct extends StatelessWidget {
                   "Date d'ajout : ",
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
-                Text('date', style: TextStyle(fontSize: 20))
+                Text(product.date_ajout, style: TextStyle(fontSize: 20))
               ],
             ),
             SizedBox(height: MediaQuery.of(context).size.height / 12),
