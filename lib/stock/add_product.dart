@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/referenceDB.dart';
 import 'package:projet_sm/models/product.dart';
 
 import '../Services/productDB.dart';
@@ -13,7 +14,6 @@ class AddProduct extends StatelessWidget {
 
   final image;
 
-  var namecontroller = TextEditingController();
   var refcontroller = TextEditingController();
   var quantitecontroller = TextEditingController();
   var categoriecontroller = TextEditingController();
@@ -65,23 +65,6 @@ class AddProduct extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
-            TextFormField(
-              controller: namecontroller,
-              keyboardType: TextInputType.text,
-              style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 0,
-                      style: BorderStyle.none,
-                    ),
-                    borderRadius: BorderRadius.all(Radius.circular(50.0))),
-                filled: true,
-                fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Nom du nouveau produit',
-              ),
-            ),
-            SizedBox(height: 10),
             TextFormField(
               controller: refcontroller,
               keyboardType: TextInputType.text,
@@ -144,7 +127,7 @@ class AddProduct extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height / 12),
+            SizedBox(height: MediaQuery.of(context).size.height / 6),
             Column(
               children: <Widget>[
                 Container(
@@ -160,6 +143,12 @@ class AddProduct extends StatelessWidget {
                       File file = File(image.path);
                       storageRef.putFile(file);
 
+                      var reference = refcontroller.text;
+
+                      var ref = await ReferenceDB().getReference(reference);
+                      var serie = ref["compteur"].toString()+ref["alias"];
+                      await ReferenceDB().updateReference(reference, 'compteur', ref["compteur"]+1);
+
                       String jour = DateTime.now().day.toString();
                       String mois = DateTime.now().month.toString();
                       String annee = DateTime.now().year.toString();
@@ -168,10 +157,11 @@ class AddProduct extends StatelessWidget {
                       var product = new Product(
                         categorie: categoriecontroller.text,
                         quantite: int.parse(quantitecontroller.text),
-                        reference: refcontroller.text,
+                        reference: reference,
                         image: image.path,
                         date_ajout: date,
-                        statut: "En entrepôt"
+                        statut: "En entrepôt",
+                        numeroSerie: serie,
                       );
                       await ProductDB().addProduct(product);
                       Navigator.pushNamed(context, '/new_product');

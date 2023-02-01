@@ -3,7 +3,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 class Product {
   final String? id;
   final String? numeroSerie;
-  final String? nom;
   final String categorie;
   final int quantite;
   final String reference;
@@ -14,7 +13,6 @@ class Product {
   Product({
     this.id,
     this.numeroSerie,
-    this.nom,
     required this.categorie,
     required this.quantite,
     required this.reference,
@@ -25,20 +23,19 @@ class Product {
 
   Map<String, dynamic> toMap() {
     return {
-      'name': nom,
       'categorie': categorie,
       'quantite': quantite,
       'reference': reference,
       'image': image,
       'date_ajout': date_ajout,
       'statut': statut,
+      'numeroSerie': numeroSerie,
     };
   }
 
   Product.fromDocumentSnapshot(DocumentSnapshot<Map<String, dynamic>> doc)
       : id = doc.id,
         numeroSerie = doc.data()!["numeroSerie"],
-        nom = doc.data()!["nom"],
         categorie = doc.data()!["categorie"],
         quantite = doc.data()!["quantite"],
         reference = doc.data()!["reference"],

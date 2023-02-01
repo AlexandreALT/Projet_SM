@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/referenceDB.dart';
+import 'package:projet_sm/models/reference.dart';
 
 class AddReference extends StatelessWidget {
-  const AddReference({Key? key}) : super(key: key);
+  AddReference({Key? key}) : super(key: key);
+
+  var refcontroller = TextEditingController();
+  var namecontroller = TextEditingController();
+  var costcontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +37,7 @@ class AddReference extends StatelessWidget {
         child: ListView(
           children: [
             TextFormField(
+              controller: namecontroller,
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
@@ -47,7 +54,25 @@ class AddReference extends StatelessWidget {
             ),
             SizedBox(height: 10,),
             TextFormField(
+              controller: refcontroller,
               keyboardType: TextInputType.text,
+              style: const TextStyle(color: Colors.black),
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 0,
+                      style: BorderStyle.none,
+                    ),
+                    borderRadius: BorderRadius.all(Radius.circular(50.0))),
+                filled: true,
+                fillColor: Color.fromRGBO(232, 232, 232, 1.0),
+                hintText: 'Référence',
+              ),
+            ),
+            SizedBox(height: 10,),
+            TextFormField(
+              controller: costcontroller,
+              keyboardType: TextInputType.number,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
                 border: OutlineInputBorder(
@@ -61,7 +86,7 @@ class AddReference extends StatelessWidget {
                 hintText: 'Coût',
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height / 2),
+            SizedBox(height: MediaQuery.of(context).size.height / 2.5),
             Column(
               children: <Widget>[
                 Container(
@@ -72,7 +97,16 @@ class AddReference extends StatelessWidget {
                         borderRadius: BorderRadius.all(Radius.circular(50.0)),
                       ),
                     ),
-                    onPressed: () {
+                    onPressed: () async {
+                      var cost = int.parse(costcontroller.text);
+                      var name = namecontroller.text;
+                      var ref = refcontroller.text;
+                      var cpt = 1;
+                      var alias = name.replaceAll(" ","").substring(0,3).toUpperCase() + ref.replaceAll(" ","").substring(0,3).toUpperCase();
+
+                      Reference reference = new Reference(alias: alias, compteur: cpt, cout: cost, nom: name, reference: ref);
+                      await ReferenceDB().addReference(reference);
+
                       Navigator.pushNamed(context, '/new_reference');
                     },
                     child: const Text(

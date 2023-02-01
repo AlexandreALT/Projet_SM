@@ -80,7 +80,7 @@ class ModifProduct extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))),
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Burineur',
+                hintText: 'Nom du produit',
               ),
             ),
             SizedBox(height: 10),
@@ -101,7 +101,7 @@ class ModifProduct extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))),
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'SDS Max MH 5',
+                hintText: 'Référence',
                 suffixIcon: IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {
@@ -128,7 +128,7 @@ class ModifProduct extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))),
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: '5',
+                hintText: 'Nom au dépot',
               ),
             ),
             SizedBox(height: 10),
@@ -149,7 +149,7 @@ class ModifProduct extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))),
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Outil de chantier',
+                hintText: 'Catégorie',
                 suffixIcon: IconButton(
                   icon: Icon(Icons.add),
                   onPressed: () {
@@ -172,7 +172,6 @@ class ModifProduct extends StatelessWidget {
           ),
           onPressed: () async {
             var product = new Product(
-                nom: namecontroller.text,
                 categorie: categoriecontroller.text,
                 quantite: int.parse(quantitecontroller.text),
                 reference: refcontroller.text,

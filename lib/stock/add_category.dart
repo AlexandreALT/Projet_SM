@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/categoryDB.dart';
+import 'package:projet_sm/models/category.dart';
 
 class AddCategory extends StatelessWidget {
-  const AddCategory({Key? key}) : super(key: key);
+  AddCategory({Key? key}) : super(key: key);
+
+  var namecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +35,7 @@ class AddCategory extends StatelessWidget {
         child: ListView(
           children: [
             TextFormField(
+              controller: namecontroller,
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
               decoration: const InputDecoration(
@@ -57,6 +62,10 @@ class AddCategory extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      Category category = new Category(name: namecontroller.text);
+
+                      CategoryDB().addCategory(category);
+
                       Navigator.pushNamed(context, '/new_category');
                     },
                     child: const Text(
