@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:projet_sm/models/product.dart';
 
 import '../Services/productDB.dart';
-import '../chantiers/chantier.dart';
 
 // Récupérer image from XFile path : Image.file(File(path))
 
@@ -42,7 +41,7 @@ class ModifProduct extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(30),
+        padding: const EdgeInsets.all(20),
         child: ListView(
           children: [
             Center(
@@ -65,6 +64,10 @@ class ModifProduct extends StatelessWidget {
               ),
             ),
             SizedBox(height: 20),
+            Text(
+              'Nom du produit :',
+              style: TextStyle(fontSize: 15),
+            ),
             TextFormField(
               keyboardType: TextInputType.text,
               style: const TextStyle(color: Colors.black),
@@ -81,6 +84,10 @@ class ModifProduct extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
+            Text(
+              'Référence :',
+              style: TextStyle(fontSize: 15),
+            ),
             TextFormField(
               controller: refcontroller,
               keyboardType: TextInputType.text,
@@ -104,6 +111,10 @@ class ModifProduct extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
+            Text(
+              'Nom au dépot :',
+              style: TextStyle(fontSize: 15),
+            ),
             TextFormField(
               controller: quantitecontroller,
               keyboardType: TextInputType.number,
@@ -121,6 +132,10 @@ class ModifProduct extends StatelessWidget {
               ),
             ),
             SizedBox(height: 10),
+            Text(
+              'Catégorie :',
+              style: TextStyle(fontSize: 15),
+            ),
             TextFormField(
               controller: categoriecontroller,
               keyboardType: TextInputType.text,
@@ -143,40 +158,37 @@ class ModifProduct extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: MediaQuery.of(context).size.height / 15),
-            Column(
-              children: <Widget>[
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  height: MediaQuery.of(context).size.height / 15,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                      ),
-                    ),
-                    onPressed: () async {
-                      var product = new Product(
-                          categorie: categoriecontroller.text,
-                          quantite: int.parse(quantitecontroller.text),
-                          reference: refcontroller.text,
-                          image: image.path,
-                          date_ajout: '',
-                          statut: '');
-                      await ProductDB().addProduct(product);
-                      Navigator.pushNamed(context, '/new_product');
-                    },
-                    child: const Text(
-                      'Valider',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ),
-              ],
-            ),
           ],
         ),
       ),
+      floatingActionButton: Container(
+        width: MediaQuery.of(context).size.width-40,
+        height: 50,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            shape: const RoundedRectangleBorder(
+              borderRadius: BorderRadius.all(Radius.circular(50.0)),
+            ),
+          ),
+          onPressed: () async {
+            var product = new Product(
+                nom: namecontroller.text,
+                categorie: categoriecontroller.text,
+                quantite: int.parse(quantitecontroller.text),
+                reference: refcontroller.text,
+                image: image.path,
+                date_ajout: '',
+                statut: '');
+            await ProductDB().addProduct(product);
+            Navigator.pushNamed(context, '/new_product');
+          },
+          child: const Text(
+            'Valider',
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

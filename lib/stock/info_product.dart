@@ -97,27 +97,52 @@ class InfoProduct extends StatelessWidget {
                 Text('date', style: TextStyle(fontSize: 20))
               ],
             ),
+            SizedBox(height: MediaQuery.of(context).size.height / 12),
+            Column(
+              children: <Widget>[
+                Container(
+                  height : 50,
+                  width: MediaQuery.of(context).size.width-40,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                      ),
+                    ),
+                    onPressed: () async {
+                      Navigator.pushNamed(context, '/modif_product');
+                    },
+                    child: const Text(
+                      'Modifier ce produit',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
+                SizedBox(height: MediaQuery.of(context).size.height / 40),
+                Container(
+                  height : 50,
+                  width: MediaQuery.of(context).size.width-40,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      shape: const RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                      ),
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/verif_delete_product');
+                    },
+                    child: const Text(
+                      'Supprimer ce produit',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ],
         ),
       ),
-      floatingActionButton: Container(
-          height: 50,
-          width: MediaQuery.of(context).size.width - 40,
-          child: ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(50.0)),
-              ),
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/modif_product');
-            },
-            child: const Text(
-              'Modifier ce produit',
-              style: TextStyle(fontSize: 20),
-            ),
-          )),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }
