@@ -42,4 +42,16 @@ class Product {
         image = doc.data()!["image"],
         date_ajout = doc.data()!["date_ajout"],
         statut = doc.data()!["statut"];
+
+  factory Product.fromMap(Map<String, dynamic> data) {
+    return Product(
+        numeroSerie : data["numeroSerie"],
+        categorie : data["categorie"],
+        quantite : data["quantite"],
+        reference : data["reference"],
+        image : data["image"],
+        date_ajout : data["date_ajout"],
+        statut : data["statut"]
+    );
+  }
 }

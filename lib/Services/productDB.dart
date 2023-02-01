@@ -7,7 +7,15 @@ class ProductDB {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   Future<bool> addProduct(Product productData) async {
-    await _db.collection("Produits").add(productData.toMap());
+    await _db.collection("Produits").doc(productData.numeroSerie).set({
+      "categorie" : productData.categorie,
+      "date_ajout" : productData.date_ajout,
+      "idChantier" : "",
+      "image" : productData.image,
+      "quantite" : productData.quantite,
+      "reference" : productData.reference,
+      "statut" : "En entrepôt"
+    });
     return true;
   }
 
@@ -23,5 +31,14 @@ class ProductDB {
     var produits = await FirebaseFirestore.instance.collection('Produits').get();
     return produits.docs.map((produit) => Product.fromDocumentSnapshot(produit)).toList();
   }
+
+  Future<Product> getProduct(ref) async {
+    final docRef =
+    await FirebaseFirestore.instance.collection('References').doc(ref);
+    DocumentSnapshot doc = await docRef.get();
+    final data = doc.data() as Map<String, dynamic>;
+    return Product.fromMap(data);
+  }
+
 
 }

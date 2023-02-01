@@ -108,7 +108,6 @@ class MyApp extends StatelessWidget {
         '/choice_capture': (context) => new ChoiceCapture(),
         '/settings': (context) => new Settings(),
         '/manual_entry': (context) => new ManualEntry(),
-        '/scan_result': (context) => new ScanResult(),
       },
     );
   }

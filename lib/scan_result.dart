@@ -6,7 +6,9 @@ import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 
 class ScanResult extends StatelessWidget {
-  const ScanResult({Key? key}) : super(key: key);
+  const ScanResult({Key? key, required this.product}) : super(key: key);
+
+  final Product product;
 
   @override
   Widget build(BuildContext context) {

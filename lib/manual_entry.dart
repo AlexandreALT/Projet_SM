@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/productDB.dart';
+import 'package:projet_sm/models/product.dart';
+import 'package:projet_sm/scan_result.dart';
 import 'package:projet_sm/tools/menu.dart';
 
 class ManualEntry extends StatelessWidget {
   ManualEntry({Key? key}) : super(key: key);
+
+  var numeroSerieController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -41,6 +46,7 @@ class ManualEntry extends StatelessWidget {
                   )),
               const SizedBox(height: 30),
               TextFormField(
+                controller: numeroSerieController,
                 keyboardType: TextInputType.text,
                 style: const TextStyle(color: Colors.black),
                 decoration: const InputDecoration(
@@ -67,8 +73,9 @@ class ManualEntry extends StatelessWidget {
                 borderRadius: BorderRadius.all(Radius.circular(50.0)),
               ),
             ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/scan_result');
+            onPressed: () async{
+              var produit = await ProductDB().getProduct(numeroSerieController.text);
+              Navigator.push(context, MaterialPageRoute(builder: (context) => ScanResult(product: produit)));
             },
             child: const Text(
               'Affecter',
