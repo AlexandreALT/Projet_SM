@@ -46,4 +46,16 @@ class Product {
         date_ajout = doc.data()!["date_ajout"],
         statut = doc.data()!["statut"],
         cout = doc.data()!["cout"];
+
+  factory Product.fromMap(Map<String, dynamic> data) {
+    return Product(
+      categorie: data['categorie'],
+      quantite: data['quantite'],
+      reference: data['reference'],
+      image: data['image'],
+      date_ajout: data['date_ajout'],
+      statut: data['statut'],
+      cout: data['cout'],
+    );
+  }
 }
