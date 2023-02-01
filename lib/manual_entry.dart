@@ -36,7 +36,7 @@ class ManualEntry extends StatelessWidget {
                   alignment: Alignment.center,
                   padding: const EdgeInsets.all(10),
                   child: const Text(
-                    'Entrez la référence de l\'outil que vous souhaitez affecter dans un chantier.',
+                    'Entrez le numéro de série de l\'outil que vous souhaitez affecter dans un chantier.',
                     style: TextStyle(fontSize: 20),
                   )),
               const SizedBox(height: 30),
@@ -50,7 +50,7 @@ class ManualEntry extends StatelessWidget {
                         style: BorderStyle.none,
                       ),
                       borderRadius: BorderRadius.all(Radius.circular(50.0))),
-                  hintText: 'Référence de l\'outil',
+                  hintText: 'N° de série l\'outil',
                   filled: true,
                   fillColor: Color.fromRGBO(232, 232, 232, 1.0),
                 ),
@@ -68,7 +68,7 @@ class ManualEntry extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Navigator.pushNamed(context, '/manual_entry');
+              Navigator.pushNamed(context, '/scan_result');
             },
             child: const Text(
               'Affecter',
