@@ -3,12 +3,14 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/accueil.dart';
+import 'package:projet_sm/affect_site.dart';
 import 'package:projet_sm/chantiers/add_chantier.dart';
 import 'package:projet_sm/chantiers/new_chantier.dart';
 import 'package:projet_sm/choice_capture.dart';
 import 'package:projet_sm/firebase_options.dart';
 import 'package:projet_sm/log/login.dart';
 import 'package:projet_sm/roles/gestion_roles.dart';
+import 'package:projet_sm/scan_error.dart';
 import 'package:projet_sm/scan_result.dart';
 import 'package:projet_sm/stock/add_category.dart';
 import 'package:projet_sm/stock/add_product.dart';
@@ -108,6 +110,8 @@ class MyApp extends StatelessWidget {
         '/choice_capture': (context) => new ChoiceCapture(),
         '/settings': (context) => new Settings(),
         '/manual_entry': (context) => new ManualEntry(),
+        '/scan_error': (context) => new ScanError(),
+        '/affect_site': (context) => new AffectSite(),
       },
     );
   }
