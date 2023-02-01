@@ -3,6 +3,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/accueil.dart';
+import 'package:projet_sm/affect_site.dart';
 import 'package:projet_sm/chantiers/add_chantier.dart';
 import 'package:projet_sm/chantiers/new_chantier.dart';
 import 'package:projet_sm/choice_capture.dart';
@@ -111,6 +112,7 @@ class MyApp extends StatelessWidget {
         '/manual_entry': (context) => new ManualEntry(),
         '/scan_result': (context) => new ScanResult(),
         '/scan_error': (context) => new ScanError(),
+        '/affect_site': (context) => new AffectSite(),
       },
     );
   }

@@ -66,7 +66,7 @@ class ScanResult extends StatelessWidget {
                       ),
                     ),
                     onPressed: () async {
-                      //Navigator.pushNamed(context, '/choice_capture');
+                      Navigator.pushNamed(context, '/affect_site');
                     },
                     child: const Text(
                       'Affecter à un chantier',
