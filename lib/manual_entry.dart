@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/Services/auth.dart';
+import 'package:projet_sm/tools/menu.dart';
 
 class ManualEntry extends StatelessWidget {
   ManualEntry({Key? key}) : super(key: key);
@@ -26,6 +26,7 @@ class ManualEntry extends StatelessWidget {
           style: TextStyle(color: Colors.black, fontSize: 20),
         ),
       ),
+      drawer: Menu(),
       body: Padding(
           padding: const EdgeInsets.all(10),
           child: ListView(
