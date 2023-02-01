@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/chantiers/chantier_details.dart';
 import 'package:projet_sm/models/chantier.dart';
 
 class ChantierWidget extends StatelessWidget {
@@ -30,14 +31,18 @@ class ChantierWidget extends StatelessWidget {
                         color: Colors.black,
                         size: 25,
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => ChantierDetails(chantier: chantier)));
+                      },
                     ),
                     IconButton(
                       icon: Image.asset(
                         'assets/arrow_down.png',
 
                       ),
-                      onPressed: () {},
+                      onPressed: () {
+
+                      },
                     ),
                   ],
                 )

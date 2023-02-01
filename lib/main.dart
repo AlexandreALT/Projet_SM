@@ -3,12 +3,15 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/accueil.dart';
+import 'package:projet_sm/affect_site.dart';
 import 'package:projet_sm/chantiers/add_chantier.dart';
 import 'package:projet_sm/chantiers/new_chantier.dart';
 import 'package:projet_sm/choice_capture.dart';
 import 'package:projet_sm/firebase_options.dart';
 import 'package:projet_sm/log/login.dart';
 import 'package:projet_sm/roles/gestion_roles.dart';
+import 'package:projet_sm/scan_error.dart';
+import 'package:projet_sm/scan_result.dart';
 import 'package:projet_sm/stock/add_category.dart';
 import 'package:projet_sm/stock/add_product.dart';
 import 'package:projet_sm/stock/add_reference.dart';
@@ -34,6 +37,7 @@ import 'package:projet_sm/log/logout.dart';
 import 'Services/auth.dart';
 import 'chantiers/chantier_details.dart';
 import 'chantiers/edit_chantier.dart';
+import 'manual_entry.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -50,7 +54,7 @@ Future<void> main() async {
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required this.camera}) : super(key: key);
+  MyApp({Key? key, required this.camera}) : super(key: key);
 
   final camera;
 
@@ -76,8 +80,6 @@ class MyApp extends StatelessWidget {
         '/chantiers': (context) => new Chantiers(),
         '/add_chantier': (context) => new AddChantier(),
         '/new_chantier': (context) => new NewChantier(),
-        '/chantier_details': (context) => new ChantierDetails(),
-        '/edit_chantier': (context) => new EditChantier(),
 
         // Profile :
         '/profile': (context) => new Profile(),
@@ -107,6 +109,10 @@ class MyApp extends StatelessWidget {
         '/alerts': (context) => new Alerts(),
         '/choice_capture': (context) => new ChoiceCapture(),
         '/settings': (context) => new Settings(),
+        '/manual_entry': (context) => new ManualEntry(),
+        '/scan_result': (context) => new ScanResult(),
+        '/scan_error': (context) => new ScanError(),
+        '/affect_site': (context) => new AffectSite(),
       },
     );
   }

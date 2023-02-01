@@ -1,8 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/chantierDB.dart';
 import 'package:projet_sm/tools/menu.dart';
 
+import '../models/chantier.dart';
+import 'edit_chantier.dart';
+
 class ChantierDetails extends StatelessWidget {
-  const ChantierDetails({Key? key}) : super(key: key);
+
+  final Chantier chantier;
+
+  ChantierDetails({Key? key, required this.chantier}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -18,22 +25,30 @@ class ChantierDetails extends StatelessWidget {
               },
             );
           },
+
         ),
         centerTitle: true,
         backgroundColor: Colors.white,
-        title: const Text(
-          "Détails du chantier",
+        title: Text(
+          chantier.name,
           style: TextStyle(color: Colors.black, fontSize: 30),
         ),
         actions: [
-          IconButton(
-            icon: Icon(
-              Icons.edit,
-              color: Colors.black,
-            ),
-            onPressed: () {
-              Navigator.pushNamed(context, '/edit_chantier');
+          PopupMenuButton(
+            icon: Icon(Icons.more_horiz, color: Colors.black),
+            onSelected: (value) {
+              if(value == 0){
+                Navigator.push(context, MaterialPageRoute(builder: (context) => EditChantier(chantier: chantier, id: chantier.id!)));
+              }else if(value == 1){
+                ChantierDB().deleteChantier(chantier);
+                Navigator.pushNamed(context, "/chantiers");
+              }
             },
+            iconSize: 25,
+            itemBuilder: (context) => [
+              PopupMenuItem<int>(value: 0, child: Text('Modifier')),
+              PopupMenuItem<int>(value: 1, child: Text('Supprimer'))
+            ]
           ),
         ],
       ),
@@ -48,7 +63,7 @@ class ChantierDetails extends StatelessWidget {
             TextFormField(
               readOnly: true,
               style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 border: OutlineInputBorder(
                     borderSide: BorderSide(
                       width: 0,
@@ -57,7 +72,7 @@ class ChantierDetails extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))),
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Tourmaniantz',
+                hintText: chantier.name,
               ),
             ),
             SizedBox(height: 20),
@@ -66,7 +81,7 @@ class ChantierDetails extends StatelessWidget {
             TextFormField(
               readOnly: true,
               style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 border: OutlineInputBorder(
                     borderSide: BorderSide(
                       width: 0,
@@ -75,7 +90,7 @@ class ChantierDetails extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))),
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Mairie de Lille',
+                hintText: chantier.nameClient,
               ),
             ),
             SizedBox(height: 20),
@@ -84,7 +99,7 @@ class ChantierDetails extends StatelessWidget {
             TextFormField(
               readOnly: true,
               style: const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 border: OutlineInputBorder(
                     borderSide: BorderSide(
                       width: 0,
@@ -93,7 +108,7 @@ class ChantierDetails extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))),
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Rue Yervant Tourmaniantz',
+                hintText: chantier.adresse,
               ),
             ),
             SizedBox(height: 20),
@@ -111,7 +126,7 @@ class ChantierDetails extends StatelessWidget {
                     borderRadius: BorderRadius.all(Radius.circular(50.0))),
                 filled: true,
                 fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: '10/07/2022',
+                hintText: chantier.dateDebut,
                 suffixIcon: IconButton(icon: Icon(Icons.calendar_month), onPressed: () {},)
               ),
             ),
@@ -129,7 +144,7 @@ class ChantierDetails extends StatelessWidget {
               ),
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.pushNamed(context, "/chantiers");
             },
             child: const Text(
               'Retour',
@@ -140,3 +155,6 @@ class ChantierDetails extends StatelessWidget {
     );
   }
 }
+
+
+

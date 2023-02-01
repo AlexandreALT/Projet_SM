@@ -46,10 +46,89 @@ class _StockState extends State<Stock> {
           padding: const EdgeInsets.all(20),
           child: Column(children: [
             SearchBar(),
+            Container(
+              child: Row(children: [
+                Container(
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                        ),
+                      ),
+                      onPressed: () {
+                        Visibility(
+                          child: Expanded(
+                            child: ReferenceListWidget(),
+                          ),
+                          visible: true,
+                        );
+                        Visibility(
+                          child: Expanded(child: ConsumableListWidget()),
+                          visible: true,
+                        );
+                      },
+                      child: const Text('All', style: TextStyle(fontSize: 20),),
+                    )
+                ),
+                Container(
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                        ),
+                      ),
+                      onPressed: () {
+                        Visibility(
+                          child: Expanded(
+                            child: ReferenceListWidget(),
+                          ),
+                          visible: false,
+                        );
+                        Visibility(
+                          child: Expanded(child: ConsumableListWidget()),
+                          visible: true,
+                        );
+                      },
+                      child: const Text('Outils', style: TextStyle(fontSize: 20),),
+                    )
+                ),
+                Container(
+                    height: 50,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.blue,
+                        shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                        ),
+                      ),
+                      onPressed: () {
+                        Visibility(
+                          child: Expanded(
+                            child: ReferenceListWidget(),
+                          ),
+                          visible: true,
+                        );
+                        Visibility(
+                          child: Expanded(child: ConsumableListWidget()),
+                          visible: false,
+                        );
+                      },
+                      child: const Text('Consommable', style: TextStyle(fontSize: 20),),
+                    )
+                ),
+            ],),
+          ),
+            SizedBox(height: 10),
             Expanded(
               child: ReferenceListWidget(),
             ),
-            Expanded(child: ConsumableListWidget()),
+            Expanded(
+                child: ConsumableListWidget()
+            ),
           ])),
       floatingActionButton: Container(
           height: 50,

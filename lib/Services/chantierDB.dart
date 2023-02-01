@@ -16,4 +16,19 @@ class ChantierDB {
     var chantiers = await FirebaseFirestore.instance.collection('Chantiers').get();
     return chantiers.docs.map((chantier) => Chantier.fromDocumentSnapshot(chantier)).toList();
   }
+
+  Future<void> deleteChantier(Chantier chantierData) async {
+    return FirebaseFirestore.instance.collection('Chantiers').doc(chantierData.id).delete();
+  }
+
+  Future<void> updateChantier(String id, Chantier chantierdata) async {
+    return FirebaseFirestore.instance.collection("Chantiers").doc(id).update(
+        {
+          "name" : chantierdata.name,
+          "nameClient" : chantierdata.nameClient,
+          "adresse" : chantierdata.adresse,
+          "dateDebut" : chantierdata.dateDebut
+        });
+  }
+
 }
