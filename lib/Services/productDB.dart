@@ -8,7 +8,7 @@ class ProductDB {
 
   Future<bool> addProduct(Product productData) async {
     await _db.collection("Produits").add(productData.toMap());
-    return  true;
+    return true;
   }
 
   CollectionReference _collectionReference =

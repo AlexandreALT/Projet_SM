@@ -157,7 +157,6 @@ class ModifProduct extends StatelessWidget {
                     ),
                     onPressed: () async {
                       var product = new Product(
-                          nom: namecontroller.text,
                           categorie: categoriecontroller.text,
                           quantite: int.parse(quantitecontroller.text),
                           reference: refcontroller.text,

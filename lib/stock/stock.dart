@@ -12,7 +12,6 @@ import 'package:projet_sm/tools/search_bar.dart';
 import 'package:projet_sm/stock/tool_list.dart';
 
 class Stock extends StatefulWidget {
-
   Stock({Key? key}) : super(key: key);
 
   @override
@@ -20,7 +19,6 @@ class Stock extends StatefulWidget {
 }
 
 class _StockState extends State<Stock> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -45,19 +43,14 @@ class _StockState extends State<Stock> {
       ),
       drawer: Menu(),
       body: Padding(
-        padding: const EdgeInsets.all(20),
-        child: Column(
-              children : [
-                SearchBar(),
-                Expanded(
-                    child: ReferenceListWidget()
-                ),
-                Expanded(
-                    child: ConsumableListWidget()
-                ),
-              ]
-            )
-        ),
+          padding: const EdgeInsets.all(20),
+          child: Column(children: [
+            SearchBar(),
+            Expanded(
+              child: ReferenceListWidget(),
+            ),
+            Expanded(child: ConsumableListWidget()),
+          ])),
       floatingActionButton: Container(
           height: 50,
           width: MediaQuery.of(context).size.width - 40,
