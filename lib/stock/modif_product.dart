@@ -162,7 +162,7 @@ class ModifProduct extends StatelessWidget {
         ),
       ),
       floatingActionButton: Container(
-        width: MediaQuery.of(context).size.width-40,
+        width: MediaQuery.of(context).size.width - 40,
         height: 50,
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
@@ -177,7 +177,8 @@ class ModifProduct extends StatelessWidget {
                 reference: refcontroller.text,
                 image: image.path,
                 date_ajout: '',
-                statut: '');
+                statut: '',
+                cout: 30);
             await ProductDB().addProduct(product);
             Navigator.pushNamed(context, '/new_product');
           },

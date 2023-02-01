@@ -139,26 +139,30 @@ class AddProduct extends StatelessWidget {
                       ),
                     ),
                     onPressed: () async {
-                      final storageRef = FirebaseStorage.instance.ref().child('Products/test.jpg');
-                      File file = File(image.path);
-                      storageRef.putFile(file);
-
                       var reference = refcontroller.text;
 
                       var ref = await ReferenceDB().getReference(reference);
                       var serie = ref["compteur"].toString()+ref["alias"];
                       await ReferenceDB().updateReference(reference, 'compteur', ref["compteur"]+1);
 
+                      var imgPath = "Products/"+ref["nom"]+"/"+ref["reference"]+"/"+serie+".jpg";
+
+                      final storageRef = FirebaseStorage.instance.ref().child(imgPath);
+                      File file = File(image.path);
+                      storageRef.putFile(file);
+
                       String jour = DateTime.now().day.toString();
                       String mois = DateTime.now().month.toString();
                       String annee = DateTime.now().year.toString();
                       if (mois.length < 2) mois = "0" + mois;
+                      if (jour.length < 2) jour  = "0" + jour;
                       String date = jour + '/' + mois + '/' + annee;
                       var product = new Product(
+                        cout: ref["cout"],
                         categorie: categoriecontroller.text,
                         quantite: int.parse(quantitecontroller.text),
                         reference: reference,
-                        image: image.path,
+                        image: imgPath,
                         date_ajout: date,
                         statut: "En entrepôt",
                         numeroSerie: serie,

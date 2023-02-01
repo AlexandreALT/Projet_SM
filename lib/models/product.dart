@@ -9,6 +9,7 @@ class Product {
   final String image;
   final String date_ajout;
   final String statut;
+  final int cout;
 
   Product({
     this.id,
@@ -19,6 +20,7 @@ class Product {
     required this.image,
     required this.date_ajout,
     required this.statut,
+    required this.cout,
   });
 
   Map<String, dynamic> toMap() {
@@ -30,6 +32,7 @@ class Product {
       'date_ajout': date_ajout,
       'statut': statut,
       'numeroSerie': numeroSerie,
+      'cout': cout,
     };
   }
 
@@ -41,17 +44,6 @@ class Product {
         reference = doc.data()!["reference"],
         image = doc.data()!["image"],
         date_ajout = doc.data()!["date_ajout"],
-        statut = doc.data()!["statut"];
-
-  factory Product.fromMap(Map<String, dynamic> data) {
-    return Product(
-        numeroSerie : data["numeroSerie"],
-        categorie : data["categorie"],
-        quantite : data["quantite"],
-        reference : data["reference"],
-        image : data["image"],
-        date_ajout : data["date_ajout"],
-        statut : data["statut"]
-    );
-  }
+        statut = doc.data()!["statut"],
+        cout = doc.data()!["cout"];
 }

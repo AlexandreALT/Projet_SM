@@ -41,4 +41,13 @@ class ProductDB {
   }
 
 
+  Future<List<Product>> getProductWhere(String condition, String value) async {
+    var produits = await FirebaseFirestore.instance.collection('Produits').where(condition,isEqualTo: value).get();
+    return produits.docs.map((produit) => Product.fromDocumentSnapshot(produit)).toList();
+  }
+
+  Future<int> countProducts(String condition, String value) async {
+    var produits = await FirebaseFirestore.instance.collection('Produits').where(condition,isEqualTo: value).get();
+    return produits.docs.map((produit) => Product.fromDocumentSnapshot(produit)).toList().length;
+  }
 }
