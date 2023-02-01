@@ -14,7 +14,7 @@ class DeleteProduct extends StatelessWidget {
               Column(
                 children: <Widget>[
                   const SizedBox(height: 50),
-                  Image.asset('assets/info.png',
+                  Image.asset('assets/check.png',
                       height: 150.0, fit: BoxFit.cover),
                   const SizedBox(height: 40),
                   const Text(
