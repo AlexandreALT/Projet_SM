@@ -58,7 +58,9 @@ class ChoiceCapture extends StatelessWidget {
               width: 1000,
               padding: const EdgeInsets.fromLTRB(50, 0, 50, 0),
               child: ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.pushNamed(context, '/manual_entry');
+                  },
                   style: ButtonStyle(
                     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                         RoundedRectangleBorder(

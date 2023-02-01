@@ -34,6 +34,7 @@ import 'package:projet_sm/log/logout.dart';
 import 'Services/auth.dart';
 import 'chantiers/chantier_details.dart';
 import 'chantiers/edit_chantier.dart';
+import 'manual_entry.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -105,6 +106,7 @@ class MyApp extends StatelessWidget {
         '/alerts': (context) => new Alerts(),
         '/choice_capture': (context) => new ChoiceCapture(),
         '/settings': (context) => new Settings(),
+        '/manual_entry': (context) => new ManualEntry(),
       },
     );
   }

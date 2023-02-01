@@ -49,7 +49,9 @@ class _StockState extends State<Stock> {
             Expanded(
               child: ReferenceListWidget(),
             ),
-            Expanded(child: ConsumableListWidget()),
+            Expanded(
+                child: ConsumableListWidget()
+            ),
           ])),
       floatingActionButton: Container(
           height: 50,
