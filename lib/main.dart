@@ -17,11 +17,13 @@ import 'package:projet_sm/chantiers/chantiers.dart';
 import 'package:projet_sm/profile/edit_profile.dart';
 import 'package:projet_sm/log/leave_app.dart';
 import 'package:projet_sm/stock/choice_picture.dart';
+import 'package:projet_sm/stock/delete_product.dart';
 import 'package:projet_sm/stock/new_category.dart';
 import 'package:projet_sm/stock/new_product.dart';
 import 'package:projet_sm/stock/new_reference.dart';
 import 'package:projet_sm/stock/info_product.dart';
 import 'package:projet_sm/stock/modif_product.dart';
+import 'package:projet_sm/stock/verif_delete_product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/profile/profile.dart';
 import 'package:projet_sm/settings.dart';
@@ -89,6 +91,8 @@ class MyApp extends StatelessWidget {
         '/new_reference': (context) => new NewReference(),
         '/stock': (context) => new Stock(),
         '/modif_product': (context) => new ModifProduct(image: null),
+        '/verif_delete_product': (context) => new VerifDeleteProduct(),
+        '/delete_product': (context) => new DeleteProduct(),
 
 
         // Rôles :
