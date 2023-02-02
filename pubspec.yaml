@@ -106,6 +106,8 @@ flutter:
     - assets/check.png
     - assets/loupe.png
     - assets/error.png
+    - assets/tractopelle.png
+    - assets/entrepot.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

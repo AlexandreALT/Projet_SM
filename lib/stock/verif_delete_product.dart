@@ -19,6 +19,7 @@ class VerifDeleteProduct extends StatelessWidget {
                   const SizedBox(height: 40),
                   const Text(
                     'Ce produit est sur le point d\'être supprimé.',
+                    textAlign: TextAlign.center,
                     style: TextStyle(fontWeight: FontWeight.w500, fontSize: 23),
                   ),
                   const Text(
