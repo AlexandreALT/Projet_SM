@@ -3,8 +3,6 @@ import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/models/reference.dart';
 import 'package:projet_sm/stock/listProducts.dart';
 
-import '../models/product.dart';
-
 class ToolList extends StatefulWidget {
   ToolList({Key? key, required this.reference}) : super(key: key);
 

@@ -20,19 +20,38 @@ class ListProducts extends StatelessWidget {
           int countChantier = 0;
           if (snapshot.data != null) {
             for (Product product in snapshot.data!) {
-              if (product.statut == 'En entrepôt') countStock += 1;
-              else countChantier += 1;
+              if (product.statut == 'En entrepôt')
+                countStock += 1;
+              else
+                countChantier += 1;
             }
             return Container(
               decoration:
                   BoxDecoration(color: Color.fromRGBO(232, 232, 232, 1.0)),
               child: Column(
                 children: [
-                  Row(
-                    children: [
-                      Text(countChantier.toString()),
-                      Text(countStock.toString()),
-                    ],
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 15.0, top: 5, bottom: 5),
+                    child: Row(
+                      children: [
+                        Text(
+                          countChantier.toString(),
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        SizedBox(width: 3),
+                        Image.asset('assets/tractopelle.png', width: 25),
+                        SizedBox(
+                          width: 20,
+                        ),
+                        Text(
+                          countStock.toString(),
+                          style: TextStyle(fontSize: 20),
+                        ),
+                        SizedBox(width: 5),
+                        Image.asset('assets/entrepot.png', width: 20),
+                      ],
+                    ),
                   ),
                   ListView.builder(
                     shrinkWrap: true,
@@ -52,18 +71,28 @@ class ListProducts extends StatelessWidget {
                                       fontSize: 15,
                                       fontWeight: FontWeight.w500),
                                 ),
-                                IconButton(
-                                  onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => InfoProduct(
-                                              product: snapshot.data![index])),
-                                    );
-                                  },
-                                  icon: Icon(Icons.search),
-                                  padding: EdgeInsets.zero,
-                                  constraints: BoxConstraints(),
+                                Row(
+                                  children: [
+                                    if (snapshot.data![index].statut ==
+                                        "En chantier")
+                                      Image.asset('assets/tractopelle.png',
+                                          width: 25),
+                                    SizedBox(width: 20),
+                                    IconButton(
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: (context) => InfoProduct(
+                                                  product:
+                                                      snapshot.data![index])),
+                                        );
+                                      },
+                                      icon: Icon(Icons.search),
+                                      padding: EdgeInsets.zero,
+                                      constraints: BoxConstraints(),
+                                    ),
+                                  ],
                                 )
                               ],
                             ),
