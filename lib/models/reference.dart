@@ -2,18 +2,18 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class Reference {
   final String? id;
-  final String alias;
-  final int compteur;
-  final int cout;
-  final String nom;
+  final String? alias;
+  final int? compteur;
+  final int? cout;
+  final String? nom;
   final String reference;
 
   Reference({
     this.id,
-    required this.alias,
-    required this.compteur,
-    required this.cout,
-    required this.nom,
+    this.alias,
+    this.compteur,
+    this.cout,
+    this.nom,
     required this.reference,
   });
 

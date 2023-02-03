@@ -34,7 +34,7 @@ class ProductDB {
 
   Future<Product> getProduct(ref) async {
     final docRef =
-    await FirebaseFirestore.instance.collection('References').doc(ref);
+    await FirebaseFirestore.instance.collection('Produits').doc(ref);
     DocumentSnapshot doc = await docRef.get();
     final data = doc.data() as Map<String, dynamic>;
     return Product.fromMap(data);

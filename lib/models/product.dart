@@ -49,6 +49,7 @@ class Product {
 
   factory Product.fromMap(Map<String, dynamic> data) {
     return Product(
+      numeroSerie: data['numeroSerie'],
       categorie: data['categorie'],
       quantite: data['quantite'],
       reference: data['reference'],

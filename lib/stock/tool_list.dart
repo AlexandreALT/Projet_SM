@@ -22,7 +22,7 @@ class _ToolListState extends State<ToolList> {
   Widget build(BuildContext context) {
     return FutureBuilder<int>(
         future: ProductDB().countProducts('reference',
-            widget.reference.nom + " " + widget.reference.reference),
+             widget.reference.reference),
         builder: (context, snapshot) {
           int? counter = snapshot.data;
           return Column(
@@ -36,12 +36,7 @@ class _ToolListState extends State<ToolList> {
                       Row(
                         children: [
                           Text(
-                            widget.reference.nom,
-                            style: TextStyle(
-                                fontSize: 20, fontWeight: FontWeight.w600),
-                          ),
-                          Text(
-                            ' - ' + widget.reference.reference,
+                            widget.reference.reference,
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.w600),
                           ),
@@ -91,7 +86,7 @@ class _ToolListState extends State<ToolList> {
               Visibility(
                 visible: _visibility,
                 child: ListProducts(
-                  ref: widget.reference.nom + " " + widget.reference.reference,
+                  ref: widget.reference.reference,
                 ),
               ),
               SizedBox(

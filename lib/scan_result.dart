@@ -44,10 +44,10 @@ class ScanResult extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Burineur SDS Max MH 5',
+                      product.reference,
                       style: TextStyle(fontSize: 25),
                     ),
-                    Text('N° Série : 1234BUR', style: TextStyle(fontSize: 20)),
+                    Text(product!.numeroSerie!, style: TextStyle(fontSize: 20)),
                     //Image.file(
                       //File(product.image),
                     //),
