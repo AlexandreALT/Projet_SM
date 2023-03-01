@@ -9,6 +9,7 @@ import 'package:projet_sm/chantiers/new_chantier.dart';
 import 'package:projet_sm/choice_capture.dart';
 import 'package:projet_sm/firebase_options.dart';
 import 'package:projet_sm/log/login.dart';
+import 'package:projet_sm/retour_success.dart';
 import 'package:projet_sm/roles/gestion_roles.dart';
 import 'package:projet_sm/scan_error.dart';
 import 'package:projet_sm/affect_success.dart';
@@ -113,6 +114,7 @@ class MyApp extends StatelessWidget {
         '/manual_entry': (context) => new ManualEntry(),
         '/scan_error': (context) => new ScanError(),
         '/affect_success': (context) => new AffectSuccess(),
+        '/retour_success': (context) => new RetourSuccess(),
       },
     );
   }
