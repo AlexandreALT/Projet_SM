@@ -11,6 +11,7 @@ import 'package:projet_sm/firebase_options.dart';
 import 'package:projet_sm/log/login.dart';
 import 'package:projet_sm/roles/gestion_roles.dart';
 import 'package:projet_sm/scan_error.dart';
+import 'package:projet_sm/affect_success.dart';
 import 'package:projet_sm/scan_result.dart';
 import 'package:projet_sm/stock/add_category.dart';
 import 'package:projet_sm/stock/add_product.dart';
@@ -112,6 +113,7 @@ class MyApp extends StatelessWidget {
         '/manual_entry': (context) => new ManualEntry(),
         '/scan_error': (context) => new ScanError(),
         '/affect_site': (context) => new AffectSite(),
+        '/affect_success': (context) => new AffectSuccess(),
       },
     );
   }

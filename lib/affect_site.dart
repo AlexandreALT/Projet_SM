@@ -77,7 +77,7 @@ class AffectSite extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
-                      //Navigator.pushNamed(context, '/accueil');
+                      Navigator.pushNamed(context, '/affect_success');
                     },
                     child: const Text(
                       'Valider',
