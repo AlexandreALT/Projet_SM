@@ -164,8 +164,8 @@ class AddProduct extends StatelessWidget {
                         reference: reference,
                         image: imgPath,
                         date_ajout: date,
-                        statut: "En entrepôt",
                         numeroSerie: serie,
+                        statut: "En entrepôt"
                       );
                       await ProductDB().addProduct(product);
                       Navigator.pushNamed(context, '/new_product');

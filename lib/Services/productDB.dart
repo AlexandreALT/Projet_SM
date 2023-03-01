@@ -14,7 +14,9 @@ class ProductDB {
       "image" : productData.image,
       "quantite" : productData.quantite,
       "reference" : productData.reference,
-      "statut" : "En entrepôt"
+      "statut" : productData.statut,
+      "numeroSerie": productData.numeroSerie,
+      "cout": productData.cout,
     });
     return true;
   }
