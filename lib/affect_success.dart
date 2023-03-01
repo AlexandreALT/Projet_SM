@@ -26,7 +26,7 @@ class AffectSuccess extends StatelessWidget {
         centerTitle: true,
         backgroundColor: Colors.white,
         title: const Text(
-          "Résultat de la recherche",
+          "",
           style: TextStyle(color: Colors.black, fontSize: 20),
         ),
       ),
