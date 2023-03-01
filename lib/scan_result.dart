@@ -5,6 +5,8 @@ import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 
+import 'affect_site.dart';
+
 class ScanResult extends StatelessWidget {
   const ScanResult({Key? key, required this.product}) : super(key: key);
 
@@ -56,6 +58,11 @@ class ScanResult extends StatelessWidget {
               ),
             ),
             SizedBox(height: MediaQuery.of(context).size.height / 12),
+            Text(product.image),
+            Image.file(
+              File(product.image),
+              fit: BoxFit.cover,
+            ),
             Column(
               children: <Widget>[
                 Container(
@@ -68,7 +75,7 @@ class ScanResult extends StatelessWidget {
                       ),
                     ),
                     onPressed: () async {
-                      Navigator.pushNamed(context, '/affect_site');
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => AffectSite(produit: product)));
                     },
                     child: const Text(
                       'Affecter à un chantier',

@@ -1,14 +1,31 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 
 import 'chantiers/chantierListWidget.dart';
+import 'chantiers/selectChantierListWidget.dart';
 
-class AffectSite extends StatelessWidget {
-  const AffectSite({Key? key}) : super(key: key);
+class AffectSite extends StatefulWidget {
+  const AffectSite({Key? key, required this.produit}) : super(key: key);
+
+  final Product produit;
+
+  @override
+  _AffectSiteState createState() => _AffectSiteState();
+}
+
+class _AffectSiteState extends State<AffectSite> {
+  String _selectedChantierId = "G1hXzdM4Ti5AfXRpMnIk";
+
+  void _onChantierChanged(String? value) {
+    setState(() {
+      _selectedChantierId = value ?? "G1hXzdM4Ti5AfXRpMnIk";
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,10 +61,11 @@ class AffectSite extends StatelessWidget {
                 child: Column(
                   children: [
                     Text(
-                      'Burineur SDS Max MH 5',
+                      widget.produit.reference,
                       style: TextStyle(fontSize: 25),
                     ),
-                    Text('N° Série : 1234BUR', style: TextStyle(fontSize: 20)),
+                    Text(widget.produit.numeroSerie!,
+                        style: TextStyle(fontSize: 20)),
                     //Image.file(
                     //File(product.image),
                     //),
@@ -57,8 +75,10 @@ class AffectSite extends StatelessWidget {
                       style: TextStyle(fontSize: 20),
                     ),
                     SizedBox(height: 10),
-                    Expanded(
-                        child: ChantierListWidget()
+                    Container(
+                      child: SelectChantierListWidget(
+                        onChanged: _onChantierChanged,
+                      ),
                     ),
                   ],
                 ),
@@ -67,16 +87,18 @@ class AffectSite extends StatelessWidget {
             Column(
               children: <Widget>[
                 Container(
-                  height : 50,
-                  width: MediaQuery.of(context).size.width/2,
+                  height: 50,
+                  width: MediaQuery.of(context).size.width / 2,
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: Colors.blue,
                       shape: const RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                        borderRadius:
+                        BorderRadius.all(Radius.circular(50.0)),
                       ),
                     ),
                     onPressed: () {
+                      ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
                       Navigator.pushNamed(context, '/affect_success');
                     },
                     child: const Text(
@@ -85,6 +107,7 @@ class AffectSite extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(height: 10),
               ],
             ),
           ],

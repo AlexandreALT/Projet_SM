@@ -112,7 +112,6 @@ class MyApp extends StatelessWidget {
         '/settings': (context) => new Settings(),
         '/manual_entry': (context) => new ManualEntry(),
         '/scan_error': (context) => new ScanError(),
-        '/affect_site': (context) => new AffectSite(),
         '/affect_success': (context) => new AffectSuccess(),
       },
     );

@@ -51,4 +51,14 @@ class ProductDB {
     var produits = await FirebaseFirestore.instance.collection('Produits').where(condition,isEqualTo: value).get();
     return produits.docs.map((produit) => Product.fromDocumentSnapshot(produit)).toList().length;
   }
+
+  Future<void> updateProduct(String numSerie, String chantierId) async {
+    return FirebaseFirestore.instance.collection("Produits").doc(numSerie).update(
+        {
+          "idChantier" : chantierId,
+          "statut" : "En entrepôt",
+        }
+    );
+  }
+
 }
