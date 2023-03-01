@@ -4,7 +4,6 @@ import 'package:projet_sm/stock/consumable.dart';
 import 'package:projet_sm/stock/tool_list.dart';
 
 import '../Services/productDB.dart';
-import '../Services/referenceDB.dart';
 import '../models/product.dart';
 
 class AllProductListWidget extends StatelessWidget {
