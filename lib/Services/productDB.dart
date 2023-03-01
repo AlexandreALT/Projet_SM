@@ -56,6 +56,15 @@ class ProductDB {
     return FirebaseFirestore.instance.collection("Produits").doc(numSerie).update(
         {
           "idChantier" : chantierId,
+          "statut" : "En chantier",
+        }
+    );
+  }
+
+  Future<void> retourProduct(String numSerie) async {
+    return FirebaseFirestore.instance.collection("Produits").doc(numSerie).update(
+        {
+          "idChantier" : "",
           "statut" : "En entrepôt",
         }
     );

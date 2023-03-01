@@ -2,8 +2,10 @@ import 'dart:io';
 
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
+import 'package:projet_sm/tools/search_bar.dart';
 
 import 'affect_site.dart';
 
