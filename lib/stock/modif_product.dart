@@ -189,6 +189,7 @@ class ModifProduct extends StatelessWidget {
         ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      resizeToAvoidBottomInset: false,
     );
   }
 }

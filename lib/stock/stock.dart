@@ -22,6 +22,7 @@ class Stock extends StatefulWidget {
 class _StockState extends State<Stock> {
   @override
   Widget build(BuildContext context) {
+    bool keyboardIsOpened = MediaQuery.of(context).viewInsets.bottom != 0.0;
     return Scaffold(
       appBar: AppBar(
         leading: Builder(
