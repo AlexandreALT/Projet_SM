@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
+import 'package:intl/intl.dart';
 
 import 'Services/historiqueDB.dart';
 import 'affect_site.dart';
@@ -108,8 +109,9 @@ class ScanResult extends StatelessWidget {
                             onPressed: () async {
                               ProductDB().retourProduct(product.numeroSerie!);
                               String statut = product.idChantier != null ? "Sortie" : "Entré";
-                              String dateNow = new DateTime.now().toString();
-                              Historique historiqueData = new Historique(chantier: product.idChantier!, date: dateNow, statut: statut, numSerieProduit: product.numeroSerie!, refProduit: product.reference);
+                              DateTime dateNow = DateTime.now();
+                              String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
+                              Historique historiqueData = new Historique(chantier: product.idChantier!, date: formattedDate, statut: statut, numSerieProduit: product.numeroSerie!, refProduit: product.reference);
                               HistoriqueDB().addHistorique(historiqueData);
                               Navigator.pushNamed(context, '/retour_success');
                             },

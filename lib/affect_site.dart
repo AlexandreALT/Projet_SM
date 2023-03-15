@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
+import 'package:intl/intl.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 
 import 'Services/historiqueDB.dart';
@@ -102,8 +103,9 @@ class _AffectSiteState extends State<AffectSite> {
                     onPressed: () {
                       ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
                       String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
-                      String dateNow = new DateTime.now().toString();
-                      Historique historiqueData = new Historique(chantier: _selectedChantierId, date: dateNow, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference);
+                      DateTime dateNow = DateTime.now();
+                      String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
+                      Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference);
                       HistoriqueDB().addHistorique(historiqueData);
                       Navigator.pushNamed(context, '/affect_success');
                     },

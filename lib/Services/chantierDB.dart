@@ -31,5 +31,19 @@ class ChantierDB {
         });
   }
 
+  Future<Map<String, dynamic>> getChantier(id) async {
+    final docId = FirebaseFirestore.instance.collection('Chantiers').doc(id);
+    DocumentSnapshot doc = await docId.get();
+    final data = doc.data() as Map<String, dynamic>;
+    return data;
+  }
+
+  Future<Chantier> getChantierFromId(id) async {
+    final data = await getChantier(id);
+    return Chantier.fromMap(data);
+  }
+
+
+
 
 }
