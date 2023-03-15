@@ -7,7 +7,7 @@ class HistoriqueDB {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   Future<bool> addHistorique(Historique historiqueData) async {
-    await _db.collection("Categories").add(historiqueData.toMap());
+    await _db.collection("Historiques").add(historiqueData.toMap());
     return true;
   }
 
