@@ -6,19 +6,34 @@ class ProductDB {
 
   final FirebaseFirestore _db = FirebaseFirestore.instance;
 
-  Future<bool> addProduct(Product productData) async {
+  Future<bool> addTool(Product productData) async {
     await _db.collection("Produits").doc(productData.numeroSerie).set({
       "categorie" : productData.categorie,
       "date_ajout" : productData.date_ajout,
       "idChantier" : "",
       "image" : productData.image,
-      "quantite" : productData.quantite,
       "reference" : productData.reference,
       "statut" : productData.statut,
       "numeroSerie": productData.numeroSerie,
       "cout": productData.cout,
     });
     return true;
+  }
+
+  Future<bool> addConsumable(Product productData) async {
+    await _db.collection("Produits").doc(productData.reference).set({
+      "categorie" : productData.categorie,
+      "quantite" : productData.quantite,
+      "reference" : productData.reference,
+      "cout": productData.cout,
+    });
+    return true;
+  }
+
+  Future<void> updateConsumable(Product productData) async {
+    await _db.collection("Produits").doc(productData.reference).update({
+      "quantite" : productData.quantite,
+    });
   }
 
   CollectionReference _collectionReference =

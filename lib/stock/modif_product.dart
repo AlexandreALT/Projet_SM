@@ -179,7 +179,7 @@ class ModifProduct extends StatelessWidget {
                 date_ajout: '',
                 statut: '',
                 cout: 30);
-            await ProductDB().addProduct(product);
+            await ProductDB().addTool(product);
             Navigator.pushNamed(context, '/new_product');
           },
           child: const Text(

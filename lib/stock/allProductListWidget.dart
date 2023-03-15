@@ -19,7 +19,7 @@ class AllProductListWidget extends StatelessWidget {
             if (product.categorie == "Consommable") {
               toolListWidgets.add(
                 Consumable(
-                  quantity: product.quantite,
+                  quantity: product.quantite!,
                   reference: product.reference,
                 ),
               );
