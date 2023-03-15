@@ -13,7 +13,7 @@ class ConsumableListWidget extends StatelessWidget {
           return ListView.builder(
             itemCount: snapshot.data?.length,
             itemBuilder: (context, index) {
-              return Consumable(quantity: snapshot.data![index].quantite, reference: snapshot.data![index].reference,);
+              return Consumable(quantity: snapshot.data![index].quantite!, reference: snapshot.data![index].reference,);
             },
           );
         } else if (snapshot.hasError) {

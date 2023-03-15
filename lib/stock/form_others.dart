@@ -8,13 +8,12 @@ import 'package:projet_sm/Services/referenceDB.dart';
 import 'package:projet_sm/models/product.dart';
 
 class FormOthers extends StatelessWidget {
-  FormOthers({Key? key, this.image}) : super(key: key);
+  FormOthers({Key? key, this.image, this.category}) : super(key: key);
 
   final image;
+  final category;
 
   var refcontroller = TextEditingController();
-  var quantitecontroller = TextEditingController();
-  var categoriecontroller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -62,7 +61,7 @@ class FormOthers extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height / 6),
+        SizedBox(height: MediaQuery.of(context).size.height / 4),
         Column(
           children: <Widget>[
             Container(
@@ -102,14 +101,13 @@ class FormOthers extends StatelessWidget {
                   String date = jour + '/' + mois + '/' + annee;
                   var product = new Product(
                       cout: ref["cout"],
-                      categorie: categoriecontroller.text,
-                      quantite: int.parse(quantitecontroller.text),
+                      categorie: category,
                       reference: reference,
                       image: imgPath,
                       date_ajout: date,
                       numeroSerie: serie,
                       statut: "En entrepôt");
-                  await ProductDB().addProduct(product);
+                  await ProductDB().addTool(product);
                   Navigator.pushNamed(context, '/new_product');
                 },
                 child: const Text(

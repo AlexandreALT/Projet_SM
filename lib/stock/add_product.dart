@@ -27,11 +27,6 @@ class _AddProductState extends State<AddProduct> {
     return FutureBuilder<List>(
         future: CategoryDB().getData(),
         builder: (context, snapshot) {
-          var items = [];
-          for (var category in snapshot.data!) {
-            items.add(category['name']);
-          }
-          print(items);
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.white,
@@ -57,23 +52,39 @@ class _AddProductState extends State<AddProduct> {
                 padding: const EdgeInsets.all(30),
                 child: Column(
                   children: [
-                    DropdownButton(
-                      value: dropdownvalue,
-                      items: snapshot.data!.map((item) {
-                        return DropdownMenuItem(
-                            value: item['name'], child: Text(item['name']));
-                      }).toList(),
-                      onChanged: (var newValue) {
-                        setState(() {
-                          dropdownvalue = newValue as String?;
-                        });
-                      },
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(232, 232, 232, 1.0),
+                        borderRadius: BorderRadius.all(Radius.circular(50.0)),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.only(
+                            left: 15, right: 15, top: 8, bottom: 8),
+                        child: DropdownButtonHideUnderline(
+                          child: DropdownButton(
+                            value: dropdownvalue,
+                            items: snapshot.data?.map((item) {
+                              return DropdownMenuItem(
+                                  value: item['name'], child: Text(item['name']));
+                            }).toList(),
+                            onChanged: (var newValue) {
+                              setState(() {
+                                dropdownvalue = newValue as String?;
+                              });
+                            },
+                            isExpanded: true,
+                          ),
+                        ),
+                      ),
                     ),
+                    SizedBox(height: 20),
                     Expanded(
-                        child: dropdownvalue == 'Consommable' ? FormConsumable() : FormOthers(
-                          image: widget.image,
-                        )
-                    ),
+                        child: dropdownvalue == 'Consommable'
+                            ? FormConsumable(category: dropdownvalue)
+                            : FormOthers(
+                                image: widget.image,
+                                category: dropdownvalue,
+                              )),
                   ],
                 )),
           );

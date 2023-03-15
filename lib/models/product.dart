@@ -4,11 +4,11 @@ class Product {
   final String? id;
   final String? numeroSerie;
   final String categorie;
-  final int quantite;
+  final int? quantite;
   final String reference;
-  final String image;
-  final String date_ajout;
-  final String statut;
+  final String? image;
+  final String? date_ajout;
+  final String? statut;
   final int cout;
   final String? idChantier;
 
@@ -16,11 +16,11 @@ class Product {
     this.id,
     this.numeroSerie,
     required this.categorie,
-    required this.quantite,
+    this.quantite,
     required this.reference,
-    required this.image,
-    required this.date_ajout,
-    required this.statut,
+    this.image,
+    this.date_ajout,
+    this.statut,
     required this.cout,
     this.idChantier,
   });

@@ -12,7 +12,7 @@ class InfoProduct extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ref = FirebaseStorage.instance.ref().child(product.image);
+    final ref = FirebaseStorage.instance.ref().child(product.image!);
     return FutureBuilder<String>(
         future: ref.getDownloadURL(),
         builder: (context, snapshot) {
@@ -42,7 +42,7 @@ class InfoProduct extends StatelessWidget {
               child: ListView(
                 children: <Widget>[
                   Text(
-                    product.statut,
+                    product.statut!,
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 30),
                   ),
@@ -107,7 +107,7 @@ class InfoProduct extends StatelessWidget {
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
-                      Text(product.date_ajout, style: TextStyle(fontSize: 20))
+                      Text(product.date_ajout!, style: TextStyle(fontSize: 20))
                     ],
                   ),
                   SizedBox(height: MediaQuery.of(context).size.height / 12),
