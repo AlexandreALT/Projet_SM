@@ -6,8 +6,10 @@ import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 
+import 'Services/historiqueDB.dart';
 import 'chantiers/chantierListWidget.dart';
 import 'chantiers/selectChantierListWidget.dart';
+import 'models/historique.dart';
 
 class AffectSite extends StatefulWidget {
   const AffectSite({Key? key, required this.produit}) : super(key: key);
@@ -99,6 +101,10 @@ class _AffectSiteState extends State<AffectSite> {
                     ),
                     onPressed: () {
                       ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
+                      String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
+                      String dateNow = new DateTime.now().toString();
+                      Historique historiqueData = new Historique(chantier: _selectedChantierId, date: dateNow, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference);
+                      HistoriqueDB().addHistorique(historiqueData);
                       Navigator.pushNamed(context, '/affect_success');
                     },
                     child: const Text(
