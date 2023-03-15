@@ -132,7 +132,7 @@ class _AffectSiteState extends State<AffectSite> {
               HistoriqueDB().addHistorique(historiqueData);
             } else{
               ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
-              num newquantite = 1;
+              numbercontroller.text = "1";
               String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
               DateTime dateNow = DateTime.now();
               String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
