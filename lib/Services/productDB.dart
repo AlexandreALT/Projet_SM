@@ -26,6 +26,8 @@ class ProductDB {
       "quantite" : productData.quantite,
       "reference" : productData.reference,
       "cout": productData.cout,
+      "numeroSerie": productData.reference,
+      "image": ""
     });
     return true;
   }
