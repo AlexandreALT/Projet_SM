@@ -124,7 +124,7 @@ class _AffectSiteState extends State<AffectSite> {
             if(widget.produit.categorie == "Consommable"){
               num newquantite = widget.produit.quantite! - int.parse(numbercontroller.text);
               ProductDB().updateConsumable2(newquantite, widget.produit.reference!);
-              String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
+              String statut = "Sortie";
               DateTime dateNow = DateTime.now();
               String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
               Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: int.parse(numbercontroller.text));

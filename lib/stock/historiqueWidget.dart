@@ -25,56 +25,69 @@ class HistoriqueWidget extends StatelessWidget {
             const EdgeInsets.only(top: 5, right: 5, bottom: 5, left: 15),
             child: Row(
               children: [
-                Column(
-                  children: [
-                    SizedBox(height: 5),
-                    Row(
-                      children: [
-                        Text(
-                          historique.refProduit + " - ",
-                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                        ),
-                        if(historique.refProduit != historique.numSerieProduit)
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      SizedBox(height: 5),
+                      Row(
+                        children: [
                           Text(
-                            historique.numSerieProduit,
+                            historique.refProduit,
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                           ),
-                      ],
-                    ),
-                    SizedBox(height: 5),
-                    Row(
-                      children: [
-                        Text(
-                          historique.date,
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                        )
-                      ],
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          chantier.name,
-                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                        )
-                      ],
-                    ),
-                    SizedBox(height: 5),
-                  ],
+                          if(historique.refProduit != historique.numSerieProduit)
+                            Text(" - " +
+                              historique.numSerieProduit,
+                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                            ),
+                        ],
+                      ),
+                      SizedBox(height: 5),
+                      Row(
+                        children: [
+                          Text(
+                            historique.date,
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                      Row(
+                        children: [
+                          Text(
+                            chantier.name,
+                            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                      SizedBox(height: 5),
+                    ],
+                  ),
                 ),
-                Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                      child: Text(
-                        historique.quantite.toString(),
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
-                      ),
-                    )
-                  ],
-                )
+                if(historique.quantite != null)
+                  Align(
+                    alignment: Alignment.centerRight,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.end,
+                      children: [
+                        Container(
+                          width: 35,
+                          height: 35,
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                          ),
+                          child: Center(
+                            child: Text(
+                              historique.quantite.toString(),
+                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                SizedBox(width: 15,)
               ],
             ),
           ),
