@@ -7,13 +7,14 @@ class ReferenceDB {
   Future<bool> addReference(Reference referenceData) async {
     await _db
         .collection("References")
-        .doc(referenceData.nom! + " " + referenceData.reference)
+        .doc(referenceData.fullReference)
         .set({
       'alias': referenceData.alias,
       'compteur': referenceData.compteur,
       'cout': referenceData.cout,
       'nom': referenceData.nom,
       'reference': referenceData.reference,
+      'fullReference': referenceData.fullReference
     });
     return true;
   }

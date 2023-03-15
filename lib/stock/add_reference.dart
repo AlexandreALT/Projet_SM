@@ -102,9 +102,10 @@ class AddReference extends StatelessWidget {
                       var name = namecontroller.text;
                       var ref = refcontroller.text;
                       var cpt = 1;
+                      var fullReference = name + " " + ref;
                       var alias = name.replaceAll(" ","").substring(0,3).toUpperCase() + ref.replaceAll(" ","").substring(0,3).toUpperCase();
 
-                      Reference reference = new Reference(alias: alias, compteur: cpt, cout: cost, nom: name, reference: ref);
+                      Reference reference = new Reference(alias: alias, compteur: cpt, cout: cost, nom: name, reference: ref, fullReference: fullReference);
                       await ReferenceDB().addReference(reference);
 
                       Navigator.pushNamed(context, '/new_reference');

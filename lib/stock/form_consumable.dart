@@ -12,7 +12,7 @@ class FormConsumable extends StatefulWidget {
 }
 
 class _FormConsumableState extends State<FormConsumable> {
-  String? dropdownvalue = 'Sac d\'amiante 50L';
+  String? newDropDownValue = "";
   var quantitecontroller = TextEditingController();
   var refcontroller = TextEditingController();
   var coutcontroller = TextEditingController();
@@ -23,12 +23,14 @@ class _FormConsumableState extends State<FormConsumable> {
     return FutureBuilder(
         future: ProductDB().getAllConsumable(),
         builder: (context, snapshot) {
+          String? dropdownvalue = snapshot.data![0].reference;
           var newConso = new Product(
               categorie: "Consommable",
               reference: "Nouveau consommable",
               date_ajout: "",
               cout: 1);
           cpt += 1;
+          if(newDropDownValue == "") newDropDownValue = dropdownvalue;
           if (cpt > 1) snapshot.data?.add(newConso);
           return Scaffold(
             body: ListView(children: [
@@ -45,7 +47,7 @@ class _FormConsumableState extends State<FormConsumable> {
                             left: 15, right: 15, top: 8, bottom: 8),
                         child: DropdownButtonHideUnderline(
                           child: DropdownButton(
-                            value: dropdownvalue,
+                            value: newDropDownValue,
                             items: snapshot.data?.map((item) {
                               return DropdownMenuItem(
                                   value: item.reference,
@@ -53,7 +55,7 @@ class _FormConsumableState extends State<FormConsumable> {
                             }).toList(),
                             onChanged: (var newValue) {
                               setState(() {
-                                dropdownvalue = newValue;
+                                newDropDownValue = newValue;
                               });
                             },
                             isExpanded: true,
@@ -64,7 +66,7 @@ class _FormConsumableState extends State<FormConsumable> {
                     Container(
                       child: Column(
                         children: [
-                          dropdownvalue == "Nouveau consommable"
+                          newDropDownValue == "Nouveau consommable"
                               ? Column(
                                   children: [
                                     SizedBox(
