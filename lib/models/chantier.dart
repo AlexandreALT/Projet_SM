@@ -31,4 +31,17 @@ class Chantier {
         dateDebut = doc.data()!["dateDebut"],
         adresse = doc.data()!["adresse"];
 
+
+  factory Chantier.fromMap(Map<String, dynamic> data) {
+    return Chantier(
+      id: data['id'],
+      name: data['name'],
+      nameClient: data['nameClient'],
+      dateDebut: data['dateDebut'],
+      adresse: data['adresse'],
+    );
+  }
+
+
+
 }

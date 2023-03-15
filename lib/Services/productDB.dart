@@ -26,6 +26,9 @@ class ProductDB {
       "quantite" : productData.quantite,
       "reference" : productData.reference,
       "cout": productData.cout,
+      "numeroSerie": productData.reference,
+      "image": "",
+      "statut" : ""
     });
     return true;
   }
@@ -33,6 +36,12 @@ class ProductDB {
   Future<void> updateConsumable(Product productData) async {
     await _db.collection("Produits").doc(productData.reference).update({
       "quantite" : productData.quantite,
+    });
+  }
+
+  Future<void> updateConsumable2(num number, String ref) async {
+    await _db.collection("Produits").doc(ref).update({
+      "quantite" : number,
     });
   }
 

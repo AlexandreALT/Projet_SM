@@ -14,11 +14,26 @@ class HistoriqueListWidget extends StatelessWidget {
     return FutureBuilder<List<Historique>>(
       future: HistoriqueDB().getAllHistorique(),
       builder: (context, snapshot) {
-        if (snapshot.data != null) {
+        if (snapshot.hasData) {
           return ListView.builder(
             itemCount: snapshot.data?.length ?? 0,
             itemBuilder: (context, index) {
-              return HistoriqueWidget(historique: snapshot.data![index]);
+              final historique = snapshot.data![index];
+              return FutureBuilder<Chantier>(
+                future: ChantierDB().getChantierFromId(historique.chantier),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    final chantierData = snapshot.data!;
+                    return HistoriqueWidget(
+                      historique: historique,
+                      chantier: chantierData,
+                    );
+                  } else if (snapshot.hasError) {
+                    return Text("${snapshot.error}");
+                  }
+                  return Center(child: CircularProgressIndicator());
+                },
+              );
             },
           );
         } else if (snapshot.hasError) {
