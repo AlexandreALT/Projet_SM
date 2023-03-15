@@ -18,17 +18,20 @@ class HistoriqueWidget extends StatelessWidget {
           child: Padding(
             padding:
             const EdgeInsets.only(top: 5, right: 5, bottom: 5, left: 15),
-            child: Row(
+            child: Column(
               children: [
-                Text(
-                  historique.refProduit,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                Row(
+                  children: [
+                    Text(
+                      historique.refProduit + " - ",
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    ),
+                    Text(
+                      historique.numSerieProduit,
+                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    ),
+                  ],
                 ),
-                Text(
-                  historique.numSerieProduit,
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
-                ),
-                Spacer(),
                 Row(
                   children: [
                     Text(
@@ -47,18 +50,6 @@ class HistoriqueWidget extends StatelessWidget {
                 )
               ],
             ),
-          ),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(2),
-            color: Colors.white,
-            boxShadow: [
-              BoxShadow(
-                color: Colors.grey.withOpacity(0.5),
-                spreadRadius: 1,
-                blurRadius: 1,
-                offset: Offset(0, 2), // changes position of shadow
-              ),
-            ],
           ),
         ),
         SizedBox(height: 15,)
