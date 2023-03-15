@@ -14,12 +14,16 @@ class HistoriqueWidget extends StatelessWidget {
     return Column(
       children: [
         Container(
-          color: Colors.blue,
+          decoration: BoxDecoration(
+            color: historique.statut == 'Sortie' ? Colors.red : Colors.blue,
+            borderRadius: BorderRadius.circular(14),
+          ),
           child: Padding(
             padding:
             const EdgeInsets.only(top: 5, right: 5, bottom: 5, left: 15),
             child: Column(
               children: [
+                SizedBox(height: 5),
                 Row(
                   children: [
                     Text(
@@ -32,6 +36,7 @@ class HistoriqueWidget extends StatelessWidget {
                     ),
                   ],
                 ),
+                SizedBox(height: 5),
                 Row(
                   children: [
                     Text(
@@ -47,7 +52,8 @@ class HistoriqueWidget extends StatelessWidget {
                       style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
                     )
                   ],
-                )
+                ),
+                SizedBox(height: 5),
               ],
             ),
           ),
