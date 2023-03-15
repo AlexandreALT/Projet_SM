@@ -104,7 +104,7 @@ class _AffectSiteState extends State<AffectSite> {
                 filled: true,
                 fillColor:
                 Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Référence',
+                hintText: 'Quantité',
               ),
             ),
             Column(
@@ -127,7 +127,7 @@ class _AffectSiteState extends State<AffectSite> {
                         String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
                         DateTime dateNow = DateTime.now();
                         String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
-                        Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: newquantite);
+                        Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: int.parse(numbercontroller.text));
                         HistoriqueDB().addHistorique(historiqueData);
                       } else{
                         ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
@@ -135,7 +135,7 @@ class _AffectSiteState extends State<AffectSite> {
                         String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
                         DateTime dateNow = DateTime.now();
                         String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
-                        Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: newquantite);
+                        Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: int.parse(numbercontroller.text));
                         HistoriqueDB().addHistorique(historiqueData);
                       }
                       Navigator.pushNamed(context, '/affect_success');

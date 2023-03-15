@@ -7,7 +7,7 @@ class Historique {
   final String statut;
   final String numSerieProduit;
   final String refProduit;
-  final num? quantite;
+  final int? quantite;
 
   Historique({
     this.id,
