@@ -7,6 +7,7 @@ class Historique {
   final String statut;
   final String numSerieProduit;
   final String refProduit;
+  final num? quantite;
 
   Historique({
     this.id,
@@ -14,7 +15,8 @@ class Historique {
     required this.date,
     required this.statut,
     required this.numSerieProduit,
-    required this.refProduit
+    required this.refProduit,
+    this.quantite,
   });
 
   Map<String, dynamic> toMap() {
@@ -24,6 +26,7 @@ class Historique {
       'statut': statut,
       'numSerieProduit': numSerieProduit,
       'refProduit': refProduit,
+      'quantite': quantite,
     };
   }
 
@@ -33,5 +36,6 @@ class Historique {
         date = doc.data()!["date"],
         statut = doc.data()!["statut"],
         numSerieProduit = doc.data()!["numSerieProduit"],
-        refProduit = doc.data()!["refProduit"];
+        refProduit = doc.data()!["refProduit"],
+        quantite = doc.data()!["quantite"];
 }

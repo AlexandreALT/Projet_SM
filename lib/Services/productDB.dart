@@ -39,6 +39,12 @@ class ProductDB {
     });
   }
 
+  Future<void> updateConsumable2(num number, String ref) async {
+    await _db.collection("Produits").doc(ref).update({
+      "quantite" : number,
+    });
+  }
+
   CollectionReference _collectionReference =
   FirebaseFirestore.instance.collection('Produits');
 

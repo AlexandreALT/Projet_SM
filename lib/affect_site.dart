@@ -23,6 +23,7 @@ class AffectSite extends StatefulWidget {
 
 class _AffectSiteState extends State<AffectSite> {
   String _selectedChantierId = "G1hXzdM4Ti5AfXRpMnIk";
+  var numbercontroller = TextEditingController();
 
   void _onChantierChanged(String? value) {
     setState(() {
@@ -87,6 +88,25 @@ class _AffectSiteState extends State<AffectSite> {
                 ),
               ),
             ),
+            TextFormField(
+              controller: numbercontroller,
+              keyboardType: TextInputType.number,
+              style:
+              const TextStyle(color: Colors.black),
+              decoration: const InputDecoration(
+                border: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      width: 0,
+                      style: BorderStyle.none,
+                    ),
+                    borderRadius: BorderRadius.all(
+                        Radius.circular(50.0))),
+                filled: true,
+                fillColor:
+                Color.fromRGBO(232, 232, 232, 1.0),
+                hintText: 'Référence',
+              ),
+            ),
             Column(
               children: <Widget>[
                 Container(
@@ -101,12 +121,23 @@ class _AffectSiteState extends State<AffectSite> {
                       ),
                     ),
                     onPressed: () {
-                      ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
-                      String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
-                      DateTime dateNow = DateTime.now();
-                      String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
-                      Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference);
-                      HistoriqueDB().addHistorique(historiqueData);
+                      if(widget.produit.categorie == "Consommable"){
+                        num newquantite = widget.produit.quantite! - int.parse(numbercontroller.text);
+                        ProductDB().updateConsumable2(newquantite, widget.produit.reference!);
+                        String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
+                        DateTime dateNow = DateTime.now();
+                        String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
+                        Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: newquantite);
+                        HistoriqueDB().addHistorique(historiqueData);
+                      } else{
+                        ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
+                        num newquantite = 1;
+                        String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
+                        DateTime dateNow = DateTime.now();
+                        String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
+                        Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: newquantite);
+                        HistoriqueDB().addHistorique(historiqueData);
+                      }
                       Navigator.pushNamed(context, '/affect_success');
                     },
                     child: const Text(
