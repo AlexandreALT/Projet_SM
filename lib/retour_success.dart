@@ -79,7 +79,7 @@ class RetourSuccess extends StatelessWidget {
                       ),
                     ),
                     onPressed: () async {
-                      //Navigator.pushNamed(context, '/manual_entry');
+                      Navigator.pushNamed(context, '/historique');
                     },
                     child: const Text(
                       "Voir l'historique des sorties",
