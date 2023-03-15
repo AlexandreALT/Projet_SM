@@ -71,17 +71,22 @@ class Accueil extends StatelessWidget {
                                 RoundedRectangleBorder>(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ))),
-                        onPressed: () {},
-                        child: Column(children: [
-                          Image.asset('assets/sorties_icon.png',
-                              height: 30, fit: BoxFit.cover),
-                          SizedBox(height: 10),
-                          Text(
-                            'Vérifier les \nsorties',
-                            style: TextStyle(fontSize: 10),
-                            textAlign: TextAlign.center,
-                          )
-                        ])),
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/choice_capture');
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.all(5.0),
+                          child: Column(children: [
+                            Image.asset('assets/arrows_icon.png',
+                                height: 30, fit: BoxFit.cover),
+                            SizedBox(height: 10),
+                            Text(
+                              'Entrée / Sortie',
+                              style: TextStyle(fontSize: 10),
+                              textAlign: TextAlign.center,
+                            )
+                          ]),
+                        )),
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width * 0.27,
@@ -215,22 +220,17 @@ class Accueil extends StatelessWidget {
                                 RoundedRectangleBorder>(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ))),
-                        onPressed: () {
-                          Navigator.pushNamed(context, '/choice_capture');
-                        },
-                        child: Padding(
-                          padding: const EdgeInsets.all(5.0),
-                          child: Column(children: [
-                            Image.asset('assets/arrows_icon.png',
-                                height: 30, fit: BoxFit.cover),
-                            SizedBox(height: 10),
-                            Text(
-                              'Entrée / Sortie',
-                              style: TextStyle(fontSize: 10),
-                              textAlign: TextAlign.center,
-                            )
-                          ]),
-                        )),
+                        onPressed: () {Navigator.pushNamed(context, '/historique');},
+                        child: Column(children: [
+                          Image.asset('assets/sorties_icon.png',
+                              height: 30, fit: BoxFit.cover),
+                          SizedBox(height: 10),
+                          Text(
+                            'Historique des sorties',
+                            style: TextStyle(fontSize: 10),
+                            textAlign: TextAlign.center,
+                          )
+                        ])),
                   ),
                 ],
               ),

@@ -35,6 +35,7 @@ import 'package:projet_sm/settings.dart';
 import 'package:projet_sm/stock/stock.dart';
 import 'package:projet_sm/log/verification_code.dart';
 import 'package:projet_sm/log/logout.dart';
+import 'package:projet_sm/stock/historique.dart';
 
 import 'Services/auth.dart';
 import 'chantiers/chantier_details.dart';
@@ -99,6 +100,7 @@ class MyApp extends StatelessWidget {
         '/modif_product': (context) => new ModifProduct(image: null),
         '/verif_delete_product': (context) => new VerifDeleteProduct(),
         '/delete_product': (context) => new DeleteProduct(),
+        '/historique': (context) => new Historique(),
 
 
         // Rôles :

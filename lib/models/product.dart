@@ -10,6 +10,7 @@ class Product {
   final String? date_ajout;
   final String? statut;
   final int cout;
+  final String? idChantier;
 
   Product({
     this.id,
@@ -21,6 +22,7 @@ class Product {
     this.date_ajout,
     this.statut,
     required this.cout,
+    this.idChantier,
   });
 
   Map<String, dynamic> toMap() {
@@ -33,6 +35,7 @@ class Product {
       'statut': statut,
       'numeroSerie': numeroSerie,
       'cout': cout,
+      'idChantier': idChantier,
     };
   }
 
@@ -45,7 +48,8 @@ class Product {
         image = doc.data()!["image"],
         date_ajout = doc.data()!["date_ajout"],
         statut = doc.data()!["statut"],
-        cout = doc.data()!["cout"];
+        cout = doc.data()!["cout"],
+        idChantier = doc.data()!["idChantier"];
 
   factory Product.fromMap(Map<String, dynamic> data) {
     return Product(
@@ -57,6 +61,7 @@ class Product {
       date_ajout: data['date_ajout'],
       statut: data['statut'],
       cout: data['cout'],
+      idChantier: data['idChantier'],
     );
   }
 }
