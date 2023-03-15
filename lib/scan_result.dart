@@ -7,7 +7,9 @@ import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 
+import 'Services/historiqueDB.dart';
 import 'affect_site.dart';
+import 'models/historique.dart';
 
 class ScanResult extends StatelessWidget {
   const ScanResult({Key? key, required this.product}) : super(key: key);
@@ -108,6 +110,10 @@ class ScanResult extends StatelessWidget {
                             ),
                             onPressed: () async {
                               ProductDB().retourProduct(product.numeroSerie!);
+                              String statut = product.idChantier != null ? "Entré" : "Sortie";
+                              String dateNow = new DateTime.now().toString();
+                              Historique historiqueData = new Historique(chantier: product.idChantier!, date: dateNow, statut: statut, numSerieProduit: product.numeroSerie!, refProduit: product.reference);
+                              HistoriqueDB().addHistorique(historiqueData);
                               Navigator.pushNamed(context, '/retour_success');
                             },
                             child: const Text(
