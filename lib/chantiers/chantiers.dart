@@ -57,6 +57,7 @@ class Chantiers extends StatelessWidget{
             ),
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      resizeToAvoidBottomInset: false,
     );
   }
 }

@@ -83,6 +83,7 @@ class ManualEntry extends StatelessWidget {
             ),
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      resizeToAvoidBottomInset: false,
     );
   }
 }

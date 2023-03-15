@@ -64,6 +64,7 @@ class GestionRoles extends StatelessWidget {
             ),
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      resizeToAvoidBottomInset: false,
     );
   }
 }
