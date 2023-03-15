@@ -71,13 +71,15 @@ class Accueil extends StatelessWidget {
                                 RoundedRectangleBorder>(RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(18.0),
                             ))),
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.pushNamed(context, '/historique');
+                        },
                         child: Column(children: [
                           Image.asset('assets/sorties_icon.png',
                               height: 30, fit: BoxFit.cover),
                           SizedBox(height: 10),
                           Text(
-                            'Vérifier les \nsorties',
+                            'Historique des sorties',
                             style: TextStyle(fontSize: 10),
                             textAlign: TextAlign.center,
                           )

@@ -40,7 +40,7 @@ class Menu extends StatelessWidget {
             leading: Image.asset('assets/sorties_icon.png',
                 color: Colors.black, height: 25),
             title: Text('Historique sorties'),
-            onTap: () => {Navigator.of(context).pop()},
+            onTap: () => {Navigator.pushNamed(context, '/historique'),},
           ),
           ListTile(
             leading: Image.asset('assets/stock_icon.png',
