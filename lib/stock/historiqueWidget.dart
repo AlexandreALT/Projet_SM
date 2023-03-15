@@ -83,7 +83,8 @@ class HistoriqueWidget extends StatelessWidget {
                               style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
                             ),
                           ),
-                        )
+                        ),
+                        SizedBox(width: 20,)
                       ],
                     ),
                   )
