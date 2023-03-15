@@ -61,12 +61,13 @@ class HistoriqueWidget extends StatelessWidget {
                     SizedBox(height: 5),
                   ],
                 ),
+                SizedBox(width: 60,),
                 if(historique.quantite != null)
                   Column(
                     children: [
                       Container(
-                        width: 50,
-                        height: 50,
+                        width: 35,
+                        height: 35,
                         decoration: BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
