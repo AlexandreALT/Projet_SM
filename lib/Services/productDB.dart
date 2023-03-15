@@ -60,14 +60,6 @@ class ProductDB {
     return Product.fromMap(data);
   }
 
-  Future<Product> getProductAffectation(ref) async {
-    final docRef =
-    await FirebaseFirestore.instance.collection('Produits').doc(ref);
-    DocumentSnapshot doc = await docRef.get();
-    final data = doc.data() as Map<String, dynamic>;
-    return Product.fromMapAffectation(data);
-  }
-
   Future<List<Product>> getProductWhere(String condition, String value) async {
     var produits = await FirebaseFirestore.instance.collection('Produits').where(condition,isEqualTo: value).get();
     return produits.docs.map((produit) => Product.fromDocumentSnapshot(produit)).toList();
