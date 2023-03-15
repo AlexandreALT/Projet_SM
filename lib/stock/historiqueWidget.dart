@@ -84,10 +84,10 @@ class HistoriqueWidget extends StatelessWidget {
                             ),
                           ),
                         ),
-                        SizedBox(width: 200,)
                       ],
                     ),
-                  )
+                  ),
+                SizedBox(width: 40,)
               ],
             ),
           ),
