@@ -59,7 +59,6 @@ class _AffectSiteState extends State<AffectSite> {
         child: ListView(
           children: <Widget>[
             Container(
-              height: MediaQuery.of(context).size.height - 230,
               child: Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Column(
@@ -107,51 +106,47 @@ class _AffectSiteState extends State<AffectSite> {
                 hintText: 'Quantité',
               ),
             ),
-            Column(
-              children: <Widget>[
-                Container(
-                  height: 50,
-                  width: MediaQuery.of(context).size.width / 2,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.blue,
-                      shape: const RoundedRectangleBorder(
-                        borderRadius:
-                        BorderRadius.all(Radius.circular(50.0)),
-                      ),
-                    ),
-                    onPressed: () {
-                      if(widget.produit.categorie == "Consommable"){
-                        num newquantite = widget.produit.quantite! - int.parse(numbercontroller.text);
-                        ProductDB().updateConsumable2(newquantite, widget.produit.reference!);
-                        String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
-                        DateTime dateNow = DateTime.now();
-                        String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
-                        Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: int.parse(numbercontroller.text));
-                        HistoriqueDB().addHistorique(historiqueData);
-                      } else{
-                        ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
-                        num newquantite = 1;
-                        String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
-                        DateTime dateNow = DateTime.now();
-                        String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
-                        Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: int.parse(numbercontroller.text));
-                        HistoriqueDB().addHistorique(historiqueData);
-                      }
-                      Navigator.pushNamed(context, '/affect_success');
-                    },
-                    child: const Text(
-                      'Valider',
-                      style: TextStyle(fontSize: 20),
-                    ),
-                  ),
-                ),
-                SizedBox(height: 10),
-              ],
-            ),
           ],
         ),
       ),
+      floatingActionButton: Container(
+        height: 50,
+        width: MediaQuery.of(context).size.width / 2,
+        child: ElevatedButton(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.blue,
+            shape: const RoundedRectangleBorder(
+              borderRadius:
+              BorderRadius.all(Radius.circular(50.0)),
+            ),
+          ),
+          onPressed: () {
+            if(widget.produit.categorie == "Consommable"){
+              num newquantite = widget.produit.quantite! - int.parse(numbercontroller.text);
+              ProductDB().updateConsumable2(newquantite, widget.produit.reference!);
+              String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
+              DateTime dateNow = DateTime.now();
+              String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
+              Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: int.parse(numbercontroller.text));
+              HistoriqueDB().addHistorique(historiqueData);
+            } else{
+              ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
+              num newquantite = 1;
+              String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
+              DateTime dateNow = DateTime.now();
+              String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
+              Historique historiqueData = new Historique(chantier: _selectedChantierId, date: formattedDate, statut: statut, numSerieProduit: widget.produit.numeroSerie!, refProduit: widget.produit.reference, quantite: int.parse(numbercontroller.text));
+              HistoriqueDB().addHistorique(historiqueData);
+            }
+            Navigator.pushNamed(context, '/affect_success');
+          },
+          child: const Text(
+            'Valider',
+            style: TextStyle(fontSize: 20),
+          ),
+        ),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
     );
   }
 }

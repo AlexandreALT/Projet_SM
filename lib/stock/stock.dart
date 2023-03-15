@@ -91,8 +91,11 @@ class _StockState extends State<Stock> {
               ],),
             ),
             SizedBox(height: 10),
-            Expanded(
-              child: AllProductListWidget(),
+            Container(
+              height: MediaQuery.of(context).size.height/1.60,
+              child: Expanded(
+                child: AllProductListWidget(),
+              ),
             ),
           ])),
       floatingActionButton: Container(
