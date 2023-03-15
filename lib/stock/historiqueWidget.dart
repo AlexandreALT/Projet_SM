@@ -23,39 +23,58 @@ class HistoriqueWidget extends StatelessWidget {
           child: Padding(
             padding:
             const EdgeInsets.only(top: 5, right: 5, bottom: 5, left: 15),
-            child: Column(
+            child: Row(
               children: [
-                SizedBox(height: 5),
-                Row(
+                Column(
                   children: [
-                    Text(
-                      historique.refProduit + " - ",
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Text(
+                          historique.refProduit + " - ",
+                          style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                        ),
+                        if(historique.refProduit != historique.numSerieProduit)
+                          Text(
+                            historique.numSerieProduit,
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                          ),
+                      ],
                     ),
-                    Text(
-                      historique.numSerieProduit,
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Text(
+                          historique.date,
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                        )
+                      ],
                     ),
+                    Row(
+                      children: [
+                        Text(
+                          chantier.name,
+                          style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                        )
+                      ],
+                    ),
+                    SizedBox(height: 5),
                   ],
                 ),
-                SizedBox(height: 5),
-                Row(
+                Column(
                   children: [
-                    Text(
-                      historique.date,
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(50),
+                      ),
+                      child: Text(
+                        historique.quantite.toString(),
+                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
+                      ),
                     )
                   ],
-                ),
-                Row(
-                  children: [
-                    Text(
-                      chantier.name,
-                      style: TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
-                    )
-                  ],
-                ),
-                SizedBox(height: 5),
+                )
               ],
             ),
           ),
