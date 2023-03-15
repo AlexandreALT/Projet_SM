@@ -26,6 +26,7 @@ class HistoriqueWidget extends StatelessWidget {
             child: Row(
               children: [
                 Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     SizedBox(height: 5),
                     Row(
@@ -61,9 +62,9 @@ class HistoriqueWidget extends StatelessWidget {
                     SizedBox(height: 5),
                   ],
                 ),
-                SizedBox(width: 60,),
                 if(historique.quantite != null)
                   Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       Container(
                         width: 35,
