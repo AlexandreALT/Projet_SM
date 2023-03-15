@@ -12,7 +12,7 @@ class HistoriqueDB {
   }
 
   Future<List<Historique>> getAllHistorique() async {
-    var historiques = await FirebaseFirestore.instance.collection('Historiques').get();
+    var historiques = await FirebaseFirestore.instance.collection('Historiques').orderBy("date", descending: true).get();
     return historiques.docs.map((historique) => Historique.fromDocumentSnapshot(historique)).toList();
   }
 
