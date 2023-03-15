@@ -64,7 +64,7 @@ class HistoriqueWidget extends StatelessWidget {
                     ],
                   ),
                 ),
-                if(historique.quantite! > 1)
+                if(historique.quantite != null && historique.quantite! > 1)
                   Align(
                     alignment: Alignment.centerRight,
                     child: Column(
