@@ -71,7 +71,7 @@ class ScanResult extends StatelessWidget {
                   ),
                   Column(
                     children: <Widget>[
-                      if (product.statut == "En entrepôt")
+                      if (product.statut != "En chantier")
                         Container(
                           height: 50,
                           width: MediaQuery.of(context).size.width - 40,

@@ -27,7 +27,8 @@ class ProductDB {
       "reference" : productData.reference,
       "cout": productData.cout,
       "numeroSerie": productData.reference,
-      "image": ""
+      "image": "",
+      "statut" : ""
     });
     return true;
   }
@@ -57,6 +58,14 @@ class ProductDB {
     DocumentSnapshot doc = await docRef.get();
     final data = doc.data() as Map<String, dynamic>;
     return Product.fromMap(data);
+  }
+
+  Future<Product> getProductAffectation(ref) async {
+    final docRef =
+    await FirebaseFirestore.instance.collection('Produits').doc(ref);
+    DocumentSnapshot doc = await docRef.get();
+    final data = doc.data() as Map<String, dynamic>;
+    return Product.fromMapAffectation(data);
   }
 
   Future<List<Product>> getProductWhere(String condition, String value) async {
