@@ -116,6 +116,7 @@ class _StockState extends State<Stock> {
             ),
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      resizeToAvoidBottomInset: false,
     );
   }
 }
