@@ -31,11 +31,11 @@ class HistoriqueWidget extends StatelessWidget {
                     Row(
                       children: [
                         Text(
-                          historique.refProduit + " - ",
+                          historique.refProduit,
                           style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                         ),
                         if(historique.refProduit != historique.numSerieProduit)
-                          Text(
+                          Text(" - " +
                             historique.numSerieProduit,
                             style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
                           ),
@@ -61,20 +61,25 @@ class HistoriqueWidget extends StatelessWidget {
                     SizedBox(height: 5),
                   ],
                 ),
-                Column(
-                  children: [
-                    Container(
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(50),
-                      ),
-                      child: Text(
-                        historique.quantite.toString(),
-                        style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
-                      ),
-                    )
-                  ],
-                )
+                if(historique.quantite != null)
+                  Column(
+                    children: [
+                      Container(
+                        width: 50,
+                        height: 50,
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          shape: BoxShape.circle,
+                        ),
+                        child: Center(
+                          child: Text(
+                            historique.quantite.toString(),
+                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600, color: Colors.black),
+                          ),
+                        ),
+                      )
+                    ],
+                  )
               ],
             ),
           ),
