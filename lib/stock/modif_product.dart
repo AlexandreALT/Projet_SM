@@ -5,8 +5,6 @@ import 'package:projet_sm/models/product.dart';
 
 import '../Services/productDB.dart';
 
-// Récupérer image from XFile path : Image.file(File(path))
-
 class ModifProduct extends StatelessWidget {
   ModifProduct({Key? key, required this.image}) : super(key: key);
 

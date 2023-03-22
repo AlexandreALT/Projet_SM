@@ -3,7 +3,6 @@ import 'package:projet_sm/chantiers/chantier.dart';
 
 import '../Services/chantierDB.dart';
 import '../models/chantier.dart';
-import '../tools/search_bar.dart';
 
 class ChantierListWidget extends StatelessWidget {
   @override

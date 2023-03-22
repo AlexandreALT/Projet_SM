@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/Services/chantierDB.dart';
-import 'package:projet_sm/chantiers/chantier.dart';
 import 'package:projet_sm/chantiers/chantierListWidget.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';

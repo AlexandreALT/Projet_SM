@@ -1,15 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/chantiers/chantier_details.dart';
+import 'package:projet_sm/chantiers/listProductsChantier.dart';
 import 'package:projet_sm/models/chantier.dart';
 
-class ChantierWidget extends StatelessWidget {
+class ChantierWidget extends StatefulWidget {
+  const ChantierWidget({Key? key, required this.chantier}) : super(key: key);
 
   final Chantier chantier;
 
-  const ChantierWidget({Key? key, required this.chantier}) : super(key: key);
+  @override
+  State<ChantierWidget> createState() => _ChantierWidgetState();
+}
+
+class _ChantierWidgetState extends State<ChantierWidget> {
+  bool visibility = false;
+  bool _isPressed = false;
 
   @override
   Widget build(BuildContext context) {
+    bool _visibility = false;
     return Column(
       children: [
         Container(
@@ -19,7 +28,7 @@ class ChantierWidget extends StatelessWidget {
             child: Row(
               children: [
                 Text(
-                 chantier.name,
+                  widget.chantier.name,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
                 ),
                 Spacer(),
@@ -32,16 +41,22 @@ class ChantierWidget extends StatelessWidget {
                         size: 25,
                       ),
                       onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => ChantierDetails(chantier: chantier)));
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    ChantierDetails(chantier: widget.chantier)));
                       },
                     ),
                     IconButton(
-                      icon: Image.asset(
-                        'assets/arrow_down.png',
-
-                      ),
+                      icon: _isPressed
+                          ? Image.asset('assets/arrow_up.png')
+                          : Image.asset('assets/arrow_down.png'),
                       onPressed: () {
-
+                        setState(() {
+                          visibility = !visibility;
+                          _isPressed = !_isPressed;
+                        });
                       },
                     ),
                   ],
@@ -62,7 +77,16 @@ class ChantierWidget extends StatelessWidget {
             ],
           ),
         ),
-        SizedBox(height: 15,)
+        SizedBox(
+          height: 5,
+        ),
+        Visibility(
+          visible: visibility,
+          child: ListProductsChantier(idChantier: widget.chantier.id!),
+        ),
+        SizedBox(
+          height: 15,
+        )
       ],
     );
   }

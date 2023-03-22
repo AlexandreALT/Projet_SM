@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:projet_sm/accueil.dart';
-import 'package:projet_sm/affect_site.dart';
 import 'package:projet_sm/chantiers/add_chantier.dart';
 import 'package:projet_sm/chantiers/new_chantier.dart';
 import 'package:projet_sm/choice_capture.dart';
@@ -13,7 +12,6 @@ import 'package:projet_sm/retour_success.dart';
 import 'package:projet_sm/roles/gestion_roles.dart';
 import 'package:projet_sm/scan_error.dart';
 import 'package:projet_sm/affect_success.dart';
-import 'package:projet_sm/scan_result.dart';
 import 'package:projet_sm/stock/add_category.dart';
 import 'package:projet_sm/stock/add_product.dart';
 import 'package:projet_sm/stock/add_reference.dart';
@@ -26,8 +24,6 @@ import 'package:projet_sm/stock/delete_product.dart';
 import 'package:projet_sm/stock/new_category.dart';
 import 'package:projet_sm/stock/new_product.dart';
 import 'package:projet_sm/stock/new_reference.dart';
-import 'package:projet_sm/stock/info_product.dart';
-import 'package:projet_sm/stock/modif_product.dart';
 import 'package:projet_sm/stock/verif_delete_product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/profile/profile.dart';
@@ -38,8 +34,6 @@ import 'package:projet_sm/log/logout.dart';
 import 'package:projet_sm/stock/historique.dart';
 
 import 'Services/auth.dart';
-import 'chantiers/chantier_details.dart';
-import 'chantiers/edit_chantier.dart';
 import 'manual_entry.dart';
 
 Future<void> main() async {
@@ -97,7 +91,6 @@ class MyApp extends StatelessWidget {
         '/new_product': (context) => new NewProduct(),
         '/new_reference': (context) => new NewReference(),
         '/stock': (context) => new Stock(),
-        '/modif_product': (context) => new ModifProduct(image: null),
         '/verif_delete_product': (context) => new VerifDeleteProduct(),
         '/delete_product': (context) => new DeleteProduct(),
         '/historique': (context) => new Historique(),

@@ -17,6 +17,7 @@ class Chantier {
 
   Map<String, dynamic> toMap() {
     return {
+      'id': id,
       'name': name,
       'nameClient' : nameClient,
       'dateDebut' : dateDebut,
