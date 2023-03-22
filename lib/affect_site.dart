@@ -87,25 +87,26 @@ class _AffectSiteState extends State<AffectSite> {
                 ),
               ),
             ),
-            TextFormField(
-              controller: numbercontroller,
-              keyboardType: TextInputType.number,
-              style:
-              const TextStyle(color: Colors.black),
-              decoration: const InputDecoration(
-                border: OutlineInputBorder(
-                    borderSide: BorderSide(
-                      width: 0,
-                      style: BorderStyle.none,
-                    ),
-                    borderRadius: BorderRadius.all(
-                        Radius.circular(50.0))),
-                filled: true,
-                fillColor:
-                Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: 'Quantité',
+            if(widget.produit.categorie == "Consommable")
+              TextFormField(
+                controller: numbercontroller,
+                keyboardType: TextInputType.number,
+                style:
+                const TextStyle(color: Colors.black),
+                decoration: const InputDecoration(
+                  border: OutlineInputBorder(
+                      borderSide: BorderSide(
+                        width: 0,
+                        style: BorderStyle.none,
+                      ),
+                      borderRadius: BorderRadius.all(
+                          Radius.circular(50.0))),
+                  filled: true,
+                  fillColor:
+                  Color.fromRGBO(232, 232, 232, 1.0),
+                  hintText: 'Quantité',
+                ),
               ),
-            ),
           ],
         ),
       ),
@@ -131,7 +132,7 @@ class _AffectSiteState extends State<AffectSite> {
               HistoriqueDB().addHistorique(historiqueData);
             } else{
               ProductDB().updateProduct(widget.produit.numeroSerie!, _selectedChantierId);
-              num newquantite = 1;
+              numbercontroller.text = "1";
               String statut = widget.produit.idChantier != null ? "Entré" : "Sortie";
               DateTime dateNow = DateTime.now();
               String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);
