@@ -153,6 +153,7 @@ class _LoginState extends State<Login> {
             ),
           )),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
+      resizeToAvoidBottomInset: false,
     );
   }
 }

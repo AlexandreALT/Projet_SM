@@ -1,10 +1,5 @@
-import 'dart:io';
-
-import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/categoryDB.dart';
-import 'package:projet_sm/Services/referenceDB.dart';
-import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/stock/form_consumable.dart';
 import 'package:projet_sm/stock/form_others.dart';
 
