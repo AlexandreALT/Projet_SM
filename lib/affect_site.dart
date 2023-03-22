@@ -1,14 +1,12 @@
-import 'dart:io';
+
 
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:intl/intl.dart';
-import 'package:projet_sm/tools/search_bar.dart';
 
 import 'Services/historiqueDB.dart';
-import 'chantiers/chantierListWidget.dart';
 import 'chantiers/selectChantierListWidget.dart';
 import 'models/historique.dart';
 

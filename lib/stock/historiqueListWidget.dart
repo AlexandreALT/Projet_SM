@@ -29,7 +29,7 @@ class HistoriqueListWidget extends StatelessWidget {
                       chantier: chantierData,
                     );
                   } else if (snapshot.hasError) {
-                    return Text("${snapshot.error}");
+                    return Text("");
                   }
                   return Center(child: CircularProgressIndicator());
                 },
@@ -37,7 +37,7 @@ class HistoriqueListWidget extends StatelessWidget {
             },
           );
         } else if (snapshot.hasError) {
-          return Text("${snapshot.error}");
+          return Text("erreur");
         }
         return Center(child: CircularProgressIndicator());
       },
