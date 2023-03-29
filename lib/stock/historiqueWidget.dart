@@ -17,7 +17,7 @@ class HistoriqueWidget extends StatelessWidget {
       children: [
         Container(
           decoration: BoxDecoration(
-            color: historique.statut == 'Sortie' ? Colors.red : Colors.blue,
+            color: historique.statut == 'Sortie' ? Colors.blue : Colors.red,
             borderRadius: BorderRadius.circular(14),
           ),
           child: Padding(
