@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/chantierDB.dart';
 import 'package:projet_sm/Services/historiqueDB.dart';
-import 'package:projet_sm/chantiers/chantier.dart';
+import 'package:projet_sm/models/chantier.dart';
 import 'package:projet_sm/models/historique.dart';
-
-import '../Services/chantierDB.dart';
-import '../models/chantier.dart';
-import '../tools/search_bar.dart';
-import 'historiqueWidget.dart';
+import 'package:projet_sm/stock/widgets/historiqueWidget.dart';
 
 class HistoriqueListWidget extends StatelessWidget {
   @override

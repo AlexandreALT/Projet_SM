@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/stock/historiqueListWidget.dart';
+import 'package:projet_sm/stock/widgets/historiqueListWidget.dart';
 
-import '../tools/menu.dart';
+import '../../tools/menu.dart';
 
 class Historique extends StatelessWidget {
   const Historique({Key? key}) : super(key: key);

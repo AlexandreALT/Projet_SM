@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/categoryDB.dart';
-import 'package:projet_sm/stock/form_consumable.dart';
-import 'package:projet_sm/stock/form_others.dart';
-
-import '../Services/productDB.dart';
+import 'package:projet_sm/stock/widgets/form_consumable.dart';
+import 'package:projet_sm/stock/widgets/form_others.dart';
 
 class AddProduct extends StatefulWidget {
   AddProduct({Key? key, this.image}) : super(key: key);

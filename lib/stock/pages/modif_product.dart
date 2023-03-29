@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/models/product.dart';
 
-import '../Services/productDB.dart';
+import '../../Services/productDB.dart';
 
 class ModifProduct extends StatelessWidget {
   ModifProduct({Key? key, required this.image}) : super(key: key);

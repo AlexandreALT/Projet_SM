@@ -1,6 +1,6 @@
 import 'package:camera/camera.dart';
 import 'package:flutter/material.dart';
-import 'package:projet_sm/stock/add_product.dart';
+import 'package:projet_sm/stock/pages/add_product.dart';
 
 class TakePicture extends StatefulWidget {
   const TakePicture({

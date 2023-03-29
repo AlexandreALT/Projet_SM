@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/chantiers/chantier_details.dart';
-import 'package:projet_sm/chantiers/listProductsChantier.dart';
+import 'package:projet_sm/chantiers/pages/chantier_details.dart';
+import 'package:projet_sm/chantiers/widgets/listProductsChantier.dart';
 import 'package:projet_sm/models/chantier.dart';
 
 class ChantierWidget extends StatefulWidget {

@@ -1,20 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/chantierDB.dart';
+import 'package:projet_sm/models/chantier.dart';
 import 'package:projet_sm/tools/menu.dart';
 
-import '../models/chantier.dart';
 import 'chantier_details.dart';
 
 class EditChantier extends StatelessWidget {
-
   final Chantier chantier;
   final String id;
 
-  EditChantier({Key? key,required this.id , required this.chantier}) : super(key: key);
+  EditChantier({Key? key, required this.id, required this.chantier})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-
     var nameController = TextEditingController(text: chantier.name);
     var nameClientController = TextEditingController(text: chantier.nameClient);
     var adresseController = TextEditingController(text: chantier.adresse);
@@ -51,14 +50,17 @@ class EditChantier extends StatelessWidget {
               keyboardType: TextInputType.text,
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600),
               decoration: InputDecoration(
-                filled: true,
-                fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                hintText: chantier.name,
-                  suffixIcon: IconButton(icon: Icon(Icons.edit), onPressed: () {},)
-              ),
+                  filled: true,
+                  fillColor: Color.fromRGBO(232, 232, 232, 1.0),
+                  hintText: chantier.name,
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.edit),
+                    onPressed: () {},
+                  )),
             ),
             SizedBox(height: 15),
-            Text('Nom du client :',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600)),
+            Text('Nom du client :',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
             SizedBox(height: 5),
             TextFormField(
               controller: nameClientController,
@@ -77,7 +79,8 @@ class EditChantier extends StatelessWidget {
               ),
             ),
             SizedBox(height: 15),
-            Text('Adresse :',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600)),
+            Text('Adresse :',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
             SizedBox(height: 5),
             TextFormField(
               controller: adresseController,
@@ -96,7 +99,8 @@ class EditChantier extends StatelessWidget {
               ),
             ),
             SizedBox(height: 15),
-            Text('Date de début :',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600)),
+            Text('Date de début :',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
             SizedBox(height: 5),
             TextFormField(
               controller: dateDebutController,
@@ -111,11 +115,14 @@ class EditChantier extends StatelessWidget {
                   filled: true,
                   fillColor: Color.fromRGBO(232, 232, 232, 1.0),
                   hintText: chantier.dateDebut,
-                  suffixIcon: IconButton(icon: Icon(Icons.calendar_month), onPressed: () {},)
-              ),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.calendar_month),
+                    onPressed: () {},
+                  )),
             ),
             SizedBox(height: 15),
-            Text('Date de fin :',style: TextStyle(fontSize: 15,fontWeight: FontWeight.w600)),
+            Text('Date de fin :',
+                style: TextStyle(fontSize: 15, fontWeight: FontWeight.w600)),
             SizedBox(height: 5),
             TextFormField(
               style: const TextStyle(color: Colors.black),
@@ -128,8 +135,10 @@ class EditChantier extends StatelessWidget {
                       borderRadius: BorderRadius.all(Radius.circular(50.0))),
                   filled: true,
                   fillColor: Color.fromRGBO(232, 232, 232, 1.0),
-                  suffixIcon: IconButton(icon: Icon(Icons.calendar_month), onPressed: () {},)
-              ),
+                  suffixIcon: IconButton(
+                    icon: Icon(Icons.calendar_month),
+                    onPressed: () {},
+                  )),
             ),
             SizedBox(height: 25),
             Container(
@@ -142,9 +151,17 @@ class EditChantier extends StatelessWidget {
                     ),
                   ),
                   onPressed: () {
-                    var updateChantier = new Chantier(name: nameController.text, nameClient: nameClientController.text, adresse: adresseController.text, dateDebut: dateDebutController.text );
+                    var updateChantier = new Chantier(
+                        name: nameController.text,
+                        nameClient: nameClientController.text,
+                        adresse: adresseController.text,
+                        dateDebut: dateDebutController.text);
                     ChantierDB().updateChantier(chantier.id!, updateChantier);
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => ChantierDetails(chantier: updateChantier)));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) =>
+                                ChantierDetails(chantier: updateChantier)));
                   },
                   child: const Text(
                     'Valider',

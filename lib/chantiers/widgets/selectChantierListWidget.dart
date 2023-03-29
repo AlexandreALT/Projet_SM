@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/chantiers/chantier.dart';
-
-import '../Services/chantierDB.dart';
-import '../models/chantier.dart';
+import 'package:projet_sm/Services/chantierDB.dart';
+import 'package:projet_sm/models/chantier.dart';
 
 class SelectChantierListWidget extends StatefulWidget {
   final Function(String?) onChanged;

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/productDB.dart';
 
-import '../models/product.dart';
+import '../../models/product.dart';
 
 class VerifDeleteProduct extends StatelessWidget {
 

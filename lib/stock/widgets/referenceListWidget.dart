@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/Services/referenceDB.dart';
 import 'package:projet_sm/models/product.dart';
-import 'package:projet_sm/stock/tool_list.dart';
+import 'package:projet_sm/stock/widgets/tool_list.dart';
 
-import '../models/reference.dart';
+import '../../models/reference.dart';
 
 class ReferenceListWidget extends StatelessWidget {
   @override

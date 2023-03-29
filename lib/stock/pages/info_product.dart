@@ -1,7 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/models/product.dart';
-import 'package:projet_sm/stock/verif_delete_product.dart';
+import 'package:projet_sm/stock/pages/verif_delete_product.dart';
 import 'package:projet_sm/tools/menu.dart';
 
 class InfoProduct extends StatelessWidget {

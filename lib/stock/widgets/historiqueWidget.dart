@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/chantiers/chantier_details.dart';
 
-import '../models/chantier.dart';
-import '../models/historique.dart';
+import '../../models/chantier.dart';
+import '../../models/historique.dart';
 
 class HistoriqueWidget extends StatelessWidget {
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/stock/allProductListWidget.dart';
+import 'package:projet_sm/stock/widgets/allProductListWidget.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 

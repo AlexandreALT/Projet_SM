@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:projet_sm/chantiers/chantierListWidget.dart';
+import 'package:projet_sm/chantiers/widgets/chantierListWidget.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:projet_sm/tools/search_bar.dart';
 

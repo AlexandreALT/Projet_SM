@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/chantierDB.dart';
+import 'package:projet_sm/models/chantier.dart';
 import 'package:projet_sm/tools/menu.dart';
 
-import '../models/chantier.dart';
 import 'edit_chantier.dart';
 
 class ChantierDetails extends StatelessWidget {

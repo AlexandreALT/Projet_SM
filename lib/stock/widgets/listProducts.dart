@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/productDB.dart';
 import 'package:projet_sm/models/product.dart';
-import 'package:projet_sm/stock/info_product.dart';
+import 'package:projet_sm/stock/pages/info_product.dart';
 
 class ListProducts extends StatelessWidget {
   ListProducts({Key? key, required this.ref}) : super(key: key);

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/models/reference.dart';
-import 'package:projet_sm/stock/consumable.dart';
-import 'package:projet_sm/stock/tool_list.dart';
+import 'package:projet_sm/stock/widgets/consumable.dart';
+import 'package:projet_sm/stock/widgets/tool_list.dart';
 
-import '../Services/productDB.dart';
-import '../models/product.dart';
+import '../../Services/productDB.dart';
+import '../../models/product.dart';
 
 class AllProductListWidget extends StatelessWidget {
   @override

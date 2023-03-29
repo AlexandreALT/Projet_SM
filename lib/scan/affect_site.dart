@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/historiqueDB.dart';
 import 'package:projet_sm/Services/productDB.dart';
-import 'package:projet_sm/chantiers/selectChantierListWidget.dart';
+import 'package:projet_sm/chantiers/widgets/selectChantierListWidget.dart';
 import 'package:projet_sm/models/historique.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
