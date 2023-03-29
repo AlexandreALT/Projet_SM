@@ -44,16 +44,12 @@ class Accueil extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.all(30),
         child: ListView(children: <Widget>[
+          SizedBox(height: MediaQuery.of(context).size.height/5),
           Container(
               child: Text("Bienvenue !",
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
               alignment: Alignment.center),
-          SizedBox(height: 50),
-          Text("Il y a X chantiers en cours.", style: TextStyle(fontSize: 20)),
-          SizedBox(height: 20),
-          Text("Il y a X articles en magasin", style: TextStyle(fontSize: 20)),
-          Text("dont X sur chantier.", style: TextStyle(fontSize: 20)),
-          SizedBox(height: MediaQuery.of(context).size.height/4),
+          SizedBox(height: MediaQuery.of(context).size.height/5),
           Column(children: <Widget>[
             Container(
               width: MediaQuery.of(context).size.width,
