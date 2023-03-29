@@ -94,4 +94,8 @@ class ProductDB {
     );
   }
 
+  Future<void> deleteProduit(Product produitData) async {
+    return FirebaseFirestore.instance.collection('Produits').doc(produitData.id).delete();
+  }
+
 }

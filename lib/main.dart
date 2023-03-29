@@ -91,7 +91,6 @@ class MyApp extends StatelessWidget {
         '/new_product': (context) => new NewProduct(),
         '/new_reference': (context) => new NewReference(),
         '/stock': (context) => new Stock(),
-        '/verif_delete_product': (context) => new VerifDeleteProduct(),
         '/delete_product': (context) => new DeleteProduct(),
         '/historique': (context) => new Historique(),
 

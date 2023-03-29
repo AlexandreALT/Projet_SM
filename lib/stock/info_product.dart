@@ -1,6 +1,7 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:projet_sm/models/product.dart';
+import 'package:projet_sm/stock/verif_delete_product.dart';
 import 'package:projet_sm/tools/menu.dart';
 
 class InfoProduct extends StatelessWidget {
@@ -123,8 +124,7 @@ class InfoProduct extends StatelessWidget {
                   ),
                 ),
                 onPressed: () {
-                  Navigator.pushNamed(
-                      context, '/verif_delete_product');
+                  Navigator.push(context, MaterialPageRoute(builder: (context) => VerifDeleteProduct(produit: product)));
                 },
                 child: const Text(
                   'Supprimer ce produit',

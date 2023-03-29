@@ -1,8 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/productDB.dart';
+
+import '../models/product.dart';
 
 class VerifDeleteProduct extends StatelessWidget {
-  const VerifDeleteProduct({Key? key}) : super(key: key);
+
+  final Product produit;
+
+  VerifDeleteProduct({Key? key, required this.produit}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -39,6 +45,7 @@ class VerifDeleteProduct extends StatelessWidget {
                       ),
                     ),
                     onPressed: () {
+                      ProductDB().deleteProduit(produit);
                       Navigator.pushNamed(context, '/delete_product');
                     },
                     child: const Text(

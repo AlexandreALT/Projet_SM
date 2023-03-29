@@ -39,56 +39,10 @@ class _StockState extends State<Stock> {
           padding: const EdgeInsets.all(20),
           child: Column(children: [
             SearchBar(),
-            Container(
-              child: Row(children: [
-                Container(
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: const Text('All', style: TextStyle(fontSize: 20),),
-                    )
-                ),
-                Container(
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: const Text('Outils', style: TextStyle(fontSize: 20),),
-                    )
-                ),
-                Container(
-                    height: 50,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.blue,
-                        shape: const RoundedRectangleBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(50.0)),
-                        ),
-                      ),
-                      onPressed: () {},
-                      child: const Text('Consommable', style: TextStyle(fontSize: 20),),
-                    )
-                ),
-              ],),
-            ),
             SizedBox(height: 10),
-            Container(
-              height: MediaQuery.of(context).size.height/1.60,
-              child: Expanded(
+            Expanded(
                 child: AllProductListWidget(),
               ),
-            ),
           ])),
       floatingActionButton: Container(
           height: 50,
