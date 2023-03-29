@@ -47,7 +47,7 @@ class Accueil extends StatelessWidget {
           SizedBox(height: MediaQuery.of(context).size.height/5),
           Container(
               child: Text("Bienvenue !",
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold)),
+                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold)),
               alignment: Alignment.center),
           SizedBox(height: MediaQuery.of(context).size.height/5),
           Column(children: <Widget>[
