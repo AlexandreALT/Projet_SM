@@ -1,13 +1,13 @@
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/historiqueDB.dart';
 import 'package:projet_sm/Services/productDB.dart';
+import 'package:projet_sm/models/historique.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:intl/intl.dart';
 
-import 'Services/historiqueDB.dart';
 import 'affect_site.dart';
-import 'models/historique.dart';
 
 class ScanResult extends StatelessWidget {
   const ScanResult({Key? key, required this.product}) : super(key: key);
@@ -54,7 +54,7 @@ class ScanResult extends StatelessWidget {
                             product.reference,
                             style: TextStyle(fontSize: 25),
                           ),
-                          Text(product!.numeroSerie!,
+                          Text(product.numeroSerie!,
                               style: TextStyle(fontSize: 20)),
                         ],
                       ),

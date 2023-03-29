@@ -1,14 +1,11 @@
-
-
 import 'package:flutter/material.dart';
+import 'package:projet_sm/Services/historiqueDB.dart';
 import 'package:projet_sm/Services/productDB.dart';
+import 'package:projet_sm/chantiers/selectChantierListWidget.dart';
+import 'package:projet_sm/models/historique.dart';
 import 'package:projet_sm/models/product.dart';
 import 'package:projet_sm/tools/menu.dart';
 import 'package:intl/intl.dart';
-
-import 'Services/historiqueDB.dart';
-import 'chantiers/selectChantierListWidget.dart';
-import 'models/historique.dart';
 
 class AffectSite extends StatefulWidget {
   const AffectSite({Key? key, required this.produit}) : super(key: key);
@@ -122,7 +119,7 @@ class _AffectSiteState extends State<AffectSite> {
           onPressed: () {
             if(widget.produit.categorie == "Consommable"){
               num newquantite = widget.produit.quantite! - int.parse(numbercontroller.text);
-              ProductDB().updateConsumable2(newquantite, widget.produit.reference!);
+              ProductDB().updateConsumable2(newquantite, widget.produit.reference);
               String statut = "Sortie";
               DateTime dateNow = DateTime.now();
               String formattedDate = DateFormat('dd/MM/yyyy').format(dateNow);

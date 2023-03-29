@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:projet_sm/chantiers/chantier_details.dart';
 import 'package:projet_sm/chantiers/listProductsChantier.dart';
 import 'package:projet_sm/models/chantier.dart';
-import 'package:intl/intl.dart';
 
 class ChantierWidget extends StatefulWidget {
   const ChantierWidget({Key? key, required this.chantier}) : super(key: key);

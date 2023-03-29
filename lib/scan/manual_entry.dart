@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:projet_sm/Services/productDB.dart';
-import 'package:projet_sm/models/product.dart';
-import 'package:projet_sm/scan_result.dart';
+import 'package:projet_sm/scan/scan_result.dart';
 import 'package:projet_sm/tools/menu.dart';
 
 class ManualEntry extends StatelessWidget {

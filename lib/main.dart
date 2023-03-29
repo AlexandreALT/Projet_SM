@@ -5,13 +5,14 @@ import 'package:flutter/services.dart';
 import 'package:projet_sm/accueil.dart';
 import 'package:projet_sm/chantiers/add_chantier.dart';
 import 'package:projet_sm/chantiers/new_chantier.dart';
-import 'package:projet_sm/choice_capture.dart';
 import 'package:projet_sm/firebase_options.dart';
 import 'package:projet_sm/log/login.dart';
-import 'package:projet_sm/retour_success.dart';
 import 'package:projet_sm/roles/gestion_roles.dart';
-import 'package:projet_sm/scan_error.dart';
-import 'package:projet_sm/affect_success.dart';
+import 'package:projet_sm/scan/affect_success.dart';
+import 'package:projet_sm/scan/choice_capture.dart';
+import 'package:projet_sm/scan/manual_entry.dart';
+import 'package:projet_sm/scan/retour_success.dart';
+import 'package:projet_sm/scan/scan_error.dart';
 import 'package:projet_sm/stock/add_category.dart';
 import 'package:projet_sm/stock/add_product.dart';
 import 'package:projet_sm/stock/add_reference.dart';
@@ -34,7 +35,6 @@ import 'package:projet_sm/log/logout.dart';
 import 'package:projet_sm/stock/historique.dart';
 
 import 'Services/auth.dart';
-import 'manual_entry.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
